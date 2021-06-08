@@ -1,29 +1,38 @@
 import re
+import random
 
 from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import stopwords
 
 # DEFAULTS
 CONVERSATION_STARTER = "Hi, I'm a psychotherapist. What is your name?"
-USER_NAME = "Unnamed"
+USER_NAME = "friend"
 
 RULES = {
     r".*name.*\b(\w+)$": {'type': 'name', 'responses': ['Hi {{NAME}}. How can I help you today?']},
+    r"\byes\b": {'type': 'affirmative', 'responses': ['Tell me more, {{NAME}}', 'Do go on, {{NAME}}']},
     r".*want.*": {'type': 'want', 'responses': ["Hi {{NAME}}, do {}?", "Hey {{NAME}}, why do {}?"]},
     r".*crave.*": {'type': 'want', 'responses': ["Hi {{NAME}}, tell me more about your cravings..."]},
-    r"(.*)": {'type': 'unknown', 'responses': ["Hi {{NAME}} I didn't quite understand, can you say that another way?"]}
+    r".*am.*|.*have been.*": {'type': 'am', 'responses': ["Hi {{NAME}}, why do you think that is?"]},
+    r".*dunno.*|.*I don't know.*": {'type': 'idk', 'responses': ["{{NAME}}, maybe you do know--can you tell me?",
+                                                                 "Can you do your best to explain, {{NAME}}?"]},
+    r"(.*)": {'type': 'unknown', 'responses': ["Hi {{NAME}}, I didn't quite understand, can you say that another way?"]}
 }
 
 RESPONSE_CONVERTERS = {
-    r'i': 'you'
+    r'\bi\b': 'you',  # surrounding 'i' with word boundaries so we don't replace 'i' in other words
+    r"\bmy\b|\bour\b": 'your' # replace my/our with 'your'
 }
 
 
 def main():
+
     response = CONVERSATION_STARTER
+    print(f'\nWelcome to your therapist--to end, simply type "exit"...\n')
     while True:
         response = input("[Eliza]: " + response + "\n[User]: ")
-        if response == 'exit':
+        if response.lower() in ['exit','quit','bye','goodbye']:
+            print(f'Farewell {USER_NAME}, take care!\n')
             break
         response = process(response)
 
@@ -37,12 +46,19 @@ def process(text):
         if matches:
             if rule['type'] == 'name':
                 USER_NAME = matches[matches.lastindex if matches.lastindex else 0]
-            sentence = rule['responses'][0].replace("{{NAME}}", USER_NAME)
+            
+            # choose randomly from possible responses
+            choice = 0 # default to first element in responses list
+            if len(rule['responses']) > 1:
+                choice = random.randint(0, len(rule['responses'])-1)
+
+            sentence = rule['responses'][choice].replace("{{NAME}}", USER_NAME)
             sentence = sentence.format(matches[matches.lastindex if matches.lastindex else 0])
             return sentence
 
-
 def normalize_and_tokenize(text):
+    #if "\'" in text:
+    #    print("I'm sorry, I don't understand contractions (words with apostrophes), can you rephrase please?")
     tokens = word_tokenize(text.lower())
     return tokens
 
@@ -54,10 +70,10 @@ def word_tokenize(text):
 
 
 def convert_response_as_text(tokens):
-    return " ".join(response_parser(tokens))
+    return " ".join(change_perspective(tokens))
 
 
-def response_parser(tokens):
+def change_perspective(tokens):
     for i, j in enumerate(tokens):
         for convert_from, convert_to in RESPONSE_CONVERTERS.items():
             tokens[i] = re.sub(convert_from, convert_to, tokens[i])

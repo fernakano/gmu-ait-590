@@ -24,7 +24,8 @@ RULES = {
 
 RESPONSE_CONVERTERS = {
     r'\bi\b|\bme\b': 'you',  # surrounding 'i' with word boundaries so we don't replace 'i' in other words
-    r"\bmy\b|\bour\b": 'your'  # replace my/our with 'your'
+    r"\bmy\b|\bour\b": 'your',  # replace my/our with 'your'
+    r"\byou\b": 'I'  # replace you with 'i'
 }
 
 
@@ -47,7 +48,7 @@ def process(text):
         matches = re.match(regex, text, re.IGNORECASE)
         if matches:
             if rule['type'] == 'name':
-                USER_NAME = matches[matches.lastindex if matches.lastindex else 0]
+                USER_NAME = matches[matches.lastindex if matches.lastindex else 0].capitalize()
 
             # choose randomly from possible responses
             choice = 0  # default to first element in responses list

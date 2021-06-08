@@ -2,6 +2,7 @@ import re
 import random
 
 from nltk.tokenize import RegexpTokenizer
+from nltk.corpus import stopwords
 
 # DEFAULTS
 CONVERSATION_STARTER = "Hi, I'm a psychotherapist. What is your name?"
@@ -9,13 +10,16 @@ USER_NAME = "friend"
 
 RULES = {
     r".*name.*\b(\w+)$": {'type': 'name', 'responses': ['Hi {{NAME}}. How can I help you today?']},
-    r"\byes\b": {'type': 'affirmative', 'responses': ['Tell me more, {{NAME}}', 'Do go on, {{NAME}}']},
+    r"\byes\b|\bno\b": {'type': 'short_ans', 'responses': ['Tell me more, {{NAME}}', 'Do go on, {{NAME}}',
+                                                            '{{NAME}}, can you expand on that?']},
     r".*want.*": {'type': 'want', 'responses': ["Hi {{NAME}}, do {}?", "Hey {{NAME}}, why do {}?"]},
     r".*crave.*": {'type': 'want', 'responses': ["Hi {{NAME}}, tell me more about your cravings..."]},
     r".*am.*|.*have been.*": {'type': 'am', 'responses': ["Hi {{NAME}}, why do you think that is?"]},
-    r".*dunno.*|.*I don't know.*": {'type': 'idk', 'responses': ["{{NAME}}, maybe you do know--can you tell me?",
+    r".*dunno.*|.*idk.*": {'type': 'idk', 'responses': ["{{NAME}}, maybe you do know--can you tell me?",
                                                                  "Can you do your best to explain, {{NAME}}?"]},
-    r"(.*)": {'type': 'unknown', 'responses': ["Hi {{NAME}}, I didn't quite understand, can you say that another way?"]}
+    r".*feel.*": {'type': 'feels', 'responses': ["{{NAME}}, what is making {}?", "Why do you think {}, {{NAME}}"]},
+    r"(.*)": {'type': 'unknown', 'responses': ["Hi {{NAME}}, I didn't quite understand, can you say that another way?",
+                                               "I think you're saying {}, is that right?"]}
 }
 
 RESPONSE_CONVERTERS = {
@@ -25,6 +29,7 @@ RESPONSE_CONVERTERS = {
 
 
 def main():
+
     response = CONVERSATION_STARTER
     print(f'\nWelcome to your therapist--to end, simply type "exit"...\n')
     while True:
@@ -56,8 +61,6 @@ def process(text):
 
 
 def normalize_and_tokenize(text):
-    # if "\'" in text:
-    #    print("I'm sorry, I don't understand contractions (words with apostrophes), can you rephrase please?")
     tokens = word_tokenize(text.lower())
     return tokens
 

@@ -2,7 +2,6 @@ import re
 import random
 
 from nltk.tokenize import RegexpTokenizer
-from nltk.corpus import stopwords
 
 # DEFAULTS
 CONVERSATION_STARTER = "Hi, I'm a psychotherapist. What is your name?"

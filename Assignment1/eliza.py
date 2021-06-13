@@ -31,13 +31,18 @@ RULES = {
         'responses': [
             "Hi {{NAME}}, tell me more about your cravings..."
         ]},
-    r".*am.*|.*i have been.*": {
+    r"(.*i am.*|.*i have been.*)": {
         'type': 'am',
         'responses': [
-            "Hi {{NAME}}, why do you think that is?",
+            "Hi {{NAME}}, why do you think {}?",
             "How does being {} make you feel?"
         ]},
-    r".*dunno.*|.*idk.*|i don\t know": {
+    r"(because.*)": {
+        'type': 'am',
+        'responses': [
+            "No way... just {}?"
+        ]},
+    r".*dunno.*|.*idk.*|.*i don.t know.*|.*i dont know.*": {
         'type': 'idk',
         'responses': [
             "{{NAME}}, maybe you do know--can you tell me?",
@@ -49,7 +54,7 @@ RULES = {
             "{{NAME}}, what is making {}?",
             "Why do you think {}, {{NAME}}"
         ]},
-    r"what is (.*)|(how to make.*)": {
+    r"what is (.*)|(how to make.*)|(how do i make.*)": {
         'type': 'question',
         'responses': [
             "You can see it here: www.google.com?q={}"
@@ -65,6 +70,7 @@ RULES = {
 RESPONSE_CONVERTERS = {
     r'\bi\b|\bme\b': 'you',  # surrounding 'i' with word boundaries so we don't replace 'i' in other words
     r"\bmy\b|\bour\b": 'your',  # replace my/our with 'your'
+    r"\bam\b": 'are'
 }
 
 
@@ -81,16 +87,17 @@ def main():
 
 def process(user_input):
     global USER_NAME
-    tokens = normalize_and_tokenize(user_input)
-    text = convert_response_as_text(tokens)
+    normalized_user_input = " ".join(normalize_and_tokenize(user_input))
     for regex, rule in RULES.items():
-        matches = re.match(regex, text, re.IGNORECASE)
+        matches = re.match(regex, normalized_user_input, re.IGNORECASE)
         if matches:
             if rule['type'] == 'name':
                 USER_NAME = matches[matches.lastindex if matches.lastindex else 0].capitalize()
             sentence = random.choice(rule['responses']).replace("{{NAME}}", USER_NAME)
-            # TODO: switch convert place converted_string = matches[matches.lastindex if matches.lastindex else 0]
-            sentence = sentence.format(matches[matches.lastindex if matches.lastindex else 0])
+            # Switch message perspective for last group match
+            group_text = matches[matches.lastindex if matches.lastindex else 0]
+            group_text_perspective = convert_response_as_text(normalize_and_tokenize(group_text))
+            sentence = sentence.format(group_text_perspective)
             return sentence
 
 

@@ -8,17 +8,58 @@ CONVERSATION_STARTER = "Hi, I'm a psychotherapist. What is your name?"
 USER_NAME = "Friend"
 
 RULES = {
-    r".*name.*\b(\w+)$": {'type': 'name', 'responses': ['Hi {{NAME}}. How can I help you today?']},
-    r"\byes\b|\bno\b": {'type': 'short_ans', 'responses': ['Tell me more, {{NAME}}', 'Do go on, {{NAME}}',
-                                                           '{{NAME}}, can you expand on that?']},
-    r"(.*want.*)": {'type': 'want', 'responses': ["Hi {{NAME}}, do /1?", "Hey {{NAME}}, why do /1?"]},
-    r".*crave.*": {'type': 'want', 'responses': ["Hi {{NAME}}, tell me more about your cravings..."]},
-    r".*am.*|.*have been.*": {'type': 'am', 'responses': ["Hi {{NAME}}, why do you think that is?"]},
-    r".*dunno.*|.*idk.*": {'type': 'idk', 'responses': ["{{NAME}}, maybe you do know--can you tell me?",
-                                                        "Can you do your best to explain, {{NAME}}?"]},
-    r".*feel.*": {'type': 'feels', 'responses': ["{{NAME}}, what is making {}?", "Why do you think {}, {{NAME}}"]},
-    r"(.*)": {'type': 'unknown', 'responses': ["Hi {{NAME}}, I didn't quite understand, can you say that another way?",
-                                               "I think you're saying /1, is that right?"]}
+    r".*name.*\b(\w+)$": {
+        'type': 'name',
+        'responses': [
+            'Hi {{NAME}}. How can I help you today?'
+        ]},
+    r"\byes\b|\bno\b": {
+        'type': 'short_ans',
+        'responses': [
+            'Tell me more, {{NAME}}',
+            'Do go on, {{NAME}}',
+            '{{NAME}}, can you expand on that?'
+        ]},
+    r"(.*want.*)": {
+        'type': 'want',
+        'responses': [
+            "Hi {{NAME}}, do {}?",
+            "Hey {{NAME}}, why do {}?"
+        ]},
+    r"(.*crave.*)": {
+        'type': 'want',
+        'responses': [
+            "Hi {{NAME}}, tell me more about your cravings..."
+        ]},
+    r".*am.*|.*i have been.*": {
+        'type': 'am',
+        'responses': [
+            "Hi {{NAME}}, why do you think that is?",
+            "How does being {} make you feel?"
+        ]},
+    r".*dunno.*|.*idk.*|i don\t know": {
+        'type': 'idk',
+        'responses': [
+            "{{NAME}}, maybe you do know--can you tell me?",
+            "Can you do your best to explain, {{NAME}}?"
+        ]},
+    r".*feel.*": {
+        'type': 'feels',
+        'responses': [
+            "{{NAME}}, what is making {}?",
+            "Why do you think {}, {{NAME}}"
+        ]},
+    r"what is (.*)|(how to make.*)": {
+        'type': 'question',
+        'responses': [
+            "You can see it here: www.google.com?q={}"
+        ]},
+    r"(.*)": {
+        'type': 'unknown',
+        'responses': [
+            "Hi {{NAME}}, I didn't quite understand, can you say that another way?",
+            "I think you're saying {}, is that right?"
+        ]}
 }
 
 RESPONSE_CONVERTERS = {
@@ -28,32 +69,27 @@ RESPONSE_CONVERTERS = {
 
 
 def main():
-    response = CONVERSATION_STARTER
+    input_text = CONVERSATION_STARTER
     print(f'\nWelcome to your therapist--to end, simply type "exit"...\n')
     while True:
-        response = input(f'[Eliza]: ' + response + f'\n[{USER_NAME}]: ')
-        if response.lower() in ['exit', 'quit', 'bye', 'goodbye']:
+        input_text = input(f'[Eliza]: ' + input_text + f'\n[{USER_NAME}]: ')
+        if input_text.lower() in ['exit', 'quit', 'bye', 'goodbye']:
             print(f'Farewell {USER_NAME}, take care!\n')
             break
-        response = process(response)
+        input_text = process(input_text)
 
 
-def process(text):
+def process(user_input):
     global USER_NAME
-    tokens = normalize_and_tokenize(text)
+    tokens = normalize_and_tokenize(user_input)
     text = convert_response_as_text(tokens)
     for regex, rule in RULES.items():
         matches = re.match(regex, text, re.IGNORECASE)
         if matches:
             if rule['type'] == 'name':
                 USER_NAME = matches[matches.lastindex if matches.lastindex else 0].capitalize()
-
-            # choose randomly from possible responses
-            choice = 0  # default to first element in responses list
-            if len(rule['responses']) > 1:
-                choice = random.randint(0, len(rule['responses']) - 1)
-
-            sentence = rule['responses'][choice].replace("{{NAME}}", USER_NAME)
+            sentence = random.choice(rule['responses']).replace("{{NAME}}", USER_NAME)
+            # TODO: switch convert place converted_string = matches[matches.lastindex if matches.lastindex else 0]
             sentence = sentence.format(matches[matches.lastindex if matches.lastindex else 0])
             return sentence
 
@@ -70,7 +106,8 @@ def word_tokenize(text):
 
 
 def convert_response_as_text(tokens):
-    return " ".join(change_perspective(tokens))
+    tokens_1 = change_perspective(tokens)
+    return " ".join(tokens_1)
 
 
 def change_perspective(tokens):

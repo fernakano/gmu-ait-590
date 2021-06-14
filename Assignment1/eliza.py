@@ -59,6 +59,13 @@ RULES = {
         'responses': [
             "You can see it here: www.google.com?q={}"
         ]},
+    r"(.*thanks.*)": {
+        'type': 'compliment',
+        'responses': [
+            "No problem {{NAME}}, I'm glad to help",
+            "No problem, I hope I was able to meet your expectations...",
+            "Hey {{NAME}}, Don't worry.. I'm here for this"
+        ]},
     r"(.*)": {
         'type': 'unknown',
         'responses': [

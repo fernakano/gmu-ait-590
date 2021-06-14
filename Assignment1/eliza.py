@@ -13,6 +13,11 @@ RULES = {
         'responses': [
             'Hi {{NAME}}. How can I help you today?'
         ]},
+    r".*suicid.*|.*kill.*": {
+        'type': 'alert',
+        'responses': [
+            "{{NAME}}, you can reach the National Suicide Prevention Lifeline night or day: 800-273-8255"
+        ]},
     r"\byes\b|\bno\b": {
         'type': 'short_ans',
         'responses': [
@@ -66,6 +71,7 @@ RULES = {
             "No problem, I hope I was able to meet your expectations...",
             "Hey {{NAME}}, Don't worry.. I'm here for this"
         ]},
+    # last-case catch-all rule, when no rule could be matched:
     r"(.*)": {
         'type': 'unknown',
         'responses': [
@@ -77,8 +83,21 @@ RULES = {
 RESPONSE_CONVERTERS = {
     r'\bi\b|\bme\b': 'you',  # surrounding 'i' with word boundaries so we don't replace 'i' in other words
     r"\bmy\b|\bour\b": 'your',  # replace my/our with 'your'
-    r"\bam\b": 'are'
+    r"\bam\b": 'are',
+    r"\bmyself\b": 'yourself'
 }
+
+
+def is_valid(input_text):
+    if input_text == '':
+        return False
+    # check for only numbers and symbols:
+    word_tokens = word_tokenize(input_text)
+    for word in word_tokens:
+        if word.isalpha():
+            return True
+    else:
+        return False
 
 
 def main():
@@ -89,6 +108,9 @@ def main():
         if input_text.lower() in ['exit', 'quit', 'bye', 'goodbye']:
             print(f'Farewell {USER_NAME}, take care!\n')
             break
+        while not is_valid(input_text):
+            input_text = input(f"[Eliza]: I cannot understand '{input_text}'" + f'\n[{USER_NAME}]: ')
+
         input_text = process(input_text)
 
 

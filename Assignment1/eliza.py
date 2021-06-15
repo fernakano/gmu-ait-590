@@ -37,19 +37,19 @@ RULES = {
         'responses': [
             "Hi {{NAME}}, tell me more about your cravings..."
         ]},
-    r"(.*i am.*|.*i have been.*)": {
+    r"(.*i am.*|.*i.m.*|.*i have been.*)": {
         'type': 'am',
         'responses': [
             "Hi {{NAME}}, why do you think {}?",
             "How does being {} make you feel?"
         ]},
     r"(because.*)": {
-        'type': 'am',
+        'type': 'explain',
         'responses': [
             "No way... just {}?"
         ]},
     r".*dunno.*|.*idk.*|.*i don.t know.*|.*i dont know.*": {
-        'type': 'idk',
+        'type': 'explain',
         'responses': [
             "{{NAME}}, maybe you do know--can you tell me?",
             "Can you do your best to explain, {{NAME}}?"
@@ -59,6 +59,11 @@ RULES = {
         'responses': [
             "{{NAME}}, what is making {}?",
             "Why do you think {}, {{NAME}}"
+        ]},
+    r".*think(.*)": {
+        'type': 'feels',
+        'responses': [
+            "Why do you think that {}?"
         ]},
     r"what is (.*)|(how to make.*)|(how do i make.*)": {
         'type': 'question',
@@ -101,13 +106,13 @@ RULES = {
 RESPONSE_CONVERTERS = {
     r'\bi\b|\bme\b': 'you',  # surrounding 'i' with word boundaries so we don't replace 'i' in other words
     r"\bmy\b|\bour\b": 'your',  # replace my/our with 'your'
-    r"\bam\b": 'are',
+    r"\bam\b|\bm\b": 'are',
     r"\bmyself\b": 'yourself'
 }
 
 
 def is_valid(input_text):
-    if input_text == '':
+    if input_text.strip(' ') == '':
         return True
     # check for only numbers and symbols:
     word_tokens = word_tokenize(input_text)
@@ -119,9 +124,15 @@ def is_valid(input_text):
 
 
 def main():
-    message = CONVERSATION_STARTER
-    print(f'\nWelcome to your therapist--to end, simply type "exit"...\n')
+    print(
+          '******************************************************************\n'
+          '*                                                                *\n'
+          '*    Welcome to your therapist--to end, simply type "exit"...    *\n'
+          '*                                                                *\n'
+          '******************************************************************'
+          )
 
+    message = CONVERSATION_STARTER
     while True:
         input_text = input(f'[Eliza]: ' + message + f'\n[{USER_NAME}]: ')
         if not is_valid(input_text):

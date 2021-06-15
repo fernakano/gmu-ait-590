@@ -23,7 +23,8 @@ RULES = {
         'responses': [
             'Tell me more, {{NAME}}',
             'Do go on, {{NAME}}',
-            '{{NAME}}, can you expand on that?'
+            '{{NAME}}, can you expand on that?',
+            'are you sure?'
         ]},
     r"(.*want.*)": {
         'type': 'want',
@@ -71,6 +72,23 @@ RULES = {
             "No problem, I hope I was able to meet your expectations...",
             "Hey {{NAME}}, Don't worry.. I'm here for this"
         ]},
+    r"(.*how are you.*)": {
+        'type': 'question',
+        'responses': [
+            "I'm doing great! how about you?"
+        ]},
+    r"exit|quit|bye|goodbye": {
+        'type': 'exit',
+        'responses': [
+            "Farewell {{NAME}}, take care!"
+        ]},
+    r"^(?![\s\S])": {
+        'type': 'exit',
+        'responses': [
+            "{{NAME}}, are you there?",
+            "...?",
+            "Feel free to open up, I'm not going to judge you..."
+        ]},
     # last-case catch-all rule, when no rule could be matched:
     r"(.*)": {
         'type': 'unknown',
@@ -90,7 +108,7 @@ RESPONSE_CONVERTERS = {
 
 def is_valid(input_text):
     if input_text == '':
-        return False
+        return True
     # check for only numbers and symbols:
     word_tokens = word_tokenize(input_text)
     for word in word_tokens:
@@ -101,17 +119,19 @@ def is_valid(input_text):
 
 
 def main():
-    input_text = CONVERSATION_STARTER
+    message = CONVERSATION_STARTER
     print(f'\nWelcome to your therapist--to end, simply type "exit"...\n')
-    while True:
-        input_text = input(f'[Eliza]: ' + input_text + f'\n[{USER_NAME}]: ')
-        if input_text.lower() in ['exit', 'quit', 'bye', 'goodbye']:
-            print(f'Farewell {USER_NAME}, take care!\n')
-            break
-        while not is_valid(input_text):
-            input_text = input(f"[Eliza]: I cannot understand '{input_text}'" + f'\n[{USER_NAME}]: ')
 
-        input_text = process(input_text)
+    while True:
+        input_text = input(f'[Eliza]: ' + message + f'\n[{USER_NAME}]: ')
+        if not is_valid(input_text):
+            message = f"I cannot understand '{input_text}'"
+            continue
+
+        message = process(input_text)
+        if input_text.lower() in ['exit', 'quit', 'bye', 'goodbye']:
+            print('[Eliza]: ' + message)
+            break
 
 
 def process(user_input):

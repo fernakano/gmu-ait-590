@@ -173,8 +173,7 @@ def word_tokenize(text):
 
 
 def convert_response_as_text(tokens):
-    tokens_1 = change_perspective(tokens)
-    return " ".join(tokens_1)
+    return " ".join(change_perspective(tokens))
 
 
 def change_perspective(tokens):

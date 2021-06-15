@@ -1,12 +1,21 @@
+#######################################
+#                ELIZA                #
+#######################################
 import re
 import random
 from nltk.tokenize import RegexpTokenizer
 
 # DEFAULT VALUES
+# Assign initial value to response from Eliza
 CONVERSATION_STARTER = "Hi, I'm a psychotherapist. What is your name?"
+# user_name is name of the chatbot user, we set the initial value to be "Friend"
 USER_NAME = "Friend"
 
-# TODO: Add comments to explain REGEX Rules.
+# create a Python Dictionary "Rules" (Kay value pair form)
+# It should map all potential dialog scenarios Eliza will encounter, along with
+# Eliza's response.
+# Regular expressions are used in key value to capture/replace certain words in dialog.
+# There are 17 rules so far.
 RULES = {
     r".*name.*\b(\w+)$": {
         'type': 'name',
@@ -109,7 +118,8 @@ RULES = {
         ]}
 }
 
-# TODO: Add comments to explain grammar converters rules
+# Another Dictionary using Regular expression to change perspective in conversation
+# switchinig from first person input text to second person response
 RESPONSE_CONVERTERS = {
     r'\bi\b|\bme\b': 'you',  # surrounding 'i' with word boundaries so we don't replace 'i' in other words
     r"\bmy\b|\bour\b": 'your',  # replace my/our with 'your'
@@ -119,9 +129,9 @@ RESPONSE_CONVERTERS = {
 }
 
 
-#####################################
-#    Main Execution stats here      #
-#####################################
+#############################################
+#    Main Execution for Eliza stats here    #
+#############################################
 
 def main():
     """This is the Main execution function for Eliza
@@ -142,6 +152,7 @@ def main():
     )
 
     message = CONVERSATION_STARTER
+    # While True statement forces it to run unless break
     while True:
         input_text = input(f'[Eliza]: ' + message + f'\n[{USER_NAME}]: ')
         if not is_valid(input_text):
@@ -157,7 +168,7 @@ def main():
 #####################################
 #    Main text process stats here   #
 #####################################
-
+# Process function is where Eliza match key words using regular expression in Rules Dictionary (RULES.items)
 def process(user_input):
     """Bot message processor
 
@@ -198,9 +209,9 @@ def process(user_input):
 
 def is_valid(input_text):
     """Verify if input is valid to proceed to RULE parsing.
-        if the input is valid to proceed this method will return True otherwise False.
-
-        if there is a single special character as a text this input is not valid.
+      This function using If statement to detect all non-alphabetical input content
+      if the input is valid to proceed this method will return True otherwise False.
+      if there is a single special character as a text this input is not valid.
 
     :param input_text:
     :return: Boolean
@@ -215,10 +226,10 @@ def is_valid(input_text):
     else:
         return False
 
-
+#normalize_and_tokenize function tokenize text and set them in lowercase
 def normalize_and_tokenize(text):
     """
-    This function will Lower the text and call the word_tokenizer(text) to retrieve the tokenized lowered text
+    This function will Lower the text and call the word_tokenizer(text) to retrieve the tokenized lower case text
     :param text:
     :return: lowered tokenized text.
     """
@@ -226,7 +237,6 @@ def normalize_and_tokenize(text):
     return tokens
 
 
-# for this scenario, maybe string split() could possibly be enough.
 def word_tokenize(text):
     """Work Tokenizer
         This Tokenizer will user a RegexpTokenizer \w+
@@ -249,7 +259,7 @@ def convert_response_as_text(tokens):
 
 
 def change_perspective(tokens):
-    """ Change Text grammar point of view from user to Eliza BOT.
+    """ Change Text grammar point of view from user to Eliza BOT perspective.
     This function change perspective will use the dictionary RESPONSE_CONVERTERS and iterate through each item to
     replace texts from the Key to the value in order to change the user's perspective accordingly to the mapping provided.
 
@@ -268,5 +278,6 @@ def change_perspective(tokens):
 
 # This indicates that the program is being executed from the command line
 # and that the initial function to be called is main()
+# and protects users from accidentally invoking the script when using as import
 if __name__ == "__main__":
     main()

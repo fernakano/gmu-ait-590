@@ -1,5 +1,6 @@
 #######################################
 #                ELIZA                #
+# Group 3: Fernando, Melissa, Archer  #
 #######################################
 import re
 import random

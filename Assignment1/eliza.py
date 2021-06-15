@@ -229,7 +229,8 @@ def is_valid(input_text):
     else:
         return False
 
-#normalize_and_tokenize function tokenize text and set them in lowercase
+
+# normalize_and_tokenize function tokenize text and set them in lowercase
 def normalize_and_tokenize(text):
     """
     This function will Lower the text and call the word_tokenizer(text) to retrieve the tokenized lower case text

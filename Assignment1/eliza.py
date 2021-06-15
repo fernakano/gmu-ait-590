@@ -1,7 +1,95 @@
 #######################################
 #                ELIZA                #
+# AIT-590, Summer 2021                #
 # Group 3: Fernando, Melissa, Archer  #
+# June 15, 2021                       #
 #######################################
+"""
+ELIZA is a program written to simulate a psychotherapist dialogue.  
+Users are prompted to share their names and answer questions.
+Then Eliza attempts to answer or rephrase the question to prompt for further input
+until the participant exits the program.
+
+BONUS Functionality:
+We randomize responses utilizing random.choice().  For many cases, user input
+and a randomized selection of outputs are returned as Eliza's response.
+
+Examples of random replies:
+[Melissa]: I am crazy
+[Eliza]: How does being you are crazy make you feel?
+[Melissa]: I am crazy
+[Eliza]: Hi Melissa, why do you think you are crazy?
+
+
+[Eliza]: Hi Melissa. How can I help you today?
+[Melissa]: 
+[Eliza]: Melissa, are you there?
+[Melissa]: 
+[Eliza]: ...?
+
+
+SECOND BONUS FUNCTIONALITY:
+If the user asks questions like "what is a dog", Eliza replies with a URL that can 
+be copied into a browser.  The result will load a google page that has the question
+preloaded in the search box.
+
+Example:
+
+[Melissa]: what is "a dog"
+[Eliza]: You can see it here: www.google.com?q=a dog
+
+
+Requirements:  NLTK and python must be preinstalled.
+
+To run:  
+> python eliza.py
+
+Example Dialogue:
+
+melissas-mbp:gmu-ait-590 melissacirtain$ python Assignment1/eliza.py 
+******************************************************************
+*                                                                *
+*    Welcome to your therapist--to end, simply type "exit"...    *
+*                                                                *
+******************************************************************
+
+[Eliza]: Hi, I'm a psychotherapist. What is your name?
+[Friend]: Hi, my name is Melissa
+[Eliza]: Hi Melissa. How can I help you today?
+[Melissa]: I want pizza
+[Eliza]: Hey Melissa, why do you want pizza?
+[Melissa]: because I love cheese
+[Eliza]: No way... just because you love cheese?
+...
+[Melissa]: quit
+[Eliza]: Farewell Melissa, take care!
+
+
+ALGORITHM DESIGN:
+    - We start by making a brief introduction and prompting user input, their name.
+    - We enter an infinite loop at this point, and process each new input from the user by matching inputs
+    to rules and cleaners and special case checkers as outlined below.
+    - We preprocess by tokenizing and normalizing the input (remove punctuation, special characters) and
+    lower the text input
+    - With the normalized_user_input, for each RULE in the RULES Dictionary we try to match the regex
+    on the RULE with the normalized_user_input; if there is a match we look for the last text on the regex group match
+    and replace/format in the text with the placeholder {}.
+    - Special Case:
+        When the Rule is of Type 'name' we will store the information for later use.
+        for all responses found in the RULES match output, we will try to replace the placeholder {{NAME}}
+        with the value of USER_NAME global variable to represent person identification from the Bot.
+    - If the user input does not match a known rule or pattern, Eliza replies that 
+    she does not understand and prompts the participant to say something another way.
+    - The only time the user input is not matched against the rules is when the input is non-alpha, in which 
+    case Eliza replies "I cannot understand <the non-alpha input>".
+    - To form the responses, we reflect pronouns from first-person to second-person, i.e. I -> you, and 
+    my -> your, etc.
+    - We continuously search inputs for equaling (but not just containing) exit phrases, so if the
+    user types "quit" or "exit", the program gracefully exits the loop, says goodbye, and ends.
+
+
+"""
+
 import re
 import random
 from nltk.tokenize import RegexpTokenizer
@@ -140,9 +228,9 @@ RULES = {
 RESPONSE_CONVERTERS = {
     r'\bi\b|\bme\b': 'you',  # surrounding 'i' with word boundaries so we don't replace 'i' in other words
     r"\bmy\b|\bour\b": 'your',  # replace my/our with 'your'
-    r"\bam\b|\bm\b": 'are',
-    r"\bmyself\b": 'yourself',
-    r"\bim\b": 'you are',
+    r"\bam\b|\bm\b": 'are',  # replace am with 'are'
+    r"\bmyself\b": 'yourself',  # replace 'myself' with 'yourself'
+    r"\bim\b": 'you are',  # replace 'im' with 'you are'
 }
 
 
@@ -187,7 +275,7 @@ def main():
 #####################################
 #    Main text process stats here   #
 #####################################
-# Process function is where Eliza match key words using regular expression in Rules Dictionary (RULES.items)
+# Process function is where Eliza matches key words using regular expression in Rules Dictionary (RULES.items)
 def process(user_input):
     """Bot message processor
 
@@ -208,10 +296,13 @@ def process(user_input):
     :return: sentence
     """
     global USER_NAME
-    normalized_user_input = " ".join(normalize_and_tokenize(user_input))
+    normalized_user_input = " ".join(normalize_and_tokenize(user_input)) # clean input
+    
+    # evaluate input against RULES
     for regex, rule in RULES.items():
         matches = re.match(regex, normalized_user_input, re.IGNORECASE)
         if matches:
+            # Formulate Eliza's response using rules and user input
             if rule['type'] == 'name':
                 USER_NAME = matches[matches.lastindex if matches.lastindex else 0].capitalize()
             sentence = random.choice(rule['responses']).replace("{{NAME}}", USER_NAME)
@@ -223,7 +314,7 @@ def process(user_input):
 
 
 ############################################################################
-#    Bellow this point are mostly support functions for the main process   #
+#    Below this point are mostly support functions for the main process   #
 ############################################################################
 
 def is_valid(input_text):

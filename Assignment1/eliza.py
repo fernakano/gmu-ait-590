@@ -257,7 +257,7 @@ def convert_response_as_text(tokens):
     """ Reponse Grammar perspective converter
     This will return a joined sentence from tokens while at the same time changing the response grammar perspective.
     :param tokens:
-    :return:
+    :return: sentence
     """
     return " ".join(change_perspective(tokens))
 

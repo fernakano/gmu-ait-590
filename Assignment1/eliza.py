@@ -1,12 +1,12 @@
 import re
 import random
-
 from nltk.tokenize import RegexpTokenizer
 
-# DEFAULTS
+# DEFAULT VALUES
 CONVERSATION_STARTER = "Hi, I'm a psychotherapist. What is your name?"
 USER_NAME = "Friend"
 
+# TODO: Add comments to explain REGEX Rules.
 RULES = {
     r".*name.*\b(\w+)$": {
         'type': 'name',
@@ -109,6 +109,7 @@ RULES = {
         ]}
 }
 
+# TODO: Add comments to explain grammar converters rules
 RESPONSE_CONVERTERS = {
     r'\bi\b|\bme\b': 'you',  # surrounding 'i' with word boundaries so we don't replace 'i' in other words
     r"\bmy\b|\bour\b": 'your',  # replace my/our with 'your'
@@ -117,6 +118,10 @@ RESPONSE_CONVERTERS = {
     r"\bim\b": 'you are',
 }
 
+
+#####################################
+#    Main Execution stats here      #
+#####################################
 
 def main():
     """This is the Main execution function for Eliza
@@ -148,6 +153,10 @@ def main():
             print('[Eliza]: ' + message)
             break
 
+
+#####################################
+#    Main text process stats here   #
+#####################################
 
 def process(user_input):
     """Bot message processor
@@ -182,6 +191,10 @@ def process(user_input):
             sentence = sentence.format(group_text_perspective)
             return sentence
 
+
+############################################################################
+#    Bellow this point are mostly support functions for the main process   #
+############################################################################
 
 def is_valid(input_text):
     """Verify if input is valid to proceed to RULE parsing.

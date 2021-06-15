@@ -155,11 +155,13 @@ def main():
     # While True statement forces it to run unless break
     while True:
         input_text = input(f'[Eliza]: ' + message + f'\n[{USER_NAME}]: ')
+        # Validate if input is valid and not a single non alphanumeric text.
         if not is_valid(input_text):
             message = f"I cannot understand '{input_text}'"
             continue
 
         message = process(input_text)
+        # if input_text has key words such as "exit", "quit", "goodbye", "bye" process Stops with Break.
         if input_text.lower() in ['exit', 'quit', 'bye', 'goodbye']:
             print('[Eliza]: ' + message)
             break

@@ -18,7 +18,7 @@ RULES = {
         'responses': [
             "{{NAME}}, you can reach the National Suicide Prevention Lifeline night or day: 800-273-8255"
         ]},
-    r"\byes\b|\bno\b": {
+    r"\byes\b|\bno\b|\bright\b|\bnope\b": {
         'type': 'short_ans',
         'responses': [
             'Tell me more, {{NAME}}',
@@ -32,10 +32,11 @@ RULES = {
             "Hi {{NAME}}, do {}?",
             "Hey {{NAME}}, why do {}?"
         ]},
-    r"(.*crave.*)": {
+    r".*crave(.*)|.*craving(.*)": {
         'type': 'want',
         'responses': [
-            "Hi {{NAME}}, tell me more about your cravings..."
+            "Hi {{NAME}}, tell me more about your cravings...",
+            "Hi {{NAME}}, tell me more about your craving for {}"
         ]},
     r"(.*i am.*|.*i.m.*|.*i have been.*)": {
         'type': 'am',
@@ -73,9 +74,14 @@ RULES = {
     r"(.*thanks.*)": {
         'type': 'compliment',
         'responses': [
-            "No problem {{NAME}}, I'm glad to help",
-            "No problem, I hope I was able to meet your expectations...",
-            "Hey {{NAME}}, Don't worry.. I'm here for this"
+            "No problem {{NAME}}, I'm glad to help, anything else?",
+            "No problem, I hope I was able to meet your expectations... Anything else i can help you with?",
+            "Hey {{NAME}}, Don't worry.. I'm here for this! what now?"
+        ]},
+    r".*(sorry.*)": {
+        'type': 'feels',
+        'responses': [
+            "Don't worry...  why do you want to apologize?",
         ]},
     r"(.*how are you.*)": {
         'type': 'question',
@@ -107,7 +113,8 @@ RESPONSE_CONVERTERS = {
     r'\bi\b|\bme\b': 'you',  # surrounding 'i' with word boundaries so we don't replace 'i' in other words
     r"\bmy\b|\bour\b": 'your',  # replace my/our with 'your'
     r"\bam\b|\bm\b": 'are',
-    r"\bmyself\b": 'yourself'
+    r"\bmyself\b": 'yourself',
+    r"\bim\b": 'you are',
 }
 
 

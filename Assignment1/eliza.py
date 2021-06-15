@@ -244,7 +244,7 @@ def normalize_and_tokenize(text):
 def word_tokenize(text):
     """Work Tokenizer
         This Tokenizer will user a RegexpTokenizer \w+
-        to identify words from the sentences, this will exclude punctuations and special characters while tokenizing.
+        to identify words from the sentences, this will exclude punctuations and special characters while tokenizing words.
 
     :param text:
     :return: tokenized text

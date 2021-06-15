@@ -18,16 +18,19 @@ USER_NAME = "Friend"
 # Regular expressions are used in key value to capture/replace certain words in dialog.
 # There are 17 rules so far.
 RULES = {
+    # Rule to identify user name
     r".*name.*\b(\w+)$": {
         'type': 'name',
         'responses': [
             'Hi {{NAME}}. How can I help you today?'
         ]},
+    # Rule to reply help response if user have suicidal or killing thoughts.
     r".*suicid.*|.*kill.*": {
         'type': 'alert',
         'responses': [
             "{{NAME}}, you can reach the National Suicide Prevention Lifeline night or day: 800-273-8255"
         ]},
+    # response for short answers
     r"\byes\b|\bno\b|\bright\b|\bnope\b": {
         'type': 'short_ans',
         'responses': [
@@ -36,75 +39,88 @@ RULES = {
             '{{NAME}}, can you expand on that?',
             'are you sure?'
         ]},
+    # identify user wants.
     r"(.*want.*)": {
         'type': 'want',
         'responses': [
             "Hi {{NAME}}, do {}?",
             "Hey {{NAME}}, why do {}?"
         ]},
+    # Word Spot Crave
     r".*crave(.*)|.*craving(.*)": {
         'type': 'want',
         'responses': [
             "Hi {{NAME}}, tell me more about your cravings...",
             "Hi {{NAME}}, tell me more about your craving for {}"
         ]},
+    # identify when person is talking something about itself.
     r"(.*i am.*|.*i.m.*|.*i have been.*)": {
         'type': 'am',
         'responses': [
             "Hi {{NAME}}, why do you think {}?",
             "How does being {} make you feel?"
         ]},
+    # identify explaining reasoning ideas
     r"(because.*)": {
         'type': 'explain',
         'responses': [
             "No way... just {}?"
         ]},
+    # identify user doesnt know what to say about a topic
     r".*dunno.*|.*idk.*|.*i don.t know.*|.*i dont know.*": {
         'type': 'explain',
         'responses': [
             "{{NAME}}, maybe you do know--can you tell me?",
             "Can you do your best to explain, {{NAME}}?"
         ]},
+    # identify user sentiments
     r".*feel.*": {
         'type': 'feels',
         'responses': [
             "{{NAME}}, what is making {}?",
             "Why do you think {}, {{NAME}}"
         ]},
+    # identify user thoughts
     r".*think(.*)": {
         'type': 'feels',
         'responses': [
             "Why do you think that {}?"
         ]},
+    # let user asks questions on what are things and how to make and answer with a google search link
     r"what is (.*)|(how to make.*)|(how do i make.*)": {
         'type': 'question',
         'responses': [
             "You can see it here: www.google.com?q={}"
         ]},
+    # identify user acknowledgment of something.
     r"(.*thanks.*)": {
-        'type': 'compliment',
+        'type': 'acknowledgment',
         'responses': [
             "No problem {{NAME}}, I'm glad to help, anything else?",
             "No problem, I hope I was able to meet your expectations... Anything else i can help you with?",
             "Hey {{NAME}}, Don't worry.. I'm here for this! what now?"
         ]},
+    # identify the user is apologizing for something
     r".*(sorry.*)": {
         'type': 'feels',
         'responses': [
             "Don't worry...  why do you want to apologize?",
         ]},
+    # identify when user asks how the bot is.
     r"(.*how are you.*)": {
         'type': 'question',
         'responses': [
             "I'm doing great! how about you?"
         ]},
+    # identify break exit options
     r"exit|quit|bye|goodbye": {
         'type': 'exit',
         'responses': [
             "Farewell {{NAME}}, take care!"
         ]},
+    # identify when user talks empty information.
     r"^(?![\s\S])": {
-        'type': 'exit',
+        'type': 'none',
         'responses': [
             "{{NAME}}, are you there?",
             "...?",
@@ -120,7 +136,7 @@ RULES = {
 }
 
 # Another Dictionary using Regular expression to change perspective in conversation
-# switchinig from first person input text to second person response
+# switching from first person input text to second person response
 RESPONSE_CONVERTERS = {
     r'\bi\b|\bme\b': 'you',  # surrounding 'i' with word boundaries so we don't replace 'i' in other words
     r"\bmy\b|\bour\b": 'your',  # replace my/our with 'your'

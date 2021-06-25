@@ -47,13 +47,15 @@ def main():
         if index:
             # start processing the collocation windows
             for window in windows:
-                # for each window define a range
+                # for each window (-2, -1, +1, +2) define a range
                 w_range = range(window, 0) if window < 0 else range(1, window + 1)
 
                 # for each window(w) in the window range find the context and append to the collocation.
+                # range is used just to make it easier to travel the windows
                 collocation = ''
-                for w in w_range:
-                    context_index = index + w
+                # +/- k references on Step 3 of Yarowski article.
+                for k in w_range:
+                    context_index = index + k
                     if 0 <= context_index <= len(tokens) - 1:
                         collocation = collocation + tokens[context_index] + ' '
                     else:

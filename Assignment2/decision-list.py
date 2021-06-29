@@ -166,6 +166,7 @@ def main():
 
     # create decision list using ConditionalProbDist as on the hints and tips.
     decision_list = create_decision_list_from_conditinal_prob(cpdist)
+    pp.pprint(decision_list)
 
     ##########################
     # START TESTING DATA     #

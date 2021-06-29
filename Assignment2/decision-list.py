@@ -143,6 +143,10 @@ def create_decision_list_from_conditinal_prob(cpdist):
     return sorted(decision_list, key=lambda i: i['likelihood'], reverse=True)
 
 
+def lookup_decision_list(decision_list, value):
+    return list(filter(lambda dl: dl['position'] in value, decision_list))
+
+
 #####################################################
 #    Main Execution for Decision List stats here    #
 #####################################################
@@ -166,15 +170,25 @@ def main():
 
     # create decision list using ConditionalProbDist as on the hints and tips.
     decision_list = create_decision_list_from_conditinal_prob(cpdist)
-    pp.pprint(decision_list)
+    # pp.pprint(decision_list)
 
     ##########################
     # START TESTING DATA     #
     ##########################
     xml_test = read_xml(line_test)
     testing_dict = create_training_dict_from_xml(xml_test)
+    testing_collocation_distribution = create_collocation_distribution(testing_dict)
+    for collocation in testing_collocation_distribution:
+        dl_value = lookup_decision_list(decision_list, collocation)
+        max_likelihood = max(dl_value,
+                             key=lambda m: m['likelihood']) \
+            if len(dl_value) > 0 \
+            else {'position': collocation, 'classification': 'not_classified'}
+        pp.pprint(max_likelihood)
+    # pp.pprint(list(sorted(testing_collocation_distribution.items())))
 
-    pp.pprint(testing_dict)
+    # pp.pprint("LOOKUP")
+
     #
     # use decision list to test the test data
     # ...

@@ -188,7 +188,9 @@ def main():
     # pp.pprint(list(sorted(testing_collocation_distribution.items())))
 
     # pp.pprint("LOOKUP")
-
+    # for each instance on the test data, lookup the likelihood from the decision table for each collocation +/- k
+    # at the end of the collection, choose the item with the highest likelihood.
+    # if no item is found in decision table, use the sense with highest probability.
     #
     # use decision list to test the test data
     # ...

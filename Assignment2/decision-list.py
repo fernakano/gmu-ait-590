@@ -170,8 +170,8 @@ def main():
     # collocation_distribution.plot()
 
     cpdist = ConditionalProbDist(collocation_distribution, ELEProbDist, 10)
-    pp.pprint(list(cpdist.conditions()))
-    pp.pprint(list(cpdist.items()))
+    # pp.pprint(list(cpdist.conditions()))
+    # pp.pprint(list(cpdist.items()))
 
     # create decision list using ConditionalProbDist as on the hints and tips.
     decision_list = create_decision_list_from_conditinal_prob(cpdist)

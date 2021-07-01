@@ -183,25 +183,11 @@ def main():
     xml_test = read_xml(line_test)
     testing_dict = create_training_dict_from_xml(xml_test)
 
-    # THIS IS WRONG! we need to for each line-test
-    # testing_collocation_distribution = create_collocation_distribution(testing_dict)
-
-    # for collocation in testing_collocation_distribution:
-    #     dl_value = lookup_decision_list(decision_list, collocation)
-    #     max_likelihood = max(dl_value,
-    #                          key=lambda m: m['likelihood']) \
-    #         if len(dl_value) > 0 \
-    #         else {'position': collocation, 'classification': 'not_classified'}
-    #     pp.pprint(max_likelihood)
-    # pp.pprint(list(sorted(testing_collocation_distribution.items())))
-
-    # pp.pprint("LOOKUP")
     # for each instance of the training data
-
     unknown_sense = 'product'
     count_phone = 0
     count_product = 0
-    ## Find the most common sense
+    # Find the most common sense
     for instance in training_dict:
         if instance['sense'] == 'phone':
             count_phone += 1

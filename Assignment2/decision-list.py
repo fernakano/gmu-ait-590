@@ -19,6 +19,9 @@ pp = pprint.PrettyPrinter(indent=4)
 # Word to disabiguate
 a_word = "line"
 
+# Collocation range
+collocation_windows = [-2, -1, 1, 2]
+
 
 # Read Arguments from the input on the required order
 def read_arguments():
@@ -83,7 +86,7 @@ def create_training_dict_from_xml(xml):
 
 def create_collocation_distribution(training_dict):
     # Set the collocation range
-    windows = [-2, -1, 1, 2]
+    # collocation_windows = [-2, -1, 1, 2]
 
     # create a ConditionalFreqDist to Measure Collocational Distribution
     collocation_distribution = ConditionalFreqDist()
@@ -97,13 +100,13 @@ def create_collocation_distribution(training_dict):
 
         # if word exists in list of tokens
         if index:
-            # start processing the collocation windows
-            for window in windows:
+            # start processing the collocation collocation_windows
+            for window in collocation_windows:
                 # for each window (-2, -1, +1, +2) define a range
                 w_range = range(window, 0) if window < 0 else range(1, window + 1)
 
                 # for each window(w) in the window range find the context and append to the collocation.
-                # range is used just to make it easier to travel the windows
+                # range is used just to make it easier to travel the collocation_windows
                 collocation = ''
                 # +/- k references on Step 3 of Yarowski article.
                 for k in w_range:
@@ -127,6 +130,7 @@ def create_collocation_distribution(training_dict):
     return collocation_distribution
 
 
+# Step 4 of the Article
 def create_decision_list_from_conditinal_prob(cpdist):
     decision_list = []
     # calculate log likelihood
@@ -138,7 +142,7 @@ def create_decision_list_from_conditinal_prob(cpdist):
         else:
             likelihood = math.log(ratio, 2)
         classification = 'phone' if ratio >= 1 else 'product'
-        decision_list.append({'position': position, 'likelihood': likelihood, 'classification': classification})
+        decision_list.append({'position': position, 'likelihood': abs(likelihood), 'classification': classification})
 
     return sorted(decision_list, key=lambda i: i['likelihood'], reverse=True)
 
@@ -166,11 +170,12 @@ def main():
     # collocation_distribution.plot()
 
     cpdist = ConditionalProbDist(collocation_distribution, ELEProbDist, 10)
-    # print(list(cpdist.conditions()))
+    pp.pprint(list(cpdist.conditions()))
+    pp.pprint(list(cpdist.items()))
 
     # create decision list using ConditionalProbDist as on the hints and tips.
     decision_list = create_decision_list_from_conditinal_prob(cpdist)
-    pp.pprint(decision_list)
+    # pp.pprint(decision_list)
 
     ##########################
     # START TESTING DATA     #
@@ -179,23 +184,61 @@ def main():
     testing_dict = create_training_dict_from_xml(xml_test)
 
     # THIS IS WRONG! we need to for each line-test
-    testing_collocation_distribution = create_collocation_distribution(testing_dict)
+    # testing_collocation_distribution = create_collocation_distribution(testing_dict)
 
-    for collocation in testing_collocation_distribution:
-        dl_value = lookup_decision_list(decision_list, collocation)
-        max_likelihood = max(dl_value,
-                             key=lambda m: m['likelihood']) \
-            if len(dl_value) > 0 \
-            else {'position': collocation, 'classification': 'not_classified'}
-        pp.pprint(max_likelihood)
+    # for collocation in testing_collocation_distribution:
+    #     dl_value = lookup_decision_list(decision_list, collocation)
+    #     max_likelihood = max(dl_value,
+    #                          key=lambda m: m['likelihood']) \
+    #         if len(dl_value) > 0 \
+    #         else {'position': collocation, 'classification': 'not_classified'}
+    #     pp.pprint(max_likelihood)
     # pp.pprint(list(sorted(testing_collocation_distribution.items())))
 
     # pp.pprint("LOOKUP")
+    # for each instance of the training data
+    testing_results = []
+    max_likelihood = {}
+    for instance in testing_dict:
+        sense_lookups = []
+        instance_id, tokens = instance['id'], instance['tokens']
+        index = get_word_index(tokens, a_word)
+        # if word exists in list of tokens
+        if index:
+            # start processing the collocation collocation_windows
+            for window in collocation_windows:
+                # for each window (-2, -1, +1, +2) define a range
+                w_range = range(window, 0) if window < 0 else range(1, window + 1)
+
+                # for each window(w) in the window range find the context and append to the collocation.
+                # range is used just to make it easier to travel the collocation_windows
+                collocation = ''
+                # +/- k references on Step 3 of Yarowski article.
+                for k in w_range:
+                    context_index = index + k
+                    if 0 <= context_index <= len(tokens) - 1:
+                        collocation = collocation + tokens[context_index] + ' '
+                    else:
+                        pass
+                        # print('notInList')
+
+                # decide to append real a_word depending on the window
+                if window < 0:
+                    collocation = collocation + str(tokens[index])
+                else:
+                    collocation = str(tokens[index]) + ' ' + collocation
+
+                likelihood = lookup_decision_list(decision_list, str(window) + 'W ' + collocation.rstrip())
+                max_likelihood = likelihood if max_likelihood and likelihood['likelihood'] > max_likelihood[
+                    'likelihood'] else max_likelihood
+
+            # sense_lookups.append(max_likelihood)
+            testing_results.append({'id': instance_id, 'senses': max_likelihood})
     # for each instance on the test data, lookup the likelihood from the decision table for each collocation +/- k
     # at the end of the collection, choose the item with the highest likelihood.
+
     # if no item is found in decision table, use the sense with highest probability.
     #
-    # use decision list to test the test data
     # ...
     #
     # create scorer.py

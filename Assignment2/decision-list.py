@@ -197,10 +197,24 @@ def main():
 
     # pp.pprint("LOOKUP")
     # for each instance of the training data
+
+    unknown_sense = 'product'
+    count_phone = 0
+    count_product = 0
+    ## Find the most common sense
+    for instance in training_dict:
+        if instance['sense'] == 'phone':
+            count_phone += 1
+        else:
+            count_product += 1
+
+    if count_phone > count_product:
+        unknown_sense = 'phone'
+
     testing_results = []
-    max_likelihood = {}
     for instance in testing_dict:
         sense_lookups = []
+        max_likelihood = {}
         instance_id, tokens = instance['id'], instance['tokens']
         index = get_word_index(tokens, a_word)
         # if word exists in list of tokens
@@ -227,13 +241,17 @@ def main():
                     collocation = collocation + str(tokens[index])
                 else:
                     collocation = str(tokens[index]) + ' ' + collocation
-
-                likelihood = lookup_decision_list(decision_list, str(window) + 'W ' + collocation.rstrip())
-                max_likelihood = likelihood if max_likelihood and likelihood['likelihood'] > max_likelihood[
-                    'likelihood'] else max_likelihood
-
+                position = str(window) + 'W ' + collocation.rstrip()
+                likelihood = lookup_decision_list(decision_list, position)
+                if max_likelihood == {} and len(likelihood) > 0:
+                    max_likelihood = likelihood[0]
+                elif len(likelihood) > 0:
+                    max_likelihood = likelihood[0] if likelihood[0]['likelihood'] > max_likelihood[
+                        'likelihood'] else max_likelihood
+                else:
+                    max_likelihood = {'position': position, 'likelihood': 0, 'classification': unknown_sense}
             # sense_lookups.append(max_likelihood)
-            testing_results.append({'id': instance_id, 'senses': max_likelihood})
+            testing_results.append({'id': instance_id, 'sense': max_likelihood['classification']})
     # for each instance on the test data, lookup the likelihood from the decision table for each collocation +/- k
     # at the end of the collection, choose the item with the highest likelihood.
 
@@ -243,7 +261,8 @@ def main():
     #
     # create scorer.py
     # display confusion matrix
-
+    for item in testing_results:
+        print(f'<answer instance="{item["id"]}" senseid="{item["sense"]}"/>')
     print("done")
 
 

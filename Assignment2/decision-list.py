@@ -177,6 +177,15 @@ def main():
     decision_list = create_decision_list_from_conditinal_prob(cpdist)
     # pp.pprint(decision_list)
 
+    # write decision list to file
+    # type(decision_list) is a list, each element containing a dict like this:
+    # {'position': '-2W man end line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+    with open ('my-decision-list.txt', 'w') as f:
+        for eachline in decision_list:
+            f.write(str(eachline))
+            f.write('\n')
+            #pass
+
     ##########################
     # START TESTING DATA     #
     ##########################

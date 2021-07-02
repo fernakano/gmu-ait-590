@@ -184,7 +184,6 @@ def main():
         for eachline in decision_list:
             f.write(str(eachline))
             f.write('\n')
-            #pass
 
     ##########################
     # START TESTING DATA     #

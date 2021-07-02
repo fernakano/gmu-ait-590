@@ -180,7 +180,8 @@ def main():
     # write decision list to file
     # type(decision_list) is a list, each element containing a dict like this:
     # {'position': '-2W man end line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
-    with open ('my-decision-list.txt', 'w') as f:
+    #TODO: Deleteme:  with open ('my-decision-list.txt', 'w') as f:
+    with open(decision_list_output, 'w') as f:
         for eachline in decision_list:
             f.write(str(eachline))
             f.write('\n')
@@ -255,8 +256,12 @@ def main():
     #
     # create scorer.py
     # display confusion matrix
-    for item in testing_results:
-        print(f'<answer instance="{item["id"]}" senseid="{item["sense"]}"/>')
+    with open('my-line-answers.txt', 'w') as f:
+        for item in testing_results:
+            result = f'<answer instance="{item["id"]}" senseid="{item["sense"]}"/>'
+            print(result)
+            f.write(result)
+            f.write('\n')
     print("done")
 
 

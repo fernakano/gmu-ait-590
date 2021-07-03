@@ -63,6 +63,7 @@ def get_word_index(word_list, word):
         index = word_list.index(word)
     except ValueError:
         index = None
+        print(f'Warning from get_word_index: Did not find word_list.index(word) for {word}')
     return index
 
 
@@ -190,7 +191,11 @@ def main():
     # START TESTING DATA     #
     ##########################
     xml_test = read_xml(line_test)
-    testing_dict = create_training_dict_from_xml(xml_test)
+    testing_dict = create_training_dict_from_xml(xml_test)  # a list
+
+    # validating testing dict so I can validate results
+    print(f'testing_dict:  {type(testing_dict)}, len {len(testing_dict)}')
+    assert len(testing_dict) == 126, f"Only found {len(xml_test)} lines in test dataset"
 
     # for each instance of the training data
     unknown_sense = 'product'
@@ -203,6 +208,7 @@ def main():
         else:
             count_product += 1
 
+    # unknown_sense will be default sense, when sense is ambiguous
     if count_phone > count_product:
         unknown_sense = 'phone'
 
@@ -247,6 +253,10 @@ def main():
                     max_likelihood = {'position': position, 'likelihood': 0, 'classification': unknown_sense}
             # sense_lookups.append(max_likelihood)
             testing_results.append({'id': instance_id, 'sense': max_likelihood['classification']})
+    
+    # validate our test output:
+    warn_str = f"WARNING: testing_results has {len(testing_results)} elements, expected {len(testing_dict)}"
+    assert len(testing_results) == len(testing_dict), warn_str
     # for each instance on the test data, lookup the likelihood from the decision table for each collocation +/- k
     # at the end of the collection, choose the item with the highest likelihood.
 
@@ -259,7 +269,7 @@ def main():
     with open('my-line-answers.txt', 'w') as f:
         for item in testing_results:
             result = f'<answer instance="{item["id"]}" senseid="{item["sense"]}"/>'
-            print(result)
+            #print(result)
             f.write(result)
             f.write('\n')
     print("done")

@@ -72,8 +72,9 @@ def compare_labels(comparison_dict):
     true_labels = []
     correct_count = 0
     total_count = 0
+
+    #collect all the labels into lists for the CM and accuracy metrics
     for instance, label_dict in comparison_dict.items():
-        #collect all the labels into lists for the CM and accuracy metrics
         my_label = label_dict['my_label']
         my_labels.append(my_label)
         true_label = label_dict['true_label']

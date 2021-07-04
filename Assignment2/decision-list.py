@@ -12,7 +12,6 @@ import scorer
 
 from bs4 import BeautifulSoup
 from nltk import RegexpTokenizer, ConditionalFreqDist, ConditionalProbDist, ELEProbDist
-# from nltk.probability import ConditionalProbDist, ELEProbDist
 from nltk.corpus import stopwords
 
 pp = pprint.PrettyPrinter(indent=4)
@@ -20,25 +19,39 @@ pp = pprint.PrettyPrinter(indent=4)
 # Word to disabiguate
 a_word = "line"
 
-# Collocation range
+# Collocation range used for future on decision List creation as well as testing data.
 collocation_windows = [-2, -1, 1, 2]
 
 
 # Read Arguments from the input on the required order
 def read_arguments():
+    """
+    This function will read the first 3 arguments of the application
+    and return as 3 variables with the file paths.
+    :return: line-train.xml line-test.xml my-decision-list.txt
+    """
     return sys.argv[1], sys.argv[2], sys.argv[3]
 
 
 # Read XML files
 def read_xml(xml_file):
+    """
+    This function will receive a file path as input
+    read as xml file with BeautifulSoup and return as an object
+    :param xml_file:
+    :return: BeautifulSoup Object.
+    """
     return BeautifulSoup(open(xml_file, 'r'), 'xml')
 
 
 # normalize_and_tokenize function tokenize text and set them in lowercase
 def normalize_and_tokenize(text):
     """
-    This function will Lower the text and call the word_tokenizer(text) to retrieve the tokenized lower case text
-    then remove stop words
+    This function will perform a few steps:
+    - Lower the text and call the word_tokenizer(text) to retrieve the tokenized lower case text
+    - Replace all occurences of "lines" to "line"
+    - Tokenize (The tokenization process uses a regex tokenized to retrieve only words.
+    - Remove stop words
     :param text:
     :return: lowered tokenized text.
     """
@@ -62,6 +75,14 @@ def word_tokenize(text):
 
 
 def get_word_index(word_list, word):
+    """
+    This function will receive a list of words and a word to look up
+    it will find the index where the word is present and if found will return the index on the list.
+    if not found it returns none.
+    :param word_list:
+    :param word:
+    :return: word index in the list.
+    """
     try:
         index = word_list.index(word)
     except ValueError:
@@ -70,12 +91,23 @@ def get_word_index(word_list, word):
     return index
 
 
-#
 def create_training_dict_from_xml(xml):
+    """
+    This function creates a dictionary based on a XML input with the BeautifulSoup Object
+    it will parse all elements from the input XML object into a List of dictionaries
+    of the following format:
+    [{
+            'id': 'String',
+            'sense': 'String'
+            'tokens': []
+        }]
+    :param xml:
+    :return: list of dict
+    """
     training_dict = list()
     for instance in xml.find_all("instance"):
         tokens = list()
-        
+
         for sentence in instance.context.find_all('s'):
             tokens.extend(normalize_and_tokenize(sentence.get_text()))
 
@@ -90,6 +122,11 @@ def create_training_dict_from_xml(xml):
 
 
 def create_collocation_distribution(training_dict):
+    """
+
+    :param training_dict:
+    :return:
+    """
     # Set the collocation range
     # collocation_windows = [-2, -1, 1, 2]
 
@@ -249,11 +286,9 @@ def main():
                 elif max_likelihood == {} and len(likelihood) == 0:
                     max_likelihood = {'position': position, 'likelihood': 0, 'classification': unknown_sense}
                 elif len(likelihood) > 0:
-                    max_likelihood = likelihood[0] if likelihood[0]['likelihood'] > max_likelihood[
-                        'likelihood'] else max_likelihood
-                # else:
-                #     max_likelihood = {'position': position, 'likelihood': 0, 'classification': unknown_sense}
-            # sense_lookups.append(max_likelihood)
+                    for lkl in likelihood:
+                        max_likelihood = lkl if lkl['likelihood'] > max_likelihood['likelihood'] else max_likelihood
+
             testing_results.append({'id': instance_id, 'sense': max_likelihood['classification']})
 
     # validate our test output:
@@ -263,7 +298,7 @@ def main():
         assert len(testing_results) == len(testing_dict), warn_str
     except:
         print(warn_str)
-    
+
     # for each instance on the test data, lookup the likelihood from the decision table for each collocation +/- k
     # at the end of the collection, choose the item with the highest likelihood.
 
@@ -283,7 +318,6 @@ def main():
 
     # Get performance metrics using scorer utility class
     performance = scorer.main()
-    
 
 
 if __name__ == "__main__":

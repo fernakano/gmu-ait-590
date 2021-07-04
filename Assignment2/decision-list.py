@@ -74,8 +74,7 @@ def create_training_dict_from_xml(xml):
     training_dict = list()
     for instance in xml.find_all("instance"):
         tokens = list()
-        if instance['id'] == 'line-n.w7_124:728:':
-            print("HERE")
+        
         for sentence in instance.context.find_all('s'):
             tokens.extend(normalize_and_tokenize(sentence.get_text()))
 

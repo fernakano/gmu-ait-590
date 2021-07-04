@@ -44,7 +44,7 @@ def debug_show_three_dict_items(comparison_dict):
 
 
 def gather_answers(my_answers, true_answers):
-    # compare line-by-line, my-line-answers and line-answers
+    '''compare line-by-line, my-line-answers and line-answers'''
     iterations = max(len(my_answers), len(true_answers)) # number instances to compare
     
     # Make a dict to hold predictions and ground truth like this:
@@ -94,6 +94,12 @@ def compare_labels(comparison_dict):
         
 
 def main():
+    # handle calls from decision-list directly: 
+    # expect call with args scorer.py my-line-answers.txt line-answers.txt
+    if len(sys.argv) != 3:
+        sys.argv[1] = 'my-line-answers.txt'
+        sys.argv[2] = 'line-answers.txt'
+
     # get input data
     my_answers, true_answers = read_inputs()
 

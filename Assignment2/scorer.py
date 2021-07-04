@@ -16,6 +16,8 @@ on page 156 of JM. This program should write output to STDOUT.
 import re
 import sys
 from collections import defaultdict
+from bs4 import BeautifulSoup
+from nltk import ConfusionMatrix
 
 def read_inputs():
     '''
@@ -25,30 +27,20 @@ def read_inputs():
     '''
     my_line_ans_file = sys.argv[1]
     line_ans_file = sys.argv[2]
-    print(my_line_ans_file, line_ans_file)
 
-    # SAMPLE READING WITH BS
-    from bs4 import BeautifulSoup
+    my_answers_file = BeautifulSoup(open(my_line_ans_file, 'r'), 'html.parser')
+    true_answers_file = BeautifulSoup(open(line_ans_file, 'r'), 'html.parser')
 
-    xml_my_line_ans_file = BeautifulSoup(open(my_line_ans_file, 'r'), 'html.parser')
-    xml_line_ans_file = BeautifulSoup(open(line_ans_file, 'r'), 'html.parser')
-
-    for answer in xml_my_line_ans_file.find_all('answer'):
-        print(f'myanswer: {answer["instance"]} sense: {answer["senseid"]}')
-
-    for answer in xml_line_ans_file.find_all('answer'):
-        print(f'trueanswer: {answer["instance"]} sense: {answer["senseid"]}')
-    # SAMPLE READING WITH BS
+    return my_answers_file, true_answers_file
 
 
-    # read the input files
-    with open(my_line_ans_file, 'r') as f:
-        my_answers_list = f.readlines()
-    
-    with open(line_ans_file, 'r') as f:
-        true_answers_list = f.readlines()
-
-    return my_answers_list, true_answers_list
+def debug_show_three_dict_items(comparison_dict):
+    '''just a helper if we want to see what's in the dictionary'''
+    # DEBUG: sample of 3 entries in our comparison dict:
+    three_keys = list(comparison_dict.keys())[:3]
+    print('First three elements in the dictionary:')
+    for k in three_keys:
+        print(comparison_dict[k])
 
 
 def gather_answers(my_answers, true_answers):
@@ -57,57 +49,67 @@ def gather_answers(my_answers, true_answers):
     
     # Make a dict to hold predictions and ground truth like this:
     # "instance": {"true_label": true_sense, "my_label": my_sense}
-    # Sample entry to parse: 
+    # Sample entries to parse: 
     # <answer instance="line-n.art7} aphb 20801955:" senseid="product"/>
     # <answer instance="line-n.w7_126:14239:" senseid="product"/>
     comparison_dict = defaultdict(list)
 
-    # pull out the true line labels
-    for line in true_answers:
-        try:
-            _, instance, sense = line.split()
-            true_instance = re.search('\"(.*):\"', instance).group(1)
-            true_sense = re.search('\"(.*)\"', sense).group(1)
-            comparison_dict[true_instance] = [{'true_label': true_sense}]
-        except Exception as e:
-            pass
-    
-    # pull out our line predictions
-    for line in my_answers:
-        try:
-            _, instance, sense = line.split()
-            my_instance = re.search('\"(.*):\"', instance).group(1)
-            my_sense = re.search('\"(.*)\"', sense).group(1)
-            comparison_dict[my_instance].extend([ {'my_label': my_sense}])
-        except Exception as e:
-            print(f'could not pull out my_answer info: {e}')
-            print(f'^^ line was {line} ^^')
+    #pull out our line predictions
+    for answer in my_answers.find_all('answer'):
+        comparison_dict[answer['instance']] = {'my_label': answer['senseid']}
+
+    for answer in true_answers.find_all('answer'):
+        # grab the previous my_label value and make a bigger comparison dict item
+        my_label = comparison_dict[answer['instance']]['my_label']
+        comparison_dict[answer['instance']].update({'my_label': my_label, 'true_label': answer['senseid']})
 
     return comparison_dict
 
+
+def compare_labels(comparison_dict):
+    '''return a confusion matrix and the overall accuracy of our predictions'''
+    my_labels = []
+    true_labels = []
+    correct_count = 0
+    total_count = 0
+    for instance, label_dict in comparison_dict.items():
+        #collect all the labels into lists for the CM and accuracy metrics
+        my_label = label_dict['my_label']
+        my_labels.append(my_label)
+        true_label = label_dict['true_label']
+        true_labels.append(true_label)
+        if my_label == true_label:
+            correct_count += 1
+        total_count += 1
+
+    # build the confusion matrix
+    confusion_mtx = ConfusionMatrix(list(true_labels), list(my_labels))
+
+    # calculate accuracy
+    accuracy = round(correct_count*1.0/total_count, 4)
+
+    return accuracy, confusion_mtx
+
+        
+
 def main():
-    print("hello!")
     # get input data
     my_answers, true_answers = read_inputs()
-
-
-
-    print(len(my_answers), len(true_answers))
-    print('My first answer: ', my_answers[0])
-    print('True first answer: ', true_answers[0])
 
     # collect our results next to the true answers
     comparison_dict = gather_answers(my_answers, true_answers)
 
-    # TODO: compare key-value sets in each element of the comparison dict.  
-    # TODO: create the confusion matrix
-    # TODO: determine the overall accuracy
+    # compare key-value sets in each element of the comparison dict.  
+    acc, cm = compare_labels(comparison_dict)
+
+    print(f'\nOur Decision List Accuracy: {acc} %')
+    print('\n ----- Confusion Matrix ----- ')
+    print(cm)
+
+
     # TODO: decide w/ team how we hand this back to decision-list.py/print outputs...
-    
-    # DEBUG: sample of 3 entries in our comparison dict:
-    three_keys = list(comparison_dict.keys())[:3]
-    for k in three_keys:
-        print(comparison_dict[k])
+    # TODO: finalize comments, check rubric
+
 
 if __name__ == "__main__":
     main()

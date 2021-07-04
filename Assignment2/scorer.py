@@ -109,7 +109,7 @@ def main():
     # compare key-value sets in each element of the comparison dict.  
     acc, cm = compare_labels(comparison_dict)
 
-    print(f'\nOur Decision List Accuracy: {acc} %')
+    print(f'\nOur Decision List Accuracy: {acc*100} %')
     print('\n ----- Confusion Matrix ----- ')
     print(cm)
 

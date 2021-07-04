@@ -27,6 +27,20 @@ def read_inputs():
     line_ans_file = sys.argv[2]
     print(my_line_ans_file, line_ans_file)
 
+    # SAMPLE READING WITH BS
+    from bs4 import BeautifulSoup
+
+    xml_my_line_ans_file = BeautifulSoup(open(my_line_ans_file, 'r'), 'html.parser')
+    xml_line_ans_file = BeautifulSoup(open(line_ans_file, 'r'), 'html.parser')
+
+    for answer in xml_my_line_ans_file.find_all('answer'):
+        print(f'myanswer: {answer["instance"]} sense: {answer["senseid"]}')
+
+    for answer in xml_line_ans_file.find_all('answer'):
+        print(f'trueanswer: {answer["instance"]} sense: {answer["senseid"]}')
+    # SAMPLE READING WITH BS
+
+
     # read the input files
     with open(my_line_ans_file, 'r') as f:
         my_answers_list = f.readlines()
@@ -75,6 +89,9 @@ def main():
     print("hello!")
     # get input data
     my_answers, true_answers = read_inputs()
+
+
+
     print(len(my_answers), len(true_answers))
     print('My first answer: ', my_answers[0])
     print('True first answer: ', true_answers[0])

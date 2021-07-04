@@ -41,7 +41,9 @@ def normalize_and_tokenize(text):
     :param text:
     :return: lowered tokenized text.
     """
-    tokens = word_tokenize(text.lower())
+    text = text.lower()
+    text = text.replace("lines", "line")
+    tokens = word_tokenize(text)
     tokens = [token for token in tokens if token not in stopwords.words('english')]
     return tokens
 
@@ -72,6 +74,8 @@ def create_training_dict_from_xml(xml):
     training_dict = list()
     for instance in xml.find_all("instance"):
         tokens = list()
+        if instance['id'] == 'line-n.w7_124:728:':
+            print("HERE")
         for sentence in instance.context.find_all('s'):
             tokens.extend(normalize_and_tokenize(sentence.get_text()))
 
@@ -181,7 +185,7 @@ def main():
     # write decision list to file
     # type(decision_list) is a list, each element containing a dict like this:
     # {'position': '-2W man end line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
-    #TODO: Deleteme:  with open ('my-decision-list.txt', 'w') as f:
+    # TODO: Deleteme:  with open ('my-decision-list.txt', 'w') as f:
     with open(decision_list_output, 'w') as f:
         for eachline in decision_list:
             f.write(str(eachline))
@@ -246,14 +250,16 @@ def main():
                 likelihood = lookup_decision_list(decision_list, position)
                 if max_likelihood == {} and len(likelihood) > 0:
                     max_likelihood = likelihood[0]
+                elif max_likelihood == {} and len(likelihood) == 0:
+                    max_likelihood = {'position': position, 'likelihood': 0, 'classification': unknown_sense}
                 elif len(likelihood) > 0:
                     max_likelihood = likelihood[0] if likelihood[0]['likelihood'] > max_likelihood[
                         'likelihood'] else max_likelihood
-                else:
-                    max_likelihood = {'position': position, 'likelihood': 0, 'classification': unknown_sense}
+                # else:
+                #     max_likelihood = {'position': position, 'likelihood': 0, 'classification': unknown_sense}
             # sense_lookups.append(max_likelihood)
             testing_results.append({'id': instance_id, 'sense': max_likelihood['classification']})
-    
+
     # validate our test output:
     warn_str = f"WARNING: testing_results has {len(testing_results)} elements, expected {len(testing_dict)}"
     assert len(testing_results) == len(testing_dict), warn_str
@@ -269,7 +275,7 @@ def main():
     with open('my-line-answers.txt', 'w') as f:
         for item in testing_results:
             result = f'<answer instance="{item["id"]}" senseid="{item["sense"]}"/>'
-            #print(result)
+            # print(result)
             f.write(result)
             f.write('\n')
     print("done")

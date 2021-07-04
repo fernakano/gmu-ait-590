@@ -197,11 +197,6 @@ def main():
     xml_test = read_xml(line_test)
     testing_dict = create_training_dict_from_xml(xml_test)  # a list
 
-    # validating testing dict so I can validate results
-    print(f'testing_dict:  {type(testing_dict)}, len {len(testing_dict)}')
-    # TODO: we may want to remove this assert because the grader might test w/ new file.
-    #assert len(testing_dict) == 126, f"Only found {len(xml_test)} lines in test dataset"
-
     # for each instance of the training data
     unknown_sense = 'product'
     count_phone = 0

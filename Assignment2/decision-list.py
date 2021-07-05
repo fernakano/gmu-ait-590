@@ -5,6 +5,58 @@
 # TO EXECUTE RUN:                                                             #
 #  python decision-list.py line-train.xml line-test.xml my-decision-list.txt  #
 ###############################################################################
+#
+# This is an application that will work to do Word Sense Desambiguation for a specific word,
+# on this case specifically the word "line".
+# The application will receive training data from the file line-train.xml which contains multiple instances of sentences
+# each of these sentences in the context are attributed to a specific sense "phone" or "product"
+#
+# We will use the Input data to create a decision List based on Yarowsky Decision list presented in class.
+# The decision list will work based on the collocation of words [-2, -1, 1] of the Ambiguous word Line.
+# after calculating the likelihood of the collocated words we will use that to try to predict the correct sense of the
+# line-test.xml data which does not have the sense attributed to it.
+# If no sense is found on Decision List, we will use the sense with higherst probability from the training data
+# based on counts.
+#
+#
+# After we are able to find the sense classifications for the line-test.xml we will run our scorer.py application to
+# evaludate the results.
+#
+# The scorer.py application will take the answers from the main application and the line-answers.txt file and compare
+# how good were our predictions and output the accuracy of our model.
+# then it will output a confusion matrix to illustrate the performance.
+#
+# The expected output of current application is as follows:
+#
+# Decision LIst:
+# {'position': '-1W telephone line', 'likelihood': 6.149747119504682, 'classification': 'phone'}
+# {'position': '-1W car line', 'likelihood': 4.392317422778761, 'classification': 'product'}
+# {'position': '1W line rose', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+# {'position': '-2W recently introduced line', 'likelihood': 2.8073549220576046, 'classification': 'product'}
+#
+# Predicted answers:
+# <answer instance="line-n.w8_059:8174:" senseid="phone"/>
+# <answer instance="line-n.w7_098:12684:" senseid="phone"/>
+# <answer instance="line-n.w8_119:16927:" senseid="product"/>
+# <answer instance="line-n.w8_008:13756:" senseid="product"/>
+#
+# Output from Scorer.py:
+#
+# Our Decision List Accuracy: 76.98 %
+#
+#  ----- Confusion Matrix -----
+#         |     p |
+#         |     r |
+#         |  p  o |
+#         |  h  d |
+#         |  o  u |
+#         |  n  c |
+#         |  e  t |
+# --------+-------+
+#   phone |<49>23 |
+# product |  6<48>|
+# --------+-------+
+
 import math
 import sys
 import scorer

@@ -6,15 +6,12 @@
 #  python decision-list.py line-train.xml line-test.xml my-decision-list.txt  #
 ###############################################################################
 import math
-import pprint
 import sys
 import scorer
 
 from bs4 import BeautifulSoup
 from nltk import RegexpTokenizer, ConditionalFreqDist, ConditionalProbDist, ELEProbDist
 from nltk.corpus import stopwords
-
-pp = pprint.PrettyPrinter(indent=4)
 
 # Word to disabiguate
 a_word = "line"
@@ -208,21 +205,15 @@ def main():
 
     # create a ConditionalFreqDist to Measure Collocational Distribution
     collocation_distribution = create_collocation_distribution(training_dict)
-    # pp.pprint(list(sorted(collocation_distribution.items())))
-    # collocation_distribution.plot()
 
     cpdist = ConditionalProbDist(collocation_distribution, ELEProbDist, 10)
-    # pp.pprint(list(cpdist.conditions()))
-    # pp.pprint(list(cpdist.items()))
 
     # create decision list using ConditionalProbDist as on the hints and tips.
     decision_list = create_decision_list_from_conditinal_prob(cpdist)
-    # pp.pprint(decision_list)
 
     # write decision list to file
     # type(decision_list) is a list, each element containing a dict like this:
     # {'position': '-2W man end line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
-    # TODO: Deleteme:  with open ('my-decision-list.txt', 'w') as f:
     with open(decision_list_output, 'w') as f:
         for eachline in decision_list:
             f.write(str(eachline))
@@ -238,7 +229,7 @@ def main():
     unknown_sense = 'product'
     count_phone = 0
     count_product = 0
-    # Find the most common sense
+    # Find the most common sense to be used in case we dont find anything on decision list.
     for instance in training_dict:
         if instance['sense'] == 'phone':
             count_phone += 1
@@ -249,7 +240,10 @@ def main():
     if count_phone > count_product:
         unknown_sense = 'phone'
 
+    # initiating list of results
     testing_results = []
+
+    # for each instance in the testing dataset.
     for instance in testing_dict:
         sense_lookups = []
         max_likelihood = {}
@@ -280,14 +274,24 @@ def main():
                 else:
                     collocation = str(tokens[index]) + ' ' + collocation
                 position = str(window) + 'W ' + collocation.rstrip()
+
+                # Lookup the likelihood of the item based on the window positon for the collocation.
                 likelihood = lookup_decision_list(decision_list, position)
+
                 if max_likelihood == {} and len(likelihood) > 0:
+                    # When likelihood is found at the first time set as the max_likelihood
                     max_likelihood = likelihood[0]
                 elif max_likelihood == {} and len(likelihood) == 0:
+                    # When likelihood is not found and it is the first time, set as unknown.
                     max_likelihood = {'position': position, 'likelihood': 0, 'classification': unknown_sense}
                 elif len(likelihood) > 0:
+                    # When likelihood is found, check if it is greater than the previous found then set as the max.
                     for lkl in likelihood:
                         max_likelihood = lkl if lkl['likelihood'] > max_likelihood['likelihood'] else max_likelihood
+
+            # for each instance on the test data, lookup the likelihood from the decision table for collocation +/- k
+            # at the end of the collection, choose the item with the highest likelihood.
+            # if no item is found in decision table, use the sense with highest probability.
 
             testing_results.append({'id': instance_id, 'sense': max_likelihood['classification']})
 
@@ -299,13 +303,6 @@ def main():
     except:
         print(warn_str)
 
-    # for each instance on the test data, lookup the likelihood from the decision table for each collocation +/- k
-    # at the end of the collection, choose the item with the highest likelihood.
-
-    # if no item is found in decision table, use the sense with highest probability.
-    #
-    # ...
-    #
     # create scorer.py
     # display confusion matrix
     with open('my-line-answers.txt', 'w') as f:

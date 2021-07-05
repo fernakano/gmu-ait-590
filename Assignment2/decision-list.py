@@ -377,18 +377,19 @@ def main():
     except:
         print(warn_str)
 
+    # In order to use the expected "script" command from the Assignment instruction we dont run things automatically
     # create scorer.py
     # display confusion matrix
-    with open('my-line-answers.txt', 'w') as f:
-        for item in testing_results:
-            result = f'<answer instance="{item["id"]}" senseid="{item["sense"]}"/>'
-            # print(result)
-            f.write(result)
-            f.write('\n')
-    print("done")
+    # with open('my-line-answers.txt', 'w') as f:
+    for item in testing_results:
+        result = f'<answer instance="{item["id"]}" senseid="{item["sense"]}"/>'
+        print(result)
+        # f.write(result)
+        # f.write('\n')
+    # print("done")
 
     # Get performance metrics using scorer utility class
-    performance = scorer.main()
+    # performance = scorer.main()
 
 
 if __name__ == "__main__":

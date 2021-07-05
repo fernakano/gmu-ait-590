@@ -1,0 +1,1117 @@
+{'position': '-1W telephone line', 'likelihood': 6.149747119504682, 'classification': 'phone'}
+{'position': '-1W access line', 'likelihood': 4.954196310386876, 'classification': 'phone'}
+{'position': '-1W car line', 'likelihood': 4.392317422778761, 'classification': 'product'}
+{'position': '-1W end line', 'likelihood': 4.08746284125034, 'classification': 'phone'}
+{'position': '-1W computer line', 'likelihood': 3.700439718141092, 'classification': 'product'}
+{'position': '1W line dead', 'likelihood': 3.700439718141092, 'classification': 'phone'}
+{'position': '2W line dead', 'likelihood': 3.700439718141092, 'classification': 'phone'}
+{'position': '-1W came line', 'likelihood': 3.700439718141092, 'classification': 'phone'}
+{'position': '-2W ps 2 line', 'likelihood': 3.700439718141092, 'classification': 'product'}
+{'position': '-1W 2 line', 'likelihood': 3.700439718141092, 'classification': 'product'}
+{'position': '-1W gab line', 'likelihood': 3.4594316186372978, 'classification': 'phone'}
+{'position': '-1W product line', 'likelihood': 3.4594316186372978, 'classification': 'product'}
+{'position': '-1W food line', 'likelihood': 3.1699250014423126, 'classification': 'product'}
+{'position': '1W line said', 'likelihood': 3.1699250014423126, 'classification': 'product'}
+{'position': '1W line computers', 'likelihood': 3.1699250014423126, 'classification': 'product'}
+{'position': '1W line personal', 'likelihood': 3.1699250014423126, 'classification': 'product'}
+{'position': '2W line personal computers', 'likelihood': 3.1699250014423126, 'classification': 'product'}
+{'position': '1W line frozen', 'likelihood': 3.1699250014423126, 'classification': 'product'}
+{'position': '-1W products line', 'likelihood': 3.1699250014423126, 'classification': 'product'}
+{'position': '-1W 000 line', 'likelihood': 3.1699250014423126, 'classification': 'phone'}
+{'position': '-1W direct line', 'likelihood': 3.1699250014423126, 'classification': 'phone'}
+{'position': '-1W introduced line', 'likelihood': 3.1699250014423126, 'classification': 'product'}
+{'position': '-2W new ibm line', 'likelihood': 2.8073549220576046, 'classification': 'product'}
+{'position': '-1W ibm line', 'likelihood': 2.8073549220576046, 'classification': 'product'}
+{'position': '-2W recently introduced line', 'likelihood': 2.8073549220576046, 'classification': 'product'}
+{'position': '1W line growth', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-1W keep line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '1W line increased', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-2W private telephone line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-2W telephone access line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-1W trading line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-2W new telephone line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-1W private line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '1W line let', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-1W subscriber line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-2W new access line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-1W got line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '1W line grew', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '1W line went', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '2W line went dead', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '1W line service', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-1W party line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-1W new line', 'likelihood': 2.662965012722429, 'classification': 'product'}
+{'position': '-2W skin care line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-1W care line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-1W microprocessor line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-1W similar line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-1W launch line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-1W company line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '1W line chevrolet', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '1W line 2', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-1W older line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '1W line mid', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '1W line rose', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '1W line shoes', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-1W marketing line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-1W full line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '1W line expected', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-1W equipment line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '1W line sales', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '1W line market', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-1W old line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-1W current line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-2W consumer products line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-1W vax line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-1W tip line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '-2W thousand access line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '1W line busy', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '-1W outside line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '1W line recently', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '-1W whose line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '-2W man end line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '1W line charges', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '1W line one', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '1W line added', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '-2W free telephone line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '-2W new customer line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '-1W customer line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '-1W clogged line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '1W line open', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '-2W clogged telephone line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '2W line increased 3', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '-2W 570 000 line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '1W line mainly', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '2W line mainly western', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '-2W came back line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '-1W back line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '-1W information line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '1W line like', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '-1W one line', 'likelihood': 2.321928094887362, 'classification': 'phone'}
+{'position': '-2W 5 access line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line growth past', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W wants establish line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W establish line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line new standard', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W inc struggling line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W struggling line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line scrapped', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line scrapped', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W 000 new line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line current', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line current business', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W range computer line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line first mainframe', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W 20 previous line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W previous line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W sales three line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W three line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line 50', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line 50 million', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line small', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line small part', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W certain atlas line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W atlas line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line properties', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line properties gain', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W callers stay line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line order', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line order', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W acquisition furniture line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W furniture line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line could fetch', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W u gab line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line big', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line big money', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W telephone tip line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line getting attention', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W enough keep line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line busy proper', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W residential telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line increased 2', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W showing microprocessor line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W distance telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line link', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line link 1', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W non food line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W rail intermodal line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W intermodal line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line consists', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line consists piggyback', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W dial dedicated line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W dedicated line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W distinction car line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line mr hoglund', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W thomson complete line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W complete line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line mammography', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line mammography equipment', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W gamboni butler line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W butler line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line making call', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line spread', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line spread costs', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W luxury car line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line may', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line may big', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W call switched line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W switched line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W impression outside line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line brad', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line brad took', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W jaclyn smith line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W smith line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line 1985', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line 1985 trying', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line making slightly', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W may pick line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W pick line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line many', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line many forcing', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W largest telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line increase', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line increase ever', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W frozen food line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W sleep came line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W need expand line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W expand line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line said richard', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line used communications', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W many 24 line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W 24 line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line 48', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line 48 phones', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W abex corp line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W corp line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line aircraft', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line aircraft landing', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W made similar line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line produced', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line produced cheaper', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W r r1 line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W r1 line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line made', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line made uniroyal', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W arms launch line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line deluxe', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line deluxe candy', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W voice end line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line pete', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line pete russo', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W megaquest bisexual line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W bisexual line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line recently got', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W york telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line millionaire', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line millionaire publisher', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W free complaint line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W complaint line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line rewritten', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line rewritten service', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W car truck line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W truck line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line dec', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line dec 31', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line said conceivable', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W demand integrated line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W integrated line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line software', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line software products', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W along new line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line computers ibm', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W illustrated popular line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W popular line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line cherubic', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line cherubic children', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W necessary telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W company diagnostics line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W diagnostics line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line showed', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line showed 8', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W toll free line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W free line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line customers', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line customers calls', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W extensions several line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W several line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line hasbro', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line hasbro rock', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W answering trading line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line yesterday', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line yesterday possibly', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W apparel company line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W merlin came line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line first distant', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W volume car line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line chevrolet sales', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W ask get line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W get line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W phone whose line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line secure', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line secure rang', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W firms create line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W create line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line oversize', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line oversize clothes', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W popular car line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line 2 5', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W late telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line los', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line los angeles', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W open radio line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W radio line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line swore', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line swore viciously', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W acquired food line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line kraft', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line kraft 235', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W pc building line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W building line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line 4 5', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W phone call line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W call line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line worst', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line worst year', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W ridden 1970s line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W 1970s line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line continue', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line continue offered', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W spoke unsecured line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W unsecured line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line mr reagan', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W dedicated private line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line public', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line public line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W profits older line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W sell carleton line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W carleton line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line precision', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line precision pneumatic', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line let call', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W scala see line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W see line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line light', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line light line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W fixed costs line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line homes', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line homes businesses', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W american brands line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W brands line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W pay subscriber line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line charges', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line poorest', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line poorest annual', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W montana fragrance line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W fragrance line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line monteil', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line monteil sources', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W ibm pc line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W pc line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line still big', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W four telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line one phone', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W away hullo line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W hullo line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W moving telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line cellular', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line cellular systems', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line added nine', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W interested bringing line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W bringing line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line clothing', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line clothing name', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W talking dead line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W dead line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line one family', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W reorganization aerospace line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W aerospace line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W best sellers line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W sellers line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line ranging', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line ranging toys', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W gm 10 line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W 10 line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line aimed', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line aimed regaining', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W merchandising apparel line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W apparel line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W added noting line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W noting line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line hurt', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line hurt reduced', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W 5 billion line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W billion line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line mid sized', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W voice got line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W rush produces line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W produces line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line two', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line two dozen', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W nabisco cereal line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W cereal line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line line could', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W announcement new line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W might end line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line fuqua', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line fuqua remarks', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W built company line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line pdp', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line pdp scientific', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W also launch line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line limited', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line limited lingerie', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W provide gab line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line dozens', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line dozens people', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W company tried line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W tried line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line frozen cheese', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W new perfume line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W perfume line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line elizabeth', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line elizabeth taylor', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W victims earthquake line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W earthquake line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line available', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line available 24', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W 900 telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line called soap', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W minivan jeep line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W jeep line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line rose 4', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W 1988 model line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W model line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line fall', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line fall many', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W bailey briefs line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W briefs line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line shoes pregnant', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line conduct', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line conduct transactions', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W current car line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W seeking torpedo line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W torpedo line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W ibm lastest line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W lastest line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line computers changed', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W manufacturing marketing line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line involving', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line involving substantial', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line grew 2', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W much broader line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W broader line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line better', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line better financially', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W source latest line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W latest line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W got husband line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W husband line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line asked', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line asked', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line grew 3', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W 000 access line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W adult diaper line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W diaper line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line second', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line second quarter', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W mostly older line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line products', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line products sold', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W growth product line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line particularly', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line particularly international', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W marsh florida line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W florida line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line stern', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line stern department', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W grand prix line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W prix line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line capable', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line capable producing', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line computers', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W bears samples line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W samples line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line plush', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line plush toys', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W sell full line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line brand', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line brand name', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W day clogged line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line let steam', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line expected marketed', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W dozen telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line group', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line group washington', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W put test line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W test line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line let know', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W direct trading line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line federal', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line federal reserve', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W thunderbird cougar line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W cougar line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W customers come line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W come line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line doubt', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line doubt wanting', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W increases subscriber line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line charges separation', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line promoted', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line promoted heavily', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W cookie cracker line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W cracker line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line specialty', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line specialty products', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W considered dropping line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W dropping line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W residents whose line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line allegedly', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line allegedly tapped', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W calif gab line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line talked', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line talked deranged', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W asked outside line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line dialed', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line dialed homicide', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W 700 access line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line territory', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line territory harrisburg', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W like gab line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line proprietors', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line proprietors megaquest', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W hollywood dreamboat line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W dreamboat line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W permitted say line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W say line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W caller stays line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W stays line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line leaves', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line leaves name', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W later elsie line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W elsie line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W power keep line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line open repeat', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W patch kids line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W kids line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line could draw', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W excavation equipment line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line well', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line well regarded', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W american tire line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W tire line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W introduction new line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line high', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line high end', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W back keep line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line open', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W van lost line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W lost line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line next', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line next location', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line britain', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line britain countries', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W 1 69 line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W 69 line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line frozen breakfasts', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W keeping open line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W open line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line office', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line office', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W midrange product line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line declined', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line declined elaborate', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W complete menswear line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W menswear line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W care products line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line sales 162', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W introduced new line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line minicomputers', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line minicomputers linking', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W number jewelry line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W jewelry line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line crystal', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line crystal brands', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W foley came line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W athletic shoe line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W shoe line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line management', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line management group', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W dead air line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W air line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line fund', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line fund companies', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W 10 million line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W million line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line service 15', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W 600 camera line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W camera line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line market seven', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W operator try line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W try line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line could found', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W dedicated telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line satellite', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line satellite systems', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W scarce women line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W women line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line fashionability', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line fashionability far', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W said access line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W use telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line record', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line record viewers', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W 32 computer line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line built', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line built around', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W lacks full line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line auto', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line auto products', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W horoscopes romance line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W romance line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W came tearfully line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W tearfully line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line heard', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line heard johnny', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W club produce line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W produce line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line men', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line men fragrances', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W installed trading line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line dozen', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line dozen new', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W end sun line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W sun line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line units', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line units remain', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W output new line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line mid size', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W meanwhile edmonton line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W edmonton line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line jammed', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line jammed disgruntled', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line growth pushing', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W telephone kent line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W kent line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W call party line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W choice software line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W software line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line pacing', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line pacing advance', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W fee private line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line fcc', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line fcc currently', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W inc macintosh line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W macintosh line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line rose 130', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W mirage car line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line news', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line news stock', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W prone crossed line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W crossed line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W sales amiga line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W amiga line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line computers revenue', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W powerful spectrum line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W spectrum line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line development', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line development five', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W connected direct line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line maybe', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line maybe 500', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W time gm line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W gm line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line older', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line older rear', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W officials using line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W using line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line ordered', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line ordered keep', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W customer access line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line grew 162', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W ii computer line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line still mainstay', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W two computer line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line moved', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line moved 2', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line 4 2', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W often bursts line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W bursts line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line middle', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line middle phone', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W introduced similar line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line called healthy', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W messages telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line children', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line children could', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W party line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line effect', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line effect could', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W discontinuation old line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W growth prospects line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W prospects line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line said would', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line added 1988', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W end telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line voices', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line voices among', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W another telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W adds important line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W important line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W inc ziari line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W ziari line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line sunglasses', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line sunglasses', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W interface hardware line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W hardware line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line adapters', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line adapters cip', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W 50 000 line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W sinclair came line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W running gab line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line last year', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W jointly manufacture line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W manufacture line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line trucks', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line trucks britain', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W live voice line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W voice line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line says steven', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W already market line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W market line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line captain', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line captain power', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W segment information line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line includes', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line includes everything', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W relations marketing line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line said operating', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W sells specialized line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W specialized line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line beds', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line beds daybeds', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W plans broaden line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W broaden line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line offering', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line offering lower', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W luxury lexus line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W lexus line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line u', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line u november', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W upscale car line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line new dealer', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W computer telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line update', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line update 9370', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W document telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line suddenly', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line suddenly ubiquitous', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W endorse new line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line women', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line women wear', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W customers dealers line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W dealers line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line 2 machines', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W applying direct line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line new york', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W motels current line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line midpriced', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line midpriced high', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W soft drink line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W drink line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W number access line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line service', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W looking broadly line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W broadly line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line supplement', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line supplement minute', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W office equipment line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W 300 old line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line authorized', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line authorized sell', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W chevrolet corsica line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W corsica line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W credit line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W credit line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line used working', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W make current line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line mainframes', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line mainframes run', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W building materials line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W materials line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line company said', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W silence end line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line wistful', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line wistful little', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W including telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W stop business line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line deem', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line deem offensive', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W ocean swell line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W swell line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W poorest telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line growth since', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W specialty food line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W bank direct line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line fed', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line fed says', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W get hell line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W hell line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line start', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line start calling', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W turner read line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W read line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line fab', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line fab laundry', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line last month', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W joe transformers line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W transformers line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line tonka', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line tonka scored', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W promotion new line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line chevrolet pickup', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W foreign exchange line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W exchange line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W number would line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W would line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line tapped', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line tapped', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W girl clarion line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W clarion line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line combined', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line combined 25', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W agricultural machinery line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W machinery line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line fell', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line fell 2', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W table ballistics line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W ballistics line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line sir', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line sir', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W operator came line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line like said', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W said shipments line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W shipments line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W negative positions line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W positions line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W different cards line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W cards line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line charged', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line charged hallmark', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W secure telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line bugged', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line bugged', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W 100 telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line according', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line according dataquest', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W dr denton line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W denton line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line sweaters', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line sweaters infants', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W hasbro concerned line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W concerned line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line market', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W came hospital line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W hospital line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line still ringing', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W lucrative military line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W military line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line computer', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line computer products', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W importing 60 line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W 60 line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line survive', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line survive bracing', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W chicken george line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W george line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line getting way', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W also markets line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W markets line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line japanese', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line japanese made', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W versions new line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line crash', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line crash companies', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W long awaited line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W awaited line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line laptop', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line laptop computers', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W basic chemicals line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W chemicals line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line imperial', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line imperial chemical', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W nail polish line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W polish line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W home number line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W number line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line busy hung', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W million access line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line service end', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W shouted hello line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W hello line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W testers microprocessor line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W selling exclusive line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W exclusive line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line stylish', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line stylish kitchen', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W 442 000 line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line china', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line china smaller', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W six car line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line making first', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W playmobile products line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line plastic', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line plastic pre', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W says clogged line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line recently caused', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W lifted telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W main computer line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W oh lanterns line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W lanterns line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line grotesque', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line grotesque polyurethane', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W one acquired line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W acquired line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line cincinnati', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line cincinnati based', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W 29 375 line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W 375 line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line planned', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line planned sale', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W pratt pw4000 line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W pw4000 line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line reached', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line reached nearly', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line last april', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W consumer information line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line appealing', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line appealing help', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W gradually shedding line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W shedding line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line perhaps', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line perhaps adding', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W middle sentence line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W sentence line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W many private line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line centrex', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line centrex customers', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W household one line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line use', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line use neither', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line including', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line including aluminum', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W cheerful got line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W sellers came line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W personal computer line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line help', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line help least', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line coronary', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line coronary balloon', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W year sewing line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W sewing line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line still consider', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W 3 600 line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W 600 line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line world', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line world congress', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W health club line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W club line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line bally', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line bally could', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W friday extending line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W extending line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line investment', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line investment banks', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W time business line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W jazz keeping line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W keeping line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W synchronous asynchronous line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W asynchronous line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W remainder coleco line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W coleco line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line sales cabbage', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W drilling bit line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W bit line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line substantially', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line substantially larger', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W commotion end line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W capacity zytel line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W zytel line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line nylon', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line nylon resins', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W patients another line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W another line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W services telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line checking', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line checking airline', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W x rated line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W rated line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W nationally advertised line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W advertised line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W apparel business line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line jeans', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line jeans plans', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W fire station line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W station line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line still open', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W one one line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line like c', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W initial filter line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W filter line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line three', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line three years', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W 1 800 line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W 800 line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line central', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line central illinois', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line home', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line home market', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W customers direct line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line company burger', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W said end line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line third', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line third bell', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W three telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line copying', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line copying machine', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W company car line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line spokesman', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line spokesman said', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W although vax line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line enormously', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line enormously popular', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W introductory costs line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line green', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line green giant', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W digital vax line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line cray', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line cray spokesman', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line standard', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line standard', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W 911 emergency line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W emergency line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line played', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line played trial', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W reasonably priced line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W priced line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line stock', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line stock', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W new product line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line included', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line included dpx', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W already huge line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W huge line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line general', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line general foods', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W heard nothing line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W nothing line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W schaffner marx line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W marx line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line 15', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line 15', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W going stay line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line noxell', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line noxell historically', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W pretty crackle line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W crackle line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line might', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line might aged', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W existing product line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line take', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line take far', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line concentrate', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line concentrate businesses', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W increase subscriber line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line charge', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line charge total', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W inc introduced line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line halloween', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line halloween gifts', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W obligations optometric line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W optometric line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line expected garner', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W ground coffee line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W coffee line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line costly', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line costly acquisitions', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W sarah got line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W system reebok line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W reebok line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line shoes etonic', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W one new line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line jockey', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line jockey silks', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W abuse sex line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W sex line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line gab', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line gab line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line john', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line john carl', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W help end line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line voice', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line voice promises', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W pressure product line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line says', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W level fox line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W fox line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line frozen complete', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W voice chat line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W chat line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W pictures ordinary line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W ordinary line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line user', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line user sits', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W business telephone line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line jumped', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line jumped 6', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line year', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line year ago', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W renting communications line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W communications line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line tie', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line tie nationwide', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W sturdy 3x line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W 3x line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line 275', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line 275 000', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W currently testing line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W testing line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line frozen entrees', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W calling tip line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line wall', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line wall street', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W bet future line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W future line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line hormel', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line hormel carries', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W end transmitted line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-1W transmitted line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line noise', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line noise', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '-2W much car line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line anymore', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line anymore laments', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W inc lancome line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-1W lancome line', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '1W line likely', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '2W line likely follow', 'likelihood': 1.5849625007211563, 'classification': 'product'}
+{'position': '-2W gave party line', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '2W line new function', 'likelihood': 1.5849625007211563, 'classification': 'phone'}
+{'position': '1W line could', 'likelihood': 0.7369655941662062, 'classification': 'product'}
+{'position': '1W line making', 'likelihood': 0.7369655941662062, 'classification': 'phone'}
+{'position': '1W line last', 'likelihood': 0.7369655941662062, 'classification': 'product'}
+{'position': '-1W business line', 'likelihood': 0.7369655941662062, 'classification': 'phone'}
+{'position': '1W line still', 'likelihood': 0.4854268271702417, 'classification': 'product'}
+{'position': '1W line', 'likelihood': 0.08880926695785596, 'classification': 'phone'}
+{'position': '2W line', 'likelihood': 0.08880926695785596, 'classification': 'phone'}
+{'position': '1W line new', 'likelihood': 0.0, 'classification': 'phone'}
+{'position': '1W line first', 'likelihood': 0.0, 'classification': 'phone'}
+{'position': '-1W stay line', 'likelihood': 0.0, 'classification': 'phone'}
+{'position': '1W line getting', 'likelihood': 0.0, 'classification': 'phone'}
+{'position': '1W line mr', 'likelihood': 0.0, 'classification': 'phone'}
+{'position': '1W line used', 'likelihood': 0.0, 'classification': 'phone'}
+{'position': '1W line 4', 'likelihood': 0.0, 'classification': 'phone'}
+{'position': '-1W costs line', 'likelihood': 0.0, 'classification': 'phone'}
+{'position': '1W line called', 'likelihood': 0.0, 'classification': 'phone'}
+{'position': '1W line says', 'likelihood': 0.0, 'classification': 'phone'}
+{'position': '1W line company', 'likelihood': 0.0, 'classification': 'phone'}

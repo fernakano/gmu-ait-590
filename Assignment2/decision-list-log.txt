@@ -1,0 +1,86 @@
+Script started on Mon Jul  5 14:10:42 2021
+[0m[49m[39m[27m[24m[1m[7m%[27m[1m[0m                                                                                                                                                                                                              [0m[49m[39m[27m[24m[K
+[1A7[0m[49m[39m[0m[49m[39m[0m[49m[39m[0m[49m [0m[49m[38;5;31m [1m[38;5;31m[38;5;39m~[0m[38;5;39m[49m[38;5;31m/Git/[1m[38;5;31m[38;5;39mait590-Assignments[0m[38;5;39m[49m[38;5;31m/[1m[38;5;31m[38;5;39mAssignment2[0m[38;5;39m[49m[38;5;31m[0m[38;5;31m[49m[38;5;31m[0m[38;5;31m[49m [0m[38;5;31m[49m[38;5;76m❯[0m[38;5;76m[49m[38;5;76m[0m[38;5;76m[49m[30m[0m[30m[49m[39m [0m[49m[39m                                                                                                                                                         [0m[49m[38;5;66m 14:10:42[0m[38;5;66m[49m[38;5;66m[0m[38;5;66m[49m[38;5;66m[0m[38;5;66m[49m[39m[0m[49m[39m[27m[24m[43C[?25l8[0m[49m[39m[27m[24m[J]2;fernak@mac-us-fernak:~/Git/ait590-Assignments/Assignment2]1;..s/Assignment2[0m[38;5;31m[49m[39m[27m[24m[1m[7m%[27m[1m[0m                                                                                                                                                                                                              [0m[49m[39m[27m[24m[K[0m[27m[24m[J[0m[49m[39m[0m[49m[39m[0m[49m[39m[0m[49m [0m[49m[38;5;31m [1m[38;5;31m[38;5;39m~[0m[38;5;39m[49m[38;5;31m/Git/[1m[38;5;31m[38;5;39mait590-Assignments[0m[38;5;39m[49m[38;5;31m/[1m[38;5;31m[38;5;39mAssignment2[0m[38;5;39m[49m[38;5;31m[0m[38;5;31m[49m[38;5;31m[0m[38;5;31m[49m [0m[38;5;31m[49m[30mloading[0m[30m[49m[30m[0m[30m[49m [0m[30m[49m[38;5;76m❯[0m[38;5;76m[49m[38;5;76m[0m[38;5;76m[49m[30m[0m[30m[49m[39m [0m[49m[39m[K[145C[0m[49m[38;5;66m 14:10:42[0m[38;5;66m[49m[38;5;66m[0m[38;5;66m[49m[38;5;66m[0m[38;5;66m[49m[39m[155D[?1h=[?12l[?25h[?2004h[?25l[0m[27m[24m[J[0m[49m[39m[0m[49m[39m[0m[49m[39m[0m[49m [0m[49m[38;5;31m [1m[38;5;31m[38;5;39m~[0m[38;5;39m[49m[38;5;31m/Git/[1m[38;5;31m[38;5;39mait590-Assignments[0m[38;5;39m[49m[38;5;31m/[1m[38;5;31m[38;5;39mAssignment2[0m[38;5;39m[49m[38;5;31m[0m[38;5;31m[49m[38;5;31m[0m[38;5;31m[49m [0m[38;5;31m[49m[30m[0m[30m[49m[38;5;244m [38;5;244m [38;5;244mmain[0m[38;5;244m[49m[30m[0m[30m[49m [0m[30m[49m[38;5;76m❯[0m[38;5;76m[49m[38;5;76m[0m[38;5;76m[49m[30m[0m[30m[49m[39m [0m[49m[39m[K[144C[0m[49m[38;5;66m 14:10:42[0m[38;5;66m[49m[38;5;66m[0m[38;5;66m[49m[38;5;66m[0m[38;5;66m[49m[39m[154D[?12l[?25h[?25l[0m[27m[24m[J[0m[49m[39m[0m[49m[39m[0m[49m[39m[0m[49m [0m[49m[38;5;31m [1m[38;5;31m[38;5;39m~[0m[38;5;39m[49m[38;5;31m/Git/[1m[38;5;31m[38;5;39mait590-Assignments[0m[38;5;39m[49m[38;5;31m/[1m[38;5;31m[38;5;39mAssignment2[0m[38;5;39m[49m[38;5;31m[0m[38;5;31m[49m[38;5;31m[0m[38;5;31m[49m [0m[38;5;31m[49m[38;5;178m[0m[38;5;178m[49m[38;5;76m [38;5;76m [38;5;76mmain [38;5;178m!1 [38;5;39m?3[0m[38;5;39m[49m[38;5;178m[0m[38;5;178m[49m [0m[38;5;178m[49m[38;5;76m❯[0m[38;5;76m[49m[38;5;76m[0m[38;5;76m[49m[30m[0m[30m[49m[39m [0m[49m[39m[K[138C[0m[49m[38;5;66m 14:10:42[0m[38;5;66m[49m[38;5;66m[0m[38;5;66m[49m[38;5;66m[0m[38;5;66m[49m[39m[148D[?12l[?25hppython3 decision-list.py line-train.xml line-test.xml my-decision-list.txt > my-line-answers.txt[?1l>[?2004l
+]2;python3 decision-list.py line-train.xml line-test.xml my-decision-list.txt > ]1;python3[1m[7m%[27m[1m[0m                                                                                                                                                                                                               ]2;fernak@mac-us-fernak:~/Git/ait590-Assignments/Assignment2]1;..s/Assignment2[0m[27m[24m[J[0m[49m[39m[0m[49m[39m[0m[49m[39m[0m[49m [0m[49m[38;5;31m [1m[38;5;31m[38;5;39m~[0m[38;5;39m[49m[38;5;31m/Git/[1m[38;5;31m[38;5;39mait590-Assignments[0m[38;5;39m[49m[38;5;31m/[1m[38;5;31m[38;5;39mAssignment2[0m[38;5;39m[49m[38;5;31m[0m[38;5;31m[49m[38;5;31m[0m[38;5;31m[49m [0m[38;5;31m[49m[38;5;178m[0m[38;5;178m[49m[38;5;76m [38;5;76m [38;5;76mmain [38;5;178m!1 [38;5;39m?3[0m[38;5;39m[49m[38;5;178m[0m[38;5;178m[49m [0m[38;5;178m[49m[38;5;76m❯[0m[38;5;76m[49m[38;5;76m[0m[38;5;76m[49m[30m[0m[30m[49m[39m [0m[49m[39m[K[132C[0m[49m[38;5;101m 10s[0m[38;5;101m[49m[38;5;101m[0m[38;5;101m[49m[38;5;101m[0m[38;5;101m[49m[38;5;66m  14:10:58[0m[38;5;66m[49m[38;5;66m[0m[38;5;66m[49m[38;5;66m[0m[38;5;66m[49m[39m[148D[?1h=[?2004hhhead -50 my-decision-list.txt[?1l>[?2004l
+]2;head -50 my-decision-list.txt]1;head{'position': '-1W telephone line', 'likelihood': 6.149747119504682, 'classification': 'phone'}
+{'position': '-1W access line', 'likelihood': 4.954196310386876, 'classification': 'phone'}
+{'position': '-1W car line', 'likelihood': 4.392317422778761, 'classification': 'product'}
+{'position': '-1W end line', 'likelihood': 4.08746284125034, 'classification': 'phone'}
+{'position': '-1W computer line', 'likelihood': 3.700439718141092, 'classification': 'product'}
+{'position': '1W line dead', 'likelihood': 3.700439718141092, 'classification': 'phone'}
+{'position': '2W line dead', 'likelihood': 3.700439718141092, 'classification': 'phone'}
+{'position': '-1W came line', 'likelihood': 3.700439718141092, 'classification': 'phone'}
+{'position': '-2W ps 2 line', 'likelihood': 3.700439718141092, 'classification': 'product'}
+{'position': '-1W 2 line', 'likelihood': 3.700439718141092, 'classification': 'product'}
+{'position': '-1W gab line', 'likelihood': 3.4594316186372978, 'classification': 'phone'}
+{'position': '-1W product line', 'likelihood': 3.4594316186372978, 'classification': 'product'}
+{'position': '-1W food line', 'likelihood': 3.1699250014423126, 'classification': 'product'}
+{'position': '1W line said', 'likelihood': 3.1699250014423126, 'classification': 'product'}
+{'position': '1W line computers', 'likelihood': 3.1699250014423126, 'classification': 'product'}
+{'position': '1W line personal', 'likelihood': 3.1699250014423126, 'classification': 'product'}
+{'position': '2W line personal computers', 'likelihood': 3.1699250014423126, 'classification': 'product'}
+{'position': '1W line frozen', 'likelihood': 3.1699250014423126, 'classification': 'product'}
+{'position': '-1W products line', 'likelihood': 3.1699250014423126, 'classification': 'product'}
+{'position': '-1W 000 line', 'likelihood': 3.1699250014423126, 'classification': 'phone'}
+{'position': '-1W direct line', 'likelihood': 3.1699250014423126, 'classification': 'phone'}
+{'position': '-1W introduced line', 'likelihood': 3.1699250014423126, 'classification': 'product'}
+{'position': '-2W new ibm line', 'likelihood': 2.8073549220576046, 'classification': 'product'}
+{'position': '-1W ibm line', 'likelihood': 2.8073549220576046, 'classification': 'product'}
+{'position': '-2W recently introduced line', 'likelihood': 2.8073549220576046, 'classification': 'product'}
+{'position': '1W line growth', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-1W keep line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '1W line increased', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-2W private telephone line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-2W telephone access line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-1W trading line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-2W new telephone line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-1W private line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '1W line let', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-1W subscriber line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-2W new access line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-1W got line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '1W line grew', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '1W line went', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '2W line went dead', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '1W line service', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-1W party line', 'likelihood': 2.807354922057604, 'classification': 'phone'}
+{'position': '-1W new line', 'likelihood': 2.662965012722429, 'classification': 'product'}
+{'position': '-2W skin care line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-1W care line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-1W microprocessor line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-1W similar line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-1W launch line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '-1W company line', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+{'position': '1W line chevrolet', 'likelihood': 2.3219280948873626, 'classification': 'product'}
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                               ]2;fernak@mac-us-fernak:~/Git/ait590-Assignments/Assignment2]1;..s/Assignment2[0m[27m[24m[J[0m[49m[39m[0m[49m[39m[0m[49m[39m[0m[49m [0m[49m[38;5;31m [1m[38;5;31m[38;5;39m~[0m[38;5;39m[49m[38;5;31m/Git/[1m[38;5;31m[38;5;39mait590-Assignments[0m[38;5;39m[49m[38;5;31m/[1m[38;5;31m[38;5;39mAssignment2[0m[38;5;39m[49m[38;5;31m[0m[38;5;31m[49m[38;5;31m[0m[38;5;31m[49m [0m[38;5;31m[49m[38;5;178m[0m[38;5;178m[49m[38;5;76m [38;5;76m [38;5;76mmain [38;5;178m!1 [38;5;39m?3[0m[38;5;39m[49m[38;5;178m[0m[38;5;178m[49m [0m[38;5;178m[49m[38;5;76m❯[0m[38;5;76m[49m[38;5;76m[0m[38;5;76m[49m[30m[0m[30m[49m[39m [0m[49m[39m[K[138C[0m[49m[38;5;66m 14:11:04[0m[38;5;66m[49m[38;5;66m[0m[38;5;66m[49m[38;5;66m[0m[38;5;66m[49m[39m[148D[?1h=[?2004hhhead -10 my-line-answers.txt[?1l>[?2004l
+]2;head -10 my-line-answers.txt]1;headStarting Decision List
+<answer instance="line-n.w8_059:8174:" senseid="phone"/>
+<answer instance="line-n.w7_098:12684:" senseid="phone"/>
+<answer instance="line-n.w8_106:13309:" senseid="phone"/>
+<answer instance="line-n.w9_40:10187:" senseid="phone"/>
+<answer instance="line-n.w9_16:217:" senseid="phone"/>
+<answer instance="line-n.w8_119:16927:" senseid="product"/>
+<answer instance="line-n.w8_008:13756:" senseid="product"/>
+<answer instance="line-n.w8_041:15186:" senseid="phone"/>
+<answer instance="line-n.art7} aphb 05601797:" senseid="phone"/>
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                               ]2;fernak@mac-us-fernak:~/Git/ait590-Assignments/Assignment2]1;..s/Assignment2[0m[27m[24m[J[0m[49m[39m[0m[49m[39m[0m[49m[39m[0m[49m [0m[49m[38;5;31m [1m[38;5;31m[38;5;39m~[0m[38;5;39m[49m[38;5;31m/Git/[1m[38;5;31m[38;5;39mait590-Assignments[0m[38;5;39m[49m[38;5;31m/[1m[38;5;31m[38;5;39mAssignment2[0m[38;5;39m[49m[38;5;31m[0m[38;5;31m[49m[38;5;31m[0m[38;5;31m[49m [0m[38;5;31m[49m[38;5;178m[0m[38;5;178m[49m[38;5;76m [38;5;76m [38;5;76mmain [38;5;178m!1 [38;5;39m?3[0m[38;5;39m[49m[38;5;178m[0m[38;5;178m[49m [0m[38;5;178m[49m[38;5;76m❯[0m[38;5;76m[49m[38;5;76m[0m[38;5;76m[49m[30m[0m[30m[49m[39m [0m[49m[39m[K[138C[0m[49m[38;5;66m 14:11:08[0m[38;5;66m[49m[38;5;66m[0m[38;5;66m[49m[38;5;66m[0m[38;5;66m[49m[39m[148D[?1h=[?2004hppython3 scorer.py my-line-answers.txt line-answers.txt[?1l>[?2004l
+]2;python3 scorer.py my-line-answers.txt line-answers.txt]1;python3
+Our Decision List Accuracy: 76.98 %
+
+ ----- Confusion Matrix ----- 
+        |     p |
+        |     r |
+        |  p  o |
+        |  h  d |
+        |  o  u |
+        |  n  c |
+        |  e  t |
+--------+-------+
+  phone |<49>23 |
+product |  6<48>|
+--------+-------+
+(row = reference; col = test)
+
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                               ]2;fernak@mac-us-fernak:~/Git/ait590-Assignments/Assignment2]1;..s/Assignment2[0m[27m[24m[J[0m[49m[39m[0m[49m[39m[0m[49m[39m[0m[49m [0m[49m[38;5;31m [1m[38;5;31m[38;5;39m~[0m[38;5;39m[49m[38;5;31m/Git/[1m[38;5;31m[38;5;39mait590-Assignments[0m[38;5;39m[49m[38;5;31m/[1m[38;5;31m[38;5;39mAssignment2[0m[38;5;39m[49m[38;5;31m[0m[38;5;31m[49m[38;5;31m[0m[38;5;31m[49m [0m[38;5;31m[49m[38;5;178m[0m[38;5;178m[49m[38;5;76m [38;5;76m [38;5;76mmain [38;5;178m!1 [38;5;39m?3[0m[38;5;39m[49m[38;5;178m[0m[38;5;178m[49m [0m[38;5;178m[49m[38;5;76m❯[0m[38;5;76m[49m[38;5;76m[0m[38;5;76m[49m[30m[0m[30m[49m[39m [0m[49m[39m[K[138C[0m[49m[38;5;66m 14:11:14[0m[38;5;66m[49m[38;5;66m[0m[38;5;66m[49m[38;5;66m[0m[38;5;66m[49m[39m[148D[?1h=[?2004heexit[?1l>[?2004l
+]2;exit]1;exit
+Script done on Mon Jul  5 14:11:18 2021

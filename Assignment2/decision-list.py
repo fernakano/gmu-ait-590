@@ -120,7 +120,8 @@ def create_training_dict_from_xml(xml):
 
 def create_collocation_distribution(training_dict):
     """
-
+    using the training dictionary create a collocation distribution table for using later to create decision list.
+    this is referent on the collocation distribution from yarowski article.
     :param training_dict:
     :return:
     """
@@ -169,8 +170,13 @@ def create_collocation_distribution(training_dict):
     return collocation_distribution
 
 
-# Step 4 of the Article
 def create_decision_list_from_conditinal_prob(cpdist):
+    """
+    Step 4 of the Yarowski Article, we use the conditional probability of the collocation table
+    to create the decision list.
+    :param cpdist:
+    :return: decision list
+    """
     decision_list = []
     # calculate log likelihood
     for position in cpdist.conditions():
@@ -187,6 +193,13 @@ def create_decision_list_from_conditinal_prob(cpdist):
 
 
 def lookup_decision_list(decision_list, value):
+    """
+    this function is used to lookup the collocation in the decision list to identify the likelihood
+    of the collocated term.
+    :param decision_list:
+    :param value:
+    :return:
+    """
     return list(filter(lambda dl: dl['position'] in [value], decision_list))
 
 

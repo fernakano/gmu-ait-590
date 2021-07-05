@@ -28,17 +28,26 @@
 #
 # The expected output of current application is as follows:
 #
+# First use the inputs to create the decision list
+# decision list likelihood is created based on the ConditionalFreqDistribution
+# which is used in the ConditionalProbDist to get the likelihood of each collocated item in the collocation table.
 # Decision LIst:
 # {'position': '-1W telephone line', 'likelihood': 6.149747119504682, 'classification': 'phone'}
 # {'position': '-1W car line', 'likelihood': 4.392317422778761, 'classification': 'product'}
 # {'position': '1W line rose', 'likelihood': 2.3219280948873626, 'classification': 'product'}
 # {'position': '-2W recently introduced line', 'likelihood': 2.8073549220576046, 'classification': 'product'}
 #
+#
+# After we have the decison list we lookup the sense probability based on the max likelihood of collocations.
+# and output in the same format as the line-answers.txt for easier scoring later on.
 # Predicted answers:
 # <answer instance="line-n.w8_059:8174:" senseid="phone"/>
 # <answer instance="line-n.w7_098:12684:" senseid="phone"/>
 # <answer instance="line-n.w8_119:16927:" senseid="product"/>
 # <answer instance="line-n.w8_008:13756:" senseid="product"/>
+#
+# We read both line-answers.txt and my-line-answers.txt as input on the scorer to compare our results and find
+# the accuracy of our predictions.
 #
 # Output from Scorer.py:
 #

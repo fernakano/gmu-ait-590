@@ -1,10 +1,19 @@
 ###############################################################################
-# Group 3                                                                     #
-# Assignment 2 - WSD                                                          #
-#  Assuming you have python 3                                                 #
+# Assignment 2 - WSD    decision-list                                         #
+# AIT-590, Summer 2021                                                        #
+# Group 3: Fernando, Melissa, Archer                                          #
+# July 4, 2021                                                                #
+#                                                                             #
+# Assuming you have python 3                                                  #
 # TO EXECUTE RUN:                                                             #
 #  python decision-list.py line-train.xml line-test.xml my-decision-list.txt  #
 ###############################################################################
+#######################################
+#                ELIZA                #
+# AIT-590, Summer 2021                #
+# Group 3: Fernando, Melissa, Archer  #
+# June 15, 2021                       #
+#######################################
 #
 # This is an application that will work to do Word Sense Desambiguation for a specific word,
 # on this case specifically the word "line".

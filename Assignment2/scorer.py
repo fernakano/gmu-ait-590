@@ -1,6 +1,9 @@
 ###############################################################################
-# Group 3                                                                     #
-# Assignment 2 - WSD                                                          #
+# Assignment 2 - WSD      Scorer                                              #
+# AIT-590, Summer 2021                                                        #
+# Group 3: Fernando, Melissa, Archer                                          #
+# July 4, 2021                                                                #
+#                                                                             #
 #  Assuming you have python 3                                                 #
 # TO EXECUTE RUN:                                                             #
 #  python scorer.py my-line-answers.txt line-answers.txt                      #

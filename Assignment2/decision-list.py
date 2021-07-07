@@ -8,12 +8,6 @@
 # TO EXECUTE RUN:                                                             #
 #  python decision-list.py line-train.xml line-test.xml my-decision-list.txt  #
 ###############################################################################
-#######################################
-#                ELIZA                #
-# AIT-590, Summer 2021                #
-# Group 3: Fernando, Melissa, Archer  #
-# June 15, 2021                       #
-#######################################
 #
 # This is an application that will work to do Word Sense Desambiguation for a specific word,
 # on this case specifically the word "line".
@@ -387,18 +381,12 @@ def main():
         print(warn_str)
 
     # In order to use the expected "script" command from the Assignment instruction we dont run things automatically
-    # create scorer.py
+    # run scorer.py
     # display confusion matrix
-    # with open('my-line-answers.txt', 'w') as f:
+
     for item in testing_results:
         result = f'<answer instance="{item["id"]}" senseid="{item["sense"]}"/>'
         print(result)
-        # f.write(result)
-        # f.write('\n')
-    # print("done")
-
-    # Get performance metrics using scorer utility class
-    # performance = scorer.main()
 
 
 if __name__ == "__main__":

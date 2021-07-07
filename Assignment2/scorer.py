@@ -4,7 +4,7 @@
 # Group 3: Fernando, Melissa, Archer                                          #
 # July 4, 2021                                                                #
 #                                                                             #
-#  Assuming you have python 3                                                 #
+# Assuming you have python 3                                                  #
 # TO EXECUTE RUN:                                                             #
 #  python scorer.py my-line-answers.txt line-answers.txt                      #
 ###############################################################################
@@ -13,8 +13,33 @@
 scorer.py is a utility function to support evaluation of the output of decision-list.py.  
 scorer.py takes as input our sense tagged output (my-line-answers.txt) and 
 compares it with the gold standard "key" data in line-answers.txt. scorer.py
-reports the overall accuracy of our tagging, and provides a confusion matrix similar to the one found
-on page 156 of JM. This program should write output to STDOUT. 
+reports the overall accuracy of our tagging, and provides a confusion 
+matrix similar to the one found on page 156 of JM. This program writes 
+output to STDOUT. 
+
+We use BeautifulSoup to parse the xml data inputs, and NLTK's ConfusionMatrix to 
+generate the confusion matrix output.  We determine accuracy by dividing the 
+count of correct labels by the total number of labels assigned.  
+
+Example Execution and Output:
+(ml-env) Melissas-MBP:Assignment2 melissacirtain$ python scorer.py my-line-answers.txt line-answers.txt
+
+Our Decision List Accuracy: 76.98 %
+
+ ----- Confusion Matrix ----- 
+        |     p |
+        |     r |
+        |  p  o |
+        |  h  d |
+        |  o  u |
+        |  n  c |
+        |  e  t |
+--------+-------+
+  phone |<49>23 |
+product |  6<48>|
+--------+-------+
+(row = reference; col = test)
+
 '''
 import re
 import sys

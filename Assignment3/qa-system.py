@@ -9,13 +9,40 @@
 #  python qa-system.py                #
 #######################################
 """
-Description:
+DESCRIPTION: 
+ 
+qa-system.py uses pattern matching and intelligent parsing to answer
+user-provided questions of who/where/what/when in an interactive
+environment.  Questions are parsed for which w-word, and are processed
+individually depending on entities identified, nouns, and POS positions.
 
-BONUS Functionality:  Use SpaCy's NER to perform advanced
+BONUS FUNCTIONALITY:  
+
+Use SpaCy's NER to perform advanced
 entity recognition to assist with improved question understanding
 and accuracy of answers!
 
 Example Output:
+
+(ml-env) melissas-mbp:Assignment3 melissacirtain$ python qa-system.py 
+hello!
+
+    This is a QA system by AIT590 Group 3.  It will try to answer
+    your questions that start with Who, What, When, or Where.  Enter "exit"
+    to leave the program.
+
+=?> what is a garden?
+=>  A garden is a planned space, usually outdoors, set aside for the display, cultivation, or enjoyment of plants and other forms of nature, as an ideal setting for social or solitary human life.
+
+=?> who is George Washington?
+=>  George Washington (February 22, 1732 – December 14, 1799) was an American political leader, military general, statesman, and Founding Father of the United States, who served as the first president of the United States from 1789 to 1797.
+
+=?> Why do we exist?
+=>  I am sorry, I can only answer questions starting with Who, What, When or Where.
+
+=?> exit
+
+Thank you!  Goodbye.
 
 """
 

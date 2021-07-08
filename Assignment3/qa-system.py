@@ -10,7 +10,7 @@
 #######################################
 """
 DESCRIPTION: 
- 
+
 qa-system.py uses pattern matching and intelligent parsing to answer
 user-provided questions of who/where/what/when in an interactive
 environment.  Questions are parsed for which w-word, and are processed
@@ -140,6 +140,8 @@ def query_wiki(qstn, nes):
 def answer_who(qstn, nes, long_answer):
     ''' handle questions beginning with "who" '''
 
+    # TODO: finish this function
+
     answer = long_answer[0] # default
 
     # TODO: formulate a number of "who" answers around the NE or Noun results for XYZ
@@ -155,6 +157,8 @@ def answer_who(qstn, nes, long_answer):
 def answer_what(qstn, nes, long_answer):
     ''' handle questions beginning with "what" '''
 
+    # TODO: finish this function
+
     answer = long_answer[0] # default
 
     # TODO: formulate a number of "what" questions/answers around the NEs
@@ -166,6 +170,7 @@ def answer_what(qstn, nes, long_answer):
 
 def answer_when(qstn, nes, long_answer):
     ''' handle questions beginning with "when" '''
+    # TODO: finish this function
 
     answer = long_answer[0] # default
 
@@ -178,6 +183,8 @@ def answer_when(qstn, nes, long_answer):
 
 def answer_where(qstn, nes, long_answer):
     ''' handle questions beginning with "where" '''
+
+    # TODO: finish this function
 
     answer = long_answer[0] # default
 
@@ -202,34 +209,29 @@ def send_qstn_to_switchboard(qstn):
         # we have no results to parse, return idk
         return "I'm sorry, I do not know the answer."
 
-    # look up an answer to the question:
-    # TODO: lookup an answer, return 'some answer for now'
 
     # get the first word
     w_word = re.match(r"^([\w\-]+)", qstn.lower())
     
     # answer depending on first word (who/what/where/when)
     if w_word.group().lower() == 'who':
-        # TODO: handle 'who' type questions
-        #print('WHO!')
+        # handle 'who' type questions
         ans = answer_who(qstn, nes, long_answer)
 
     elif w_word.group().lower() == 'what':
-        # TODO: handle 'what' type questions
-        #('WHAT!')
+        # handle 'what' type questions
         ans = answer_what(qstn, nes, long_answer)
 
     elif w_word.group().lower() == 'where':
-        # TODO: handle 'where' type questions
+        # handle 'where' type questions
         ans = answer_where(qstn, nes, long_answer)
-        #print('WHERE!')
 
     elif w_word.group().lower() == 'when':
-        # TODO: handle 'when' type questions
+        # handle 'when' type questions
         ans = answer_when(qstn, nes, long_answer)
-        #print('WHEN!')
 
     else:
+        # ERROR - case not handled
         print('ERROR--should not get here...')
         assert False    
 
@@ -237,16 +239,17 @@ def send_qstn_to_switchboard(qstn):
 
 
 def process_questions(qstn):
-    ''' determine question and look up/return answer'''
+    ''' validate questions, request answers, prompt for next question'''
 
     # validate question begins with who, what, when, or where
-    if not qstn_is_valid(qstn):
-        ans = 'I am sorry, I can only answer questions starting with '
-        ans += 'Who, What, When or Where.' 
+
+    if qstn_is_valid(qstn):
+        # question is valid; try to find an answer
+        ans = send_qstn_to_switchboard(qstn)
 
     else:
-        # try to find an answer
-        ans = send_qstn_to_switchboard(qstn)  
+        ans = 'I am sorry, I can only answer questions starting with '
+        ans += 'Who, What, When or Where.' 
 
     # respond and get next question        
     qstn = input(f'=>  {ans}\n\n=?> ')

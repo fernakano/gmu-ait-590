@@ -22,6 +22,7 @@ Example Output:
 # for teting: try running with these questions:
 # who is the National Park Service and is it part of the USA? Is Melissa available?
 # what is the date?
+# =?> who wrote God Bless the USA?
 
 import sys
 import wikipedia
@@ -77,9 +78,9 @@ def query_wiki(qstn, nes):
     long_answer = ''
     summaries = []
 
-    # TODO: implement wikipedia/google queries
+    # wikipedia/google queries
     for ne in nes:
-        print(f'querying on ne {ne.text}')
+        #print(f'querying on ne {ne.text}')
         titles = wikipedia.search(ne.text)
         for t in titles:
             try:
@@ -88,9 +89,22 @@ def query_wiki(qstn, nes):
             except Exception as e:
                 pass
 
-        print(f'Summaries:')
-        for s in summaries:
-            print(s[0:50])
+        #print(f'Summaries:')
+        #for s in summaries:
+        #    print(s[0:50])
+    
+    if summaries == []:
+        # try the nouns if no results with entity search
+        mytext = nlp(qstn)
+        nouns = [x for x in mytext if x.pos_ == 'NOUN']
+        #print('Found Nouns:')
+        #print(nouns)
+        for n in nouns:
+            try:
+                page = wikipedia.page(n.text)
+                summaries.append(wikipedia.summary(n.text, sentences=1))
+            except Exception as e:
+                print(f'in noun try, failed: {e}')
 
     return summaries
 
@@ -98,12 +112,15 @@ def query_wiki(qstn, nes):
 def answer_who(qstn, nes, long_answer):
     ''' handle questions beginning with "who" '''
 
-    # TODO: formulate a number of "who" answers around the NE result, XYZ
-    # 1. who is XYZ: XYZ is|was ABC
-    # 2. who <VERB> XYZ: ABC <VERBED> XYZ
-    # 3. who is the XYZ: ABX is the XYZ
+    answer = long_answer[0] # default
 
-    answer = 'ABC answer'
+    # TODO: formulate a number of "who" answers around the NE or Noun results for XYZ
+    # 1. who is XYZ: XYZ is|was ABC (first summary on XYZ?)
+    # 2. who <VERB> XYZ: ABC <VERBED> XYZ (lemmatize and form answer?)
+    # 3. who is the XYZ: ABC is the XYZ (substitute the name for "who")
+    # 4. else "I don't know"
+    
+    print(answer)
     return answer
 
 
@@ -111,7 +128,7 @@ def answer_what(qstn, nes, long_answer):
     ''' handle questions beginning with "what" '''
 
     # TODO: formulate a number of "what" questions/answers around the NEs
-    # 1. what is the XYZ: XYZ is ABC
+    # 1. what is the|a XYZ: XYZ is ABC (maybe first summary?)
     # ...
 
     answer = 'ABC answer'
@@ -143,11 +160,16 @@ def answer_where(qstn, nes, long_answer):
 def get_answer(qstn):
     '''use online resources to try to answer question.'''
 
-    # get NERs from spacy
+    # get Named Entitiess from spacy
     nes = get_nes(qstn)
     
-    # query for data
+    # query for data with named entities (or nouns if no NEs)
     long_answer = query_wiki(qstn, nes)
+    
+    # handle no results
+    if long_answer == []:
+        # we have no results to parse, return idk
+        return "I'm sorry, I do not know the answer."
 
     # look up an answer to the question:
     # TODO: lookup an answer, return 'some answer for now'
@@ -180,7 +202,7 @@ def get_answer(qstn):
         print('ERROR--should not get here...')
         assert False    
 
-    return 'some answer for now'
+    return ans
 
 
 def answer_questions(qstn):

@@ -64,10 +64,11 @@ def get_nes(qstn):
 
     for entity in mytext.ents:
         nes.append(entity)
-        print(f'entity: {entity}, ({entity.label_})')
+        #print(f'entity: {entity}, ({entity.label_})')
 
     if nes == []:
-        print(f'no named entities found for {qstn}')
+        #print(f'no named entities found for {qstn}')
+        pass
 
     return nes
 
@@ -120,44 +121,47 @@ def answer_who(qstn, nes, long_answer):
     # 3. who is the XYZ: ABC is the XYZ (substitute the name for "who")
     # 4. else "I don't know"
     
-    print(answer)
+    #print(answer)
     return answer
 
 
 def answer_what(qstn, nes, long_answer):
     ''' handle questions beginning with "what" '''
 
+    answer = long_answer[0] # default
+
     # TODO: formulate a number of "what" questions/answers around the NEs
     # 1. what is the|a XYZ: XYZ is ABC (maybe first summary?)
     # ...
 
-    answer = 'ABC answer'
     return answer
 
 
 def answer_when(qstn, nes, long_answer):
     ''' handle questions beginning with "when" '''
 
+    answer = long_answer[0] # default
+
     # TODO: formulate a number of "when" questions/answers around the NEs
     # 1. when is XYZ: XYZ is at|on|after|during|in ABC
     # ...
 
-    answer = 'ABC answer'
     return answer
 
 
 def answer_where(qstn, nes, long_answer):
     ''' handle questions beginning with "where" '''
 
+    answer = long_answer[0] # default
+
     # TODO: formulate a number of "where" questions/answers around the NEs
     # 1. where is the XYZ: XYZ is in|at|on (the)+ ABC
     # ...
 
-    answer = 'ABC answer'
     return answer
 
 
-def get_answer(qstn):
+def send_qstn_to_switchboard(qstn):
     '''use online resources to try to answer question.'''
 
     # get Named Entitiess from spacy
@@ -180,23 +184,23 @@ def get_answer(qstn):
     # answer depending on first word (who/what/where/when)
     if w_word.group().lower() == 'who':
         # TODO: handle 'who' type questions
-        print('WHO!')
+        #print('WHO!')
         ans = answer_who(qstn, nes, long_answer)
 
     elif w_word.group().lower() == 'what':
         # TODO: handle 'what' type questions
-        print('WHAT!')
+        #('WHAT!')
         ans = answer_what(qstn, nes, long_answer)
 
     elif w_word.group().lower() == 'where':
         # TODO: handle 'where' type questions
         ans = answer_where(qstn, nes, long_answer)
-        print('WHERE!')
+        #print('WHERE!')
 
     elif w_word.group().lower() == 'when':
         # TODO: handle 'when' type questions
         ans = answer_when(qstn, nes, long_answer)
-        print('WHEN!')
+        #print('WHEN!')
 
     else:
         print('ERROR--should not get here...')
@@ -205,7 +209,7 @@ def get_answer(qstn):
     return ans
 
 
-def answer_questions(qstn):
+def process_questions(qstn):
     ''' determine question and look up/return answer'''
 
     # validate question begins with who, what, when, or where
@@ -215,7 +219,7 @@ def answer_questions(qstn):
 
     else:
         # try to find an answer
-        ans = get_answer(qstn)  
+        ans = send_qstn_to_switchboard(qstn)  
 
     # respond and get next question        
     qstn = input(f'=>  {ans}\n\n=?> ')
@@ -231,7 +235,7 @@ def main():
     
     # run q&a loops
     while qstn != 'exit':
-        qstn = answer_questions(qstn)
+        qstn = process_questions(qstn)
     
     # time to go
     if qstn == 'exit':

@@ -188,7 +188,6 @@ def answer_when(qstn, nes, long_answer):
                             print(sent.text)
                             possible_answers.append(sent.text)
 
-
     # answer = long_answer[0] # default
     try:
         for pansw in possible_answers:
@@ -207,11 +206,39 @@ def answer_when(qstn, nes, long_answer):
 
 def answer_where(qstn, nes, long_answer):
     ''' handle questions beginning with "where" '''
+    answer = "I am sorry, I don't know the answer."
 
     # TODO: finish this function
+    verbs = []
+    location = []
+    possible_answers = []
+    prep = "is located"
 
-    answer = long_answer[0]  # default
+    for word in nlp(qstn).doc:
+        if word.pos_ == "VERB":
+            verbs.append(word)
 
+    for lanswer in long_answer:
+        for sent in nlp(lanswer).doc.sents:
+            for verb in verbs:
+                if str(verb.lemma_) in sent.lemma_.lower():
+                    prep = str(verb)
+            for ne in nes:
+                if ne.text.lower() in sent.text.lower():
+                    for ent in sent.ents:
+                        if ent.label_ in ["GPE"] and len(sent.conjuncts) == 0:
+                            location.append(ent.text)
+                    if len(location) > 0:
+                        possible_answers.append(ne.text + " " + prep + " in " + ", ".join(set(location)))
+
+    if len(possible_answers) > 0:
+        for panswr in possible_answers:
+            if len(verbs) > 0:
+                for verb in verbs:
+                    if str(verb) in panswr:
+                        return panswr
+            else:
+                return possible_answers[0]
     # TODO: formulate a number of "where" questions/answers around the NEs
     # 1. where is the XYZ: XYZ is in|at|on (the)+ ABC
     # ...

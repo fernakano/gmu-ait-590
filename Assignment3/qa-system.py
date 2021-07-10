@@ -155,7 +155,7 @@ def get_verbs_from_nlp_doc(qstn_nlp):
     verbs = []
     for word in qstn_nlp.doc:
         if word.pos_ == "VERB":
-            verbs.append(word.lemma_)
+            verbs.append(word)
     return verbs
 
 
@@ -235,7 +235,7 @@ def answer_when(qstn, nes, long_answer):
     for lanswer in long_answer:
         for sent in nlp(lanswer).doc.sents:
             for verb in verbs:
-                if str(verb) in sent.lemma_.lower():
+                if str(verb.lemma_) in sent.lemma_.lower():
                     for ne in nes:
                         if ne.text.lower() in sent.text.lower():
                             possible_answers.append(sent.text)

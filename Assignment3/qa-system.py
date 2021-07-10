@@ -136,7 +136,7 @@ def query_wiki(qstn, nes):
                     try:
                         summaries.append(
                             wikipedia.summary(title=t, sentences=200, auto_suggest=False, redirect=True)
-                            .replace('\n', '. '))
+                                .replace('\n', '. '))
                     # To resolve Disambiguation errors
                     except wikipedia.DisambiguationError as e:
                         for option in e.options:
@@ -149,6 +149,14 @@ def query_wiki(qstn, nes):
                 print(f'in noun try, failed: {e}')
 
     return summaries
+
+
+def get_verbs_from_nlp_doc(qstn_nlp):
+    verbs = []
+    for word in qstn_nlp.doc:
+        if word.pos_ == "VERB":
+            verbs.append(word.lemma_)
+    return verbs
 
 
 def answer_who(qstn, nes, long_answer):
@@ -175,10 +183,7 @@ def answer_what(qstn, nes, long_answer):
 
     qstn_nlp = nlp(qstn)
 
-    verbs = []
-    for word in qstn_nlp.doc:
-        if word.pos_ == "VERB":
-            verbs.append(word.lemma_)
+    verbs = get_verbs_from_nlp_doc(qstn_nlp)
 
     if not nes:
         for word in qstn_nlp:
@@ -213,12 +218,9 @@ def answer_when(qstn, nes, long_answer):
     ''' handle questions beginning with "when" '''
     # TODO: finish this function
     answer = "I am sorry, I don't know the answer."
-    verbs = []
     qstn_nlp = nlp(qstn)
 
-    for word in qstn_nlp.doc:
-        if word.pos_ == "VERB":
-            verbs.append(word.lemma_)
+    verbs = get_verbs_from_nlp_doc(qstn_nlp)
 
     if not nes:
         for word in qstn_nlp:
@@ -255,7 +257,6 @@ def answer_where(qstn, nes, long_answer):
     answer = "I am sorry, I don't know the answer."
 
     # TODO: finish this function
-    verbs = []
     location = []
     possible_answers = []
     prep = "is located"
@@ -267,9 +268,7 @@ def answer_where(qstn, nes, long_answer):
             if word.pos_ == "NOUN":
                 nes.append(word)
 
-    for word in qstn_nlp.doc:
-        if word.pos_ == "VERB":
-            verbs.append(word)
+    verbs = get_verbs_from_nlp_doc(qstn_nlp)
 
     for lanswer in long_answer:
         for sent in nlp(lanswer).doc.sents:

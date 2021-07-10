@@ -58,7 +58,7 @@ import spacy
 import en_core_web_sm
 
 # load English tokenizer, tagger, parser, NER, and word vectors
-nlp = en_core_web_sm.load() # load here, takes a sec
+nlp = en_core_web_sm.load()  # load here, takes a sec
 
 
 def make_introduction():
@@ -91,10 +91,10 @@ def get_nes(qstn):
 
     for entity in mytext.ents:
         nes.append(entity)
-        #print(f'entity: {entity}, ({entity.label_})')
+        # print(f'entity: {entity}, ({entity.label_})')
 
     if nes == []:
-        #print(f'no named entities found for {qstn}')
+        # print(f'no named entities found for {qstn}')
         pass
 
     return nes
@@ -108,7 +108,7 @@ def query_wiki(qstn, nes):
 
     # wikipedia/google queries
     for ne in nes:
-        #print(f'querying on ne {ne.text}')
+        # print(f'querying on ne {ne.text}')
         titles = wikipedia.search(ne.text)
         for t in titles:
             try:
@@ -118,16 +118,16 @@ def query_wiki(qstn, nes):
             except Exception as e:
                 pass
 
-        #print(f'Summaries:')
-        #for s in summaries:
+        # print(f'Summaries:')
+        # for s in summaries:
         #    print(s[0:50])
 
     if summaries == []:
         # try the nouns if no results with entity search
         mytext = nlp(qstn)
         nouns = [x for x in mytext if x.pos_ == 'NOUN']
-        #print('Found Nouns:')
-        #print(nouns)
+        # print('Found Nouns:')
+        # print(nouns)
         for n in nouns:
             try:
                 page = wikipedia.page(n.text)
@@ -143,7 +143,7 @@ def answer_who(qstn, nes, long_answer):
 
     # TODO: finish this function
 
-    answer = long_answer[0] # default
+    answer = long_answer[0]  # default
 
     # TODO: formulate a number of "who" answers around the NE or Noun results for XYZ
     # 1. who is XYZ: XYZ is|was ABC (first summary on XYZ?)
@@ -151,7 +151,7 @@ def answer_who(qstn, nes, long_answer):
     # 3. who is the XYZ: ABC is the XYZ (substitute the name for "who")
     # 4. else "I don't know"
 
-    #print(answer)
+    # print(answer)
     return answer
 
 
@@ -160,7 +160,7 @@ def answer_what(qstn, nes, long_answer):
 
     # TODO: finish this function
 
-    answer = long_answer[0] # default
+    answer = long_answer[0]  # default
 
     # TODO: formulate a number of "what" questions/answers around the NEs
     # 1. what is the|a XYZ: XYZ is ABC (maybe first summary?)
@@ -172,25 +172,29 @@ def answer_what(qstn, nes, long_answer):
 def answer_when(qstn, nes, long_answer):
     ''' handle questions beginning with "when" '''
     # TODO: finish this function
-    answer = "i don't understand the question, can you ask again?"
+    answer = "I am sorry, I don't know the answer."
     verbs = []
     for word in nlp(qstn).doc:
         if word.pos_ == "VERB":
-            verbs.append(word)
+            verbs.append(word.lemma_)
 
     possible_answers = []
-    for sent in nlp(long_answer[0]).doc.sents:
-        for verb in verbs:
-            if str(verb) in sent.text.lower():
-                possible_answers.append(sent.text)
+    for lanswer in long_answer:
+        for sent in nlp(lanswer).doc.sents:
+            for verb in verbs:
+                if str(verb) in sent.lemma_.lower():
+                    for ne in nes:
+                        if ne.text.lower() in sent.text.lower():
+                            print(sent.text)
+                            possible_answers.append(sent.text)
+
 
     # answer = long_answer[0] # default
     try:
-        answer = possible_answers[0]
         for pansw in possible_answers:
             for ent in nlp(pansw).ents:
                 if ent.label_ == "DATE":
-                    answer = nlp(pansw).doc[:ent.end]
+                    return nlp(pansw).doc[:ent.end]
 
     except Exception as e:
         print(f'i dont understand {e}')
@@ -206,7 +210,7 @@ def answer_where(qstn, nes, long_answer):
 
     # TODO: finish this function
 
-    answer = long_answer[0] # default
+    answer = long_answer[0]  # default
 
     # TODO: formulate a number of "where" questions/answers around the NEs
     # 1. where is the XYZ: XYZ is in|at|on (the)+ ABC
@@ -228,7 +232,6 @@ def send_qstn_to_switchboard(qstn):
     if long_answer == []:
         # we have no results to parse, return idk
         return "I'm sorry, I do not know the answer."
-
 
     # get the first word
     w_word = re.match(r"^([\w\-]+)", qstn.lower())

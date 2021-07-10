@@ -159,6 +159,14 @@ def get_verbs_from_nlp_doc(qstn_nlp):
     return verbs
 
 
+def get_nouns_from_nlp_doc(qstn_nlp):
+    nouns = []
+    for word in qstn_nlp:
+        if word.pos_ == "NOUN":
+            nouns.append(word)
+    return nouns
+
+
 def answer_who(qstn, nes, long_answer):
     ''' handle questions beginning with "who" '''
 
@@ -186,9 +194,7 @@ def answer_what(qstn, nes, long_answer):
     verbs = get_verbs_from_nlp_doc(qstn_nlp)
 
     if not nes:
-        for word in qstn_nlp:
-            if word.pos_ == "NOUN":
-                nes.append(word)
+        nes.extend(get_nouns_from_nlp_doc(qstn_nlp))
 
     possible_answers = []
     for lanswer in long_answer:
@@ -223,9 +229,7 @@ def answer_when(qstn, nes, long_answer):
     verbs = get_verbs_from_nlp_doc(qstn_nlp)
 
     if not nes:
-        for word in qstn_nlp:
-            if word.pos_ == "NOUN":
-                nes.append(word)
+        nes.extend(get_nouns_from_nlp_doc(qstn_nlp))
 
     possible_answers = []
     for lanswer in long_answer:
@@ -264,9 +268,7 @@ def answer_where(qstn, nes, long_answer):
     qstn_nlp = nlp(qstn)
 
     if not nes:
-        for word in qstn_nlp:
-            if word.pos_ == "NOUN":
-                nes.append(word)
+        nes.extend(get_nouns_from_nlp_doc(qstn_nlp))
 
     verbs = get_verbs_from_nlp_doc(qstn_nlp)
 

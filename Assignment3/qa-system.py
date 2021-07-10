@@ -186,7 +186,6 @@ def answer_who(qstn, nes, long_answer):
 
 def answer_what(qstn, nes, long_answer):
     ''' handle questions beginning with "what" '''
-    answer = "I am sorry, I don't know the answer."
     # TODO: finish this functionW
 
     qstn_nlp = nlp(qstn)
@@ -211,19 +210,17 @@ def answer_what(qstn, nes, long_answer):
                         return panswr
             else:
                 return possible_answers[0]
-    # answer = long_answer[0]  # default
 
     # TODO: formulate a number of "what" questions/answers around the NEs
     # 1. what is the|a XYZ: XYZ is ABC (maybe first summary?)
     # ...
 
-    return answer
+    return ""
 
 
 def answer_when(qstn, nes, long_answer):
     ''' handle questions beginning with "when" '''
     # TODO: finish this function
-    answer = "I am sorry, I don't know the answer."
     qstn_nlp = nlp(qstn)
 
     verbs = get_verbs_from_nlp_doc(qstn_nlp)
@@ -244,8 +241,6 @@ def answer_when(qstn, nes, long_answer):
             #             if ne.text.lower() in sent.text.lower():
             #                 possible_answers.append(sent.text)
 
-
-    # answer = long_answer[0] # default
     try:
         if len(possible_answers) > 0:
             for pansw in possible_answers:
@@ -273,13 +268,11 @@ def answer_when(qstn, nes, long_answer):
     # 1. when is XYZ: XYZ is at|on|after|during|in ABC
     # ...
 
-    return answer
+    return ""
 
 
 def answer_where(qstn, nes, long_answer):
     ''' handle questions beginning with "where" '''
-    answer = "I am sorry, I don't know the answer."
-
     # TODO: finish this function
     location = []
     possible_answers = []
@@ -317,7 +310,7 @@ def answer_where(qstn, nes, long_answer):
     # 1. where is the XYZ: XYZ is in|at|on (the)+ ABC
     # ...
 
-    return answer
+    return ""
 
 
 def send_qstn_to_switchboard(qstn):
@@ -336,6 +329,9 @@ def send_qstn_to_switchboard(qstn):
 
     # get the first word
     w_word = re.match(r"^([\w\-]+)", qstn.lower())
+
+    #default answer
+    default_ans = "I am sorry, I don't know the answer."
 
     # answer depending on first word (who/what/where/when)
     if w_word.group().lower() == 'who':
@@ -359,7 +355,7 @@ def send_qstn_to_switchboard(qstn):
         print('ERROR--should not get here...')
         assert False
 
-    return ans
+    return ans if ans != "" else default_ans
 
 
 def process_questions(qstn):

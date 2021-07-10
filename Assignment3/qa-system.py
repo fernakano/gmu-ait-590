@@ -82,7 +82,7 @@ def qstn_is_valid(qstn):
 
 def get_nes(qstn):
     '''return a list of Named Entities or an empty list if none found'''
-    
+
     # named entities list
     nes = []
 
@@ -113,14 +113,15 @@ def query_wiki(qstn, nes):
         for t in titles:
             try:
                 page = wikipedia.page(t)
-                summaries.append(wikipedia.summary(t, sentences=1))
+                # summaries.append(wikipedia.summary(t, sentences=1))
+                summaries.append(wikipedia.page(t).content)
             except Exception as e:
                 pass
 
         #print(f'Summaries:')
         #for s in summaries:
         #    print(s[0:50])
-    
+
     if summaries == []:
         # try the nouns if no results with entity search
         mytext = nlp(qstn)
@@ -149,7 +150,7 @@ def answer_who(qstn, nes, long_answer):
     # 2. who <VERB> XYZ: ABC <VERBED> XYZ (lemmatize and form answer?)
     # 3. who is the XYZ: ABC is the XYZ (substitute the name for "who")
     # 4. else "I don't know"
-    
+
     #print(answer)
     return answer
 
@@ -171,9 +172,28 @@ def answer_what(qstn, nes, long_answer):
 def answer_when(qstn, nes, long_answer):
     ''' handle questions beginning with "when" '''
     # TODO: finish this function
+    answer = "i don't understand the question, can you ask again?"
+    verbs = []
+    for word in nlp(qstn).doc:
+        if word.pos_ == "VERB":
+            verbs.append(word)
 
-    answer = long_answer[0] # default
+    possible_answers = []
+    for sent in nlp(long_answer[0]).doc.sents:
+        for verb in verbs:
+            if str(verb) in sent.text.lower():
+                possible_answers.append(sent.text)
 
+    # answer = long_answer[0] # default
+    try:
+        answer = possible_answers[0]
+        for pansw in possible_answers:
+            for ent in nlp(pansw).ents:
+                if ent.label_ == "DATE":
+                    answer = nlp(pansw).doc[:ent.end]
+
+    except Exception as e:
+        print(f'i dont understand {e}')
     # TODO: formulate a number of "when" questions/answers around the NEs
     # 1. when is XYZ: XYZ is at|on|after|during|in ABC
     # ...
@@ -200,10 +220,10 @@ def send_qstn_to_switchboard(qstn):
 
     # get Named Entitiess from spacy
     nes = get_nes(qstn)
-    
+
     # query for data with named entities (or nouns if no NEs)
     long_answer = query_wiki(qstn, nes)
-    
+
     # handle no results
     if long_answer == []:
         # we have no results to parse, return idk
@@ -212,7 +232,7 @@ def send_qstn_to_switchboard(qstn):
 
     # get the first word
     w_word = re.match(r"^([\w\-]+)", qstn.lower())
-    
+
     # answer depending on first word (who/what/where/when)
     if w_word.group().lower() == 'who':
         # handle 'who' type questions
@@ -233,7 +253,7 @@ def send_qstn_to_switchboard(qstn):
     else:
         # ERROR - case not handled
         print('ERROR--should not get here...')
-        assert False    
+        assert False
 
     return ans
 
@@ -249,11 +269,11 @@ def process_questions(qstn):
 
     else:
         ans = 'I am sorry, I can only answer questions starting with '
-        ans += 'Who, What, When or Where.' 
+        ans += 'Who, What, When or Where.'
 
-    # respond and get next question        
+    # respond and get next question
     qstn = input(f'=>  {ans}\n\n=?> ')
-    
+
     return qstn
 
 
@@ -262,11 +282,11 @@ def main():
 
     # introduction and prompt for first question input
     qstn = make_introduction()
-    
+
     # run q&a loops
     while qstn != 'exit':
         qstn = process_questions(qstn)
-    
+
     # time to go
     if qstn == 'exit':
         print('\nThank you!  Goodbye.\n')

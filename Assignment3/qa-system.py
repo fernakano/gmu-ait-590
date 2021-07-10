@@ -186,8 +186,6 @@ def answer_who(qstn, nes, long_answer):
 
 def answer_what(qstn, nes, long_answer):
     ''' handle questions beginning with "what" '''
-    # TODO: finish this functionW
-
     qstn_nlp = nlp(qstn)
 
     verbs = get_verbs_from_nlp_doc(qstn_nlp)
@@ -220,7 +218,6 @@ def answer_what(qstn, nes, long_answer):
 
 def answer_when(qstn, nes, long_answer):
     ''' handle questions beginning with "when" '''
-    # TODO: finish this function
     qstn_nlp = nlp(qstn)
 
     verbs = get_verbs_from_nlp_doc(qstn_nlp)
@@ -246,7 +243,8 @@ def answer_when(qstn, nes, long_answer):
                                     for text in nlp(possible_answer).doc:
                                         if str(verb.lemma_) == text.lemma_ and nes:
                                             if nes[0].text not in str(nlp(possible_answer).doc[:ent.end]):
-                                                return nes[0].text + " " + str(text) + " " + str(nlp(possible_answer).doc[:ent.end])
+                                                return nes[0].text + " " + str(text) + " " + str(
+                                                    nlp(possible_answer).doc[:ent.end])
                                             else:
                                                 return nlp(possible_answer).doc[:ent.end]
                         else:
@@ -267,11 +265,6 @@ def answer_when(qstn, nes, long_answer):
 
 def answer_where(qstn, nes, long_answer):
     ''' handle questions beginning with "where" '''
-    # TODO: finish this function
-    location = []
-    possible_answers = []
-    prep = "is located"
-
     qstn_nlp = nlp(qstn)
 
     if not nes:
@@ -279,6 +272,8 @@ def answer_where(qstn, nes, long_answer):
 
     verbs = get_verbs_from_nlp_doc(qstn_nlp)
 
+    prep = "is located"
+    location, possible_answers = [], []
     for lanswer in long_answer:
         for sent in nlp(lanswer).doc.sents:
             for verb in verbs:
@@ -324,7 +319,7 @@ def send_qstn_to_switchboard(qstn):
     # get the first word
     w_word = re.match(r"^([\w\-]+)", qstn.lower())
 
-    #default answer
+    # default answer
     default_ans = "I am sorry, I don't know the answer."
 
     # answer depending on first word (who/what/where/when)

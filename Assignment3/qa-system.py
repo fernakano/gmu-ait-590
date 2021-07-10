@@ -203,11 +203,11 @@ def answer_what(qstn, nes, long_answer):
                     possible_answers.append(sent.text)
 
     if len(possible_answers) > 0:
-        for panswr in possible_answers:
+        for possible_answer in possible_answers:
             if len(verbs) > 0:
                 for verb in verbs:
-                    if str(verb) in panswr:
-                        return panswr
+                    if str(verb) in possible_answer:
+                        return possible_answer
             else:
                 return possible_answers[0]
 
@@ -243,20 +243,20 @@ def answer_when(qstn, nes, long_answer):
 
     try:
         if len(possible_answers) > 0:
-            for pansw in possible_answers:
-                for ent in nlp(pansw).ents:
+            for possible_answer in possible_answers:
+                for ent in nlp(possible_answer).ents:
                     if ent.label_ == "DATE":
                         if len(verbs) > 0:
                             for verb in verbs:
-                                if str(verb) in pansw:
-                                    for text in nlp(pansw).doc:
+                                if str(verb) in possible_answer:
+                                    for text in nlp(possible_answer).doc:
                                         if str(verb.lemma_) == text.lemma_ and nes:
-                                            if nes[0].text not in str(nlp(pansw).doc[:ent.end]):
-                                                return nes[0].text + " " + str(text) + " " + str(nlp(pansw).doc[:ent.end])
+                                            if nes[0].text not in str(nlp(possible_answer).doc[:ent.end]):
+                                                return nes[0].text + " " + str(text) + " " + str(nlp(possible_answer).doc[:ent.end])
                                             else:
-                                                return nlp(pansw).doc[:ent.end]
+                                                return nlp(possible_answer).doc[:ent.end]
                         else:
-                            return nlp(pansw).doc[:ent.end]
+                            return nlp(possible_answer).doc[:ent.end]
 
         else:
             return possible_answers[0]
@@ -299,11 +299,11 @@ def answer_where(qstn, nes, long_answer):
                         possible_answers.append(ne.text + " " + prep + " in " + ", ".join(set(location)))
 
     if len(possible_answers) > 0:
-        for panswr in possible_answers:
+        for possible_answerr in possible_answers:
             if len(verbs) > 0:
                 for verb in verbs:
-                    if str(verb) in panswr:
-                        return panswr
+                    if str(verb) in possible_answerr:
+                        return possible_answerr
             else:
                 return possible_answers[0]
     # TODO: formulate a number of "where" questions/answers around the NEs

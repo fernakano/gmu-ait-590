@@ -141,7 +141,8 @@ def query_wiki(qstn, nes):
                     except wikipedia.DisambiguationError as e:
                         for option in e.options:
                             if nlp(option.lower()).similarity(nlp(str(n).lower())) > 0.9:
-                                summaries.append(wikipedia.WikipediaPage(t).content.replace('\n', '. '))
+                                summaries.append(wikipedia.WikipediaPage(t).content
+                                                 .replace('\n', '. '))  # help identify sentences on explicit break line
                                 continue
                     # summaries.append(wikipedia.summary(n.text, sentences=1))
                     # summaries.append(wikipedia.page(t).content)
@@ -235,20 +236,21 @@ def answer_when(qstn, nes, long_answer):
     try:
         if len(possible_answers) > 0:
             for possible_answer in possible_answers:
-                for ent in nlp(possible_answer).ents:
+                p_answer_nlp = nlp(possible_answer)
+                for ent in p_answer_nlp.ents:
                     if ent.label_ == "DATE":
                         if len(verbs) > 0:
                             for verb in verbs:
                                 if str(verb) in possible_answer:
-                                    for text in nlp(possible_answer).doc:
+                                    for text in p_answer_nlp.doc:
                                         if str(verb.lemma_) == text.lemma_ and nes:
-                                            if nes[0].text not in str(nlp(possible_answer).doc[:ent.end]):
+                                            if nes[0].text not in str(p_answer_nlp.doc[:ent.end]):
                                                 return nes[0].text + " " + str(text) + " " + str(
-                                                    nlp(possible_answer).doc[:ent.end])
+                                                    p_answer_nlp.doc[:ent.end])
                                             else:
-                                                return nlp(possible_answer).doc[:ent.end]
+                                                return p_answer_nlp.doc[:ent.end]
                         else:
-                            return nlp(possible_answer).doc[:ent.end]
+                            return p_answer_nlp.doc[:ent.end]
 
         else:
             return possible_answers[0]

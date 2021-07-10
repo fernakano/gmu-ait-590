@@ -234,21 +234,41 @@ def answer_when(qstn, nes, long_answer):
     possible_answers = []
     for lanswer in long_answer:
         for sent in nlp(lanswer).doc.sents:
-            for verb in verbs:
-                if str(verb.lemma_) in sent.lemma_.lower():
-                    for ne in nes:
-                        if ne.text.lower() in sent.text.lower():
-                            possible_answers.append(sent.text)
+            for ne in nes:
+                if ne.text.lower() in sent.text.lower():
+                    possible_answers.append(sent.text)
+
+            # for verb in verbs:
+            #     if str(verb.lemma_) in sent.lemma_.lower():
+            #         for ne in nes:
+            #             if ne.text.lower() in sent.text.lower():
+            #                 possible_answers.append(sent.text)
+
 
     # answer = long_answer[0] # default
     try:
-        for pansw in possible_answers:
-            for ent in nlp(pansw).ents:
-                if ent.label_ == "DATE":
-                    return nlp(pansw).doc[:ent.end]
+        if len(possible_answers) > 0:
+            for pansw in possible_answers:
+                for ent in nlp(pansw).ents:
+                    if ent.label_ == "DATE":
+                        if len(verbs) > 0:
+                            for verb in verbs:
+                                if str(verb) in pansw:
+                                    for text in nlp(pansw).doc:
+                                        if str(verb.lemma_) == text.lemma_ and nes:
+                                            if nes[0].text not in str(nlp(pansw).doc[:ent.end]):
+                                                return nes[0].text + " " + str(text) + " " + str(nlp(pansw).doc[:ent.end])
+                                            else:
+                                                return nlp(pansw).doc[:ent.end]
+                        else:
+                            return nlp(pansw).doc[:ent.end]
 
+        else:
+            return possible_answers[0]
     except Exception as e:
-        print(f'i dont understand {e}')
+        # print(f'i dont understand {e}')
+        pass
+
     # TODO: formulate a number of "when" questions/answers around the NEs
     # 1. when is XYZ: XYZ is at|on|after|during|in ABC
     # ...

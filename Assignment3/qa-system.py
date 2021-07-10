@@ -344,7 +344,7 @@ def send_qstn_to_switchboard(qstn):
         print('ERROR--should not get here...')
         assert False
 
-    return ans if ans != "" else default_ans
+    return str(ans) if str(ans) != "" else default_ans
 
 
 def process_questions(qstn):

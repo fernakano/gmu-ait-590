@@ -235,12 +235,6 @@ def answer_when(qstn, nes, long_answer):
                 if ne.text.lower() in sent.text.lower():
                     possible_answers.append(sent.text)
 
-            # for verb in verbs:
-            #     if str(verb.lemma_) in sent.lemma_.lower():
-            #         for ne in nes:
-            #             if ne.text.lower() in sent.text.lower():
-            #                 possible_answers.append(sent.text)
-
     try:
         if len(possible_answers) > 0:
             for possible_answer in possible_answers:

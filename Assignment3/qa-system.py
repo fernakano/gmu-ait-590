@@ -114,7 +114,8 @@ def query_wiki(qstn, nes):
             try:
                 page = wikipedia.page(t)
                 # summaries.append(wikipedia.summary(t, sentences=1))
-                summaries.append(wikipedia.page(t).content)
+                summaries.append(wikipedia.page(t).content
+                                 .replace('\n', '. '))  # This is to improve sentence break from spacy.
             except Exception as e:
                 pass
 
@@ -129,9 +130,21 @@ def query_wiki(qstn, nes):
         # print('Found Nouns:')
         # print(nouns)
         for n in nouns:
+            titles = wikipedia.search(n.text)
             try:
-                page = wikipedia.page(n.text)
-                summaries.append(wikipedia.summary(n.text, sentences=1))
+                for t in titles:
+                    try:
+                        summaries.append(
+                            wikipedia.summary(title=t, sentences=200, auto_suggest=False, redirect=True)
+                            .replace('\n', '. '))
+                    # To resolve Disambiguation errors
+                    except wikipedia.DisambiguationError as e:
+                        for option in e.options:
+                            if nlp(option.lower()).similarity(nlp(str(n).lower())) > 0.9:
+                                summaries.append(wikipedia.WikipediaPage(t).content.replace('\n', '. '))
+                                continue
+                    # summaries.append(wikipedia.summary(n.text, sentences=1))
+                    # summaries.append(wikipedia.page(t).content)
             except Exception as e:
                 print(f'in noun try, failed: {e}')
 
@@ -157,10 +170,37 @@ def answer_who(qstn, nes, long_answer):
 
 def answer_what(qstn, nes, long_answer):
     ''' handle questions beginning with "what" '''
+    answer = "I am sorry, I don't know the answer."
+    # TODO: finish this functionW
 
-    # TODO: finish this function
+    qstn_nlp = nlp(qstn)
 
-    answer = long_answer[0]  # default
+    verbs = []
+    for word in qstn_nlp.doc:
+        if word.pos_ == "VERB":
+            verbs.append(word.lemma_)
+
+    if not nes:
+        for word in qstn_nlp:
+            if word.pos_ == "NOUN":
+                nes.append(word)
+
+    possible_answers = []
+    for lanswer in long_answer:
+        for sent in nlp(lanswer).doc.sents:
+            for ne in nes:
+                if ne.text.lower() in sent.text.lower():
+                    possible_answers.append(sent.text)
+
+    if len(possible_answers) > 0:
+        for panswr in possible_answers:
+            if len(verbs) > 0:
+                for verb in verbs:
+                    if str(verb) in panswr:
+                        return panswr
+            else:
+                return possible_answers[0]
+    # answer = long_answer[0]  # default
 
     # TODO: formulate a number of "what" questions/answers around the NEs
     # 1. what is the|a XYZ: XYZ is ABC (maybe first summary?)
@@ -174,9 +214,16 @@ def answer_when(qstn, nes, long_answer):
     # TODO: finish this function
     answer = "I am sorry, I don't know the answer."
     verbs = []
-    for word in nlp(qstn).doc:
+    qstn_nlp = nlp(qstn)
+
+    for word in qstn_nlp.doc:
         if word.pos_ == "VERB":
             verbs.append(word.lemma_)
+
+    if not nes:
+        for word in qstn_nlp:
+            if word.pos_ == "NOUN":
+                nes.append(word)
 
     possible_answers = []
     for lanswer in long_answer:
@@ -185,7 +232,6 @@ def answer_when(qstn, nes, long_answer):
                 if str(verb) in sent.lemma_.lower():
                     for ne in nes:
                         if ne.text.lower() in sent.text.lower():
-                            print(sent.text)
                             possible_answers.append(sent.text)
 
     # answer = long_answer[0] # default
@@ -214,7 +260,14 @@ def answer_where(qstn, nes, long_answer):
     possible_answers = []
     prep = "is located"
 
-    for word in nlp(qstn).doc:
+    qstn_nlp = nlp(qstn)
+
+    if not nes:
+        for word in qstn_nlp:
+            if word.pos_ == "NOUN":
+                nes.append(word)
+
+    for word in qstn_nlp.doc:
         if word.pos_ == "VERB":
             verbs.append(word)
 

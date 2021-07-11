@@ -2,6 +2,7 @@
 job_prescreener.py
 Main application for the pre screener.
 
+Job Database for training: https://data.world/opensnippets/us-job-listings-from-careerbuilder
 """
 
 import sentiment as sent

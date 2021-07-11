@@ -16,10 +16,12 @@ Usage goals:
 
 
 def train_profiler(train_documents):
+    # TODO: Train profiler using TF-IDF
     print("Training profiler...")
 
 
 def find_job_matches(profile_description, top_n=5):
+    # TODO: Lookup job matches using cosine similarity from our TF-IDF trained info
     return []
 
 

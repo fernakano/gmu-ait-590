@@ -13,7 +13,12 @@ Usage goals:
 - Compare Input Job Description vector to stored List of Vectorized job description from using cosine similarity
 - return top X simillar jobs.
 """
+import pandas as pd
 
+
+# TODO: read json as Data Frame.
+# df = pd.read_json('career_builder_jobs_10501.json')
+# print(df.to_string())
 
 def train_profiler(train_documents):
     # TODO: Train profiler using TF-IDF

@@ -30,6 +30,21 @@
 
 
 ## Dependencies
+    - nltk
+    - pandas
+    - flask
 
 ## To Execute
-
+### Main App:
+    This will serve a Web app on http://localhost:5000
+    This have a form to test the application
+    python3 app.py
+### Job Pre Screener module tests:
+    This will do most business logic and glue together executions of job profiler and sentiment analysis
+    python3 job_prescreener.py TEST
+### Job Profiler module tests:
+    This will do retrieve simillar jobs to the input user jobs from our job description trained database 
+    python3 job_profiler.py TEST
+### Sentiment Analysis module tests:
+    This will run sentiment anlisys on phrases and return Positive or Negative.
+    python3 sentiment.py TEST

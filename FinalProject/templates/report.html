@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base target="_top">
+    <link href="https://cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+</head>
+
+<body>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const candidate = JSON.parse(unescape(urlParams.get('candidate')));
+    document.body.innerText = JSON.stringify(candidate)
+
+</script>
+</body>
+</html>

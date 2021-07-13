@@ -16,16 +16,19 @@ def candidate_evaluation(candidate):
     #  or if there is a good position in the company for him.
     print("Evaluate Candidate")
 
-    print("Run Sentiment analyzer tests")
+    print("Run Job profiler")
+    candidate['job_matches'] = []
+
+    print("Run Sentiment analyzer")
     # sent.tests()
-    sentments = []
+    sentiments = []
     for question in candidate['behavioral_questions']:
         ss = sent.get_sentiment_score(question)
-        sentments.append(sent.get_sentiment_as_string(ss))
+        sentiments.append(sent.get_sentiment_as_string(ss))
+    candidate['behavioral_sentiments'] = sentiments
+    print(sentiments)
 
-    print(sentments)
-    # print("Run Job profiler tests")
-    # profiler.tests()
+    return candidate
 
 
 def tests():

@@ -30,9 +30,9 @@
 
 
 ## Dependencies
-    - nltk
-    - pandas
-    - flask
+    - pip install nltk
+    - pip install pandas
+    - pip install flask
 
 ## To Execute
 ### Main App:

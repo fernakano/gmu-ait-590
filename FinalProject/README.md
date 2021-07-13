@@ -12,6 +12,9 @@
     - Years of experience
     - Ability to work with teams
     - Location
+
+#### completed
+    - Sentiment Analysis function.
     - HTML form.
     - Pretty UI 
 

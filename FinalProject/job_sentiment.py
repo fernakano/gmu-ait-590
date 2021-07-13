@@ -1,5 +1,5 @@
 """
-sentiment.py
+job_sentiment.py
 Lib to get sentiment analysis for the project, this can be imported in main project as support functions
 
 """

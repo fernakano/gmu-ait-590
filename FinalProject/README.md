@@ -50,4 +50,4 @@
     python3 job_profiler.py TEST
 ### Sentiment Analysis module tests:
     This will run sentiment anlisys on phrases and return Positive or Negative.
-    python3 sentiment.py TEST
+    python3 job_sentiment.py TEST

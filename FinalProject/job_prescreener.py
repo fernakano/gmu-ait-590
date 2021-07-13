@@ -7,7 +7,7 @@ Job Database for training: https://data.world/opensnippets/us-job-listings-from-
 """
 import sys
 
-import sentiment as sent
+import job_sentiment as sent
 import job_profiler as profiler
 
 
@@ -16,17 +16,33 @@ def candidate_evaluation(candidate):
     #  or if there is a good position in the company for him.
     print("Evaluate Candidate")
 
+    ################################################
+    #   RUN JOB PROFILER TO FIND JOB MATCHES
+    ################################################
     print("Run Job profiler")
+    # TODO: Find Job Matches
+
     candidate['job_matches'] = []
 
+    ################################################
+    #   SENTIMENT ANALYSIS ON BEHAVIORAL QUESTIONS
+    ################################################
     print("Run Sentiment analyzer")
     # sent.tests()
     sentiments = []
     for question in candidate['behavioral_questions']:
         ss = sent.get_sentiment_score(question)
         sentiments.append(sent.get_sentiment_as_string(ss))
+
     candidate['behavioral_sentiments'] = sentiments
-    print(sentiments)
+
+    ################################################
+    #   CANDIDATE PRE_SCREENER APPROVAL
+    #   (APPROVED, NOT_APPROVED, NEUTRAL)
+    ################################################
+    print("Run PRE_SCREENER_APPROVAL")
+    # TODO: Come Up with pre-screener approval rules.
+    candidate['pre_screener_approval'] = 'APPROVED'
 
     return candidate
 

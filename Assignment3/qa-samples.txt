@@ -1,0 +1,109 @@
+hello!
+
+    This is a QA system by AIT590 Group 3.  It will try to answer
+    your questions that start with Who, What, When, or Where.  Enter "exit"
+    to leave the program.
+
+=?> =>  Question: Who is Nicolas Cage?
+=?> =>  Correct Answer: Nicolas Cage is an American actor
+=?> =>  My System Answer: Nicolas Cage is an American actor.
+(Correct)
+
+=?> =>  Question: Who won the 2020 Miss America?
+=?> =>  Correct Answer: Camille Schrier  won the 2020 Miss America.
+=?> =>  My System Answer: Camille Schrier  won the 2020 Miss America.
+(Correct)
+
+=?> =>  Question: Who created the universe?
+=?> =>  Correct Answer: Georges Lemaître first suggested the big bang theory in the 1920s, when he theorized that the universe began from a single primordial atom.
+=?> =>  My System Answer: John Humphreys  created the universe.
+(Incorrect)
+
+=?> =>  Question: Who killed John F. Kennedy?
+=?> =>  Correct Answer: John F. Kennedy was killed by Lee Harvey Oswald.
+=?> =>  My System Answer: John F. Kennedy killed an American lawyer.
+(Incorrect)
+
+=?> =>  Question: Who is Harry Potter?
+=?> =>  Correct Answer: Harry Potter is a wizard, the only child of James and Lily Potter.
+=?> =>  My System Answer: Harry Potter is his eleventh birthday.
+(Incorrect)
+
+=?> =>  Question: What can I make with flour?
+=?> =>  Correct Answer: Flours are used to make many different foods.
+=?> =>  My System Answer: Flours are used to make many different foods.
+(Correct)
+
+=?> =>  Question: What is an airplane?
+=?> =>  Correct Answer: An airplane or aeroplane (informally plane) is a fixed-wing aircraft that is propelled forward by thrust from a jet engine, propeller, or rocket engine.
+=?> =>  My System Answer: An airplane or aeroplane (informally plane) is a fixed-wing aircraft that is propelled forward by thrust from a jet engine, propeller, or rocket engine.
+(Correct)
+
+=?> =>  Question: What is a cat?
+=?> =>  Correct Answer: The cat (Felis catus) is a domestic species of small carnivorous mammal.
+=?> =>  My System Answer: The cat (Felis catus) is a domestic species of small carnivorous mammal.
+(Correct)
+
+=?> =>  Question: What is outside the universe?
+=?> =>  Correct Answer: Outside the bounds of our universe may lie a "super" universe.
+=?> =>  My System Answer: The universe (Latin: universus) is all of space and time and their contents, including planets, stars, galaxies, and all other forms of matter and energy.
+(Incorrect)
+
+=?> =>  Question: What is Wikipedia?
+=?> =>  Correct Answer: Outside the bounds of our universe may lie a "super" universe.
+=?> =>  My System Answer: The movement was created around Wikipedia's community, and has since expanded to the other Wikimedia projects, including the commons projects Wikimedia Commons and Wikidata, and volunteer software engineers and developers contributing to MediaWiki.
+(Incorrect)
+
+=?> =>  Question: When did Cold War start?
+=?> =>  Correct Answer: Cold War started In March 2018.
+=?> =>  My System Answer: Cold War started In March 2018.
+(Correct)
+
+=?> =>  Question: When was the gunpowder invented?
+=?> =>  Correct Answer: gunpowder invented Popularly listed as one of the "Four Great Inventions" of China, it was invented during the late Tang dynasty.
+=?> =>  My System Answer: gunpowder invented Popularly listed as one of the "Four Great Inventions" of China, it was invented during the late Tang dynasty.
+(Correct)
+
+=?> =>  Question: When was Boston Tea Party?
+=?> =>  Correct Answer: The Boston Tea Party was an American political and mercantile protest by the Sons of Liberty in Boston, Massachusetts, on December 16, 1773.
+=?> =>  My System Answer: The Boston Tea Party was an American political and mercantile protest by the Sons of Liberty in Boston, Massachusetts, on December 16, 1773.
+(Correct)
+
+=?> =>  Question: When was President Kennedy assassinated?
+=?> =>  Correct Answer: President Kennedy was assassinated on Friday, November 22, 1963.
+=?> =>  My System Answer: Kennedy assassinated Ten months later.
+(Incorrect)
+
+=?> =>  Question: When was the Meiji Era?
+=?> =>  Correct Answer: Meiji Era was from October 23, 1868 to July 30, 1912.
+=?> =>  My System Answer: The word has been in use in English since 1615
+(Incorrect)
+
+=?> =>  Question: Where did the Cold War begin?
+=?> =>  Correct Answer: Cold War begin in the United States, the Soviet Union.
+=?> =>  My System Answer: Cold War begin in the United States, the Soviet Union.
+(Correct)
+
+=?> =>  Question: Where is Чорнобиль?
+=?> =>  Correct Answer: Чорнобиль is located in Chornobyl, Chernobyl, Ukraine.
+=?> =>  My System Answer: Чорнобиль is located in Chornobyl, Chernobyl, Ukraine.
+(Correct)
+
+=?> =>  Question: Where is Hogwarts?
+=?> =>  Correct Answer: Hogwarts is located in the Highlands of Scotland.
+=?> =>  My System Answer: Hogwarts is located in the Highlands of Scotland.
+(Correct)
+
+=?> =>  Question: Where was President John F. Kennedy assassinated?
+=?> =>  Correct Answer: President John F. Kennedy was assassinated as he rode in a motorcade through Dealey Plaza in downtown Dallas, Texas.
+=?> =>  My System Answer: Kennedy assassinated in Ireland, East Boston, Massachusetts, the United States of America, Rhode Island, U.S., the United States
+(Incorrect)
+
+=?> =>  Question: Where is earth located?
+=?> =>  Correct Answer: Earth is located in one of the spiral arms of the Milky Way.
+=?> =>  My System Answer: earth located in India, Greece, China.
+(Incorrect)
+
+=?> 
+Thank you!  Goodbye.
+

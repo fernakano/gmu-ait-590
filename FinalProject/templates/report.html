@@ -18,14 +18,16 @@
 <div class="mui-container-fluid">
     <div class="mui-col-sm-10 mui-col-sm-offset-1">
         <div class="mui-panel">
-
-            <div class="mui--text-title"> User Name: {{candidate['name']}}</div>
-            <div class="mui--text-title"> Job Profile: {{candidate['job_profile']}}</div>
-            <div style="color:forestgreen;" class="mui--text-title"> Good Fit!</div>
-            <div style="color:forestgreen;" class="mui--text-title"> Score: 80%</div>
+            <div>
+                <div class="mui--text-title"> User Name: {{candidate['name']}}</div>
+                <div class="mui--text-title"> Job Profile: {{candidate['job_profile']}}</div>
+                <hr>
+            </div>
+            <div class="mui--text-display1"> Screener Summary</div>
+            <p style="color:forestgreen;" class="mui--text-title mui--text-left"> <b>Good Fit!</b></p>
+            <p style="color:forestgreen;" class="mui--text-title mui--text-left"> <b>Score: 80%</b></p>
             <br><br>
-            <div class="mui--text-title"> Screener Summary</div>
-            <div class="mui--text-subhead"> Job Matches:</div>
+            <div class="mui--text-title"> Job Matches:</div>
             <table class="mui-table">
                 <thead>
                 <tr>
@@ -43,7 +45,7 @@
                 </tbody>
             </table>
 
-            <div class="mui--text-subhead"> Behavioral Questions:</div>
+            <div class="mui--text-title"> Behavioral Questions:</div>
             <table class="mui-table">
                 <thead>
                 <tr>

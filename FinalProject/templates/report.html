@@ -4,6 +4,7 @@
     <base target="_top">
     <link href="https://cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css"/>
     <script src="https://cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 
 <body>
@@ -68,6 +69,89 @@
             <div class="mui--text-title"> Visualizations</div>
             TODO Add Beautiful visualizations
             <br><br>
+            <div id="skillMap"></div>
+            <div id="skillRadar"></div>
+            <script>
+                var options = {
+                    series: [
+                        {
+                            data: [
+                                {
+                                    x: 'Java',
+                                    y: 218
+                                },
+                                {
+                                    x: 'Python',
+                                    y: 149
+                                },
+                                {
+                                    x: 'NLP',
+                                    y: 184
+                                },
+                                {
+                                    x: 'Development',
+                                    y: 55
+                                },
+                                {
+                                    x: 'Management',
+                                    y: 84
+                                },
+                                {
+                                    x: 'SQL',
+                                    y: 31
+                                },
+                                {
+                                    x: 'Javascript',
+                                    y: 70
+                                },
+                                {
+                                    x: 'NodeJs',
+                                    y: 30
+                                },
+                                {
+                                    x: 'Big Data',
+                                    y: 44
+                                }
+                            ]
+                        }
+                    ],
+                    legend: {
+                        show: false
+                    },
+                    chart: {
+                        height: 350,
+                        type: 'treemap'
+                    },
+                    title: {
+                        text: 'Skills Demand'
+                    }
+                };
+                console.log(options)
+                var chart = new ApexCharts(document.querySelector("#skillMap"), options);
+                chart.render();
+
+
+                var options = {
+                    series: [{
+                        name: 'Series 1',
+                        data: [60, 70, 100, 100, 100, 80],
+                    }],
+                    chart: {
+                        height: 350,
+                        type: 'radar',
+                    },
+                    title: {
+                        text: 'Candidate Fit'
+                    },
+                    xaxis: {
+                        categories: ['Technical', 'Behavior', 'Management', 'Location', 'Experience', 'SystemMatch']
+                    }
+                };
+
+                var chart = new ApexCharts(document.querySelector("#skillRadar"), options);
+                chart.render();
+
+            </script>
         </div>
     </div>
 </div>

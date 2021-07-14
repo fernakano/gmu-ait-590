@@ -10,8 +10,57 @@
 <script>
     const urlParams = new URLSearchParams(window.location.search);
     const candidate = JSON.parse(unescape(urlParams.get('candidate')));
-    document.body.innerText = JSON.stringify(candidate)
+    // document.body.innerText = JSON.stringify(candidate)
 
 </script>
+
+<div class="mui-container-fluid">
+    <div class="mui-col-sm-10 mui-col-sm-offset-1">
+        <div class="mui-panel">
+
+            <div class="mui--text-title"> User Name: {{candidate['name']}}</div>
+            <div style="color:forestgreen;" class="mui--text-title"> Good Fit!</div>
+            <div style="color:forestgreen;" class="mui--text-title"> Score: 80%</div>
+            <br><br>
+            <div class="mui--text-title"> Screener Summary</div>
+            <table class="mui-table">
+                <thead>
+                <tr>
+                    <th>Job Matches</th>
+                <tr>
+                </thead>
+                <tbody>
+                {% for job in candidate['job_matches'] %}
+                <tr>
+                    <td>{{ job }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <table class="mui-table">
+                <thead>
+                <tr>
+                    <th>Behavioral Questions</th>
+                    <th>sentiment</th>
+                <tr>
+                </thead>
+                <tbody>
+                {% for question in candidate['behavioral_questions'] %}
+                <tr>
+                    <td>{{ question }}</td>
+                    <td>{{ candidate['behavioral_sentiments'][loop.index0] }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <br><br>
+            <div class="mui--text-title"> Job Recommendation</div>
+            <br><br>
+            <div class="mui--text-title"> Visualizations</div>
+            <br><br>
+        </div>
+    </div>
+</div>
 </body>
 </html>

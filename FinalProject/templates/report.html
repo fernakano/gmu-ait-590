@@ -19,35 +19,42 @@
         <div class="mui-panel">
 
             <div class="mui--text-title"> User Name: {{candidate['name']}}</div>
+            <div class="mui--text-title"> Job Profile: {{candidate['job_profile']}}</div>
             <div style="color:forestgreen;" class="mui--text-title"> Good Fit!</div>
             <div style="color:forestgreen;" class="mui--text-title"> Score: 80%</div>
             <br><br>
             <div class="mui--text-title"> Screener Summary</div>
+            <div class="mui--text-subhead"> Job Matches:</div>
             <table class="mui-table">
                 <thead>
                 <tr>
-                    <th>Job Matches</th>
+                    <th>Match Number</th>
+                    <th>Job Description</th>
                 <tr>
                 </thead>
                 <tbody>
                 {% for job in candidate['job_matches'] %}
                 <tr>
+                    <td>{{loop.index0+1}}</td>
                     <td>{{ job }}</td>
                 </tr>
                 {% endfor %}
                 </tbody>
             </table>
 
+            <div class="mui--text-subhead"> Behavioral Questions:</div>
             <table class="mui-table">
                 <thead>
                 <tr>
-                    <th>Behavioral Questions</th>
+                    <th>Question Number</th>
+                    <th>Behavioral Answer</th>
                     <th>sentiment</th>
                 <tr>
                 </thead>
                 <tbody>
                 {% for question in candidate['behavioral_questions'] %}
                 <tr>
+                    <td>{{loop.index0+1}}</td>
                     <td>{{ question }}</td>
                     <td>{{ candidate['behavioral_sentiments'][loop.index0] }}</td>
                 </tr>
@@ -56,8 +63,10 @@
             </table>
             <br><br>
             <div class="mui--text-title"> Job Recommendation</div>
+            TODO Add Beautiful Job Recommendations
             <br><br>
             <div class="mui--text-title"> Visualizations</div>
+            TODO Add Beautiful visualizations
             <br><br>
         </div>
     </div>

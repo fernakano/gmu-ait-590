@@ -30,7 +30,7 @@ def candidate_evaluation(candidate):
     print("Run Sentiment analyzer")
     # sent.tests()
     sentiments = []
-    for question in candidate['behavioral_questions']:
+    for question in candidate['behavioral_answers']:
         ss = sent.get_sentiment_score(question)
         sentiments.append(sent.get_sentiment_as_string(ss))
 

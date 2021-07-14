@@ -50,6 +50,7 @@
                 <thead>
                 <tr>
                     <th>Question Number</th>
+                    <th>Behavioral Question</th>
                     <th>Behavioral Answer</th>
                     <th>sentiment</th>
                 <tr>
@@ -59,6 +60,7 @@
                 <tr>
                     <td>{{loop.index0+1}}</td>
                     <td>{{ question }}</td>
+                    <td>{{ candidate['behavioral_answers'][loop.index0] }}</td>
                     <td>{{ candidate['behavioral_sentiments'][loop.index0] }}</td>
                 </tr>
                 {% endfor %}

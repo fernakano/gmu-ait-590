@@ -6,21 +6,33 @@ from datetime import datetime
 
 app = Flask(__name__)
 
+behavioral_questions = [
+    {
+        'id': 'job_conflict',
+        'question': 'Have you faced any conflict with a different teammate? how did you resolve that?'
+    }
+]
+
 
 @app.route("/")
 def home():
-    return render_template('user_form.html')
+    return render_template('user_form.html', behavioral_questions=behavioral_questions)
 
 
 @app.route("/profiler", methods=["POST"])
 def application():
+    behavioral_answers = []
+    for question in behavioral_questions:
+        behavioral_answers.append(request.form[question['id']])
+
     candidate = {
         'token': str(uuid.uuid4()),
         'timestamp': datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
         'name': str(" ".join([request.form['first_name'], request.form['last_name']])),
         'job_profile': request.form['job_profile'],
         'job_matches': [],
-        'behavioral_questions': [request.form['job_conflict']],
+        'behavioral_questions': behavioral_questions,
+        'behavioral_answers': behavioral_answers,
         'behavioral_sentiments': []
     }
 

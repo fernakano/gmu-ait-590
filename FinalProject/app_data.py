@@ -1,18 +1,13 @@
 import json
-
-# IMPORT JOB DATA
 import pickle
 
+################
+#    Helper Database
+################
+
+# IMPORT JOB DATA
 jobs_file = open('career_builder_jobs_10501.json')
 jobs = json.loads(jobs_file.read())
-
-# SET BEHAVIORAL QUESTIONS
-behavioral_questions = [
-    {
-        'id': 'job_conflict',
-        'question': 'Have you faced any conflict with a different teammate? how did you resolve that?'
-    },
-]
 
 
 # STORE HR DATA
@@ -50,3 +45,12 @@ class Applicants:
 
     def get_applicants(self):
         return self.applicants
+
+
+# SET BEHAVIORAL QUESTIONS
+behavioral_questions = [
+    {
+        'id': 'job_conflict',
+        'question': 'Have you faced any conflict with a different teammate? how did you resolve that?'
+    },
+]

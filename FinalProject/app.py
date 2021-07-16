@@ -55,7 +55,8 @@ def application():
         'job_matches': [],
         'behavioral_questions': data.behavioral_questions,
         'behavioral_answers': behavioral_answers,
-        'behavioral_sentiments': []
+        'behavioral_sentiments': [],
+        'score': 0
     }
 
     print("Applicant: ", str(candidate['name']))
@@ -85,7 +86,7 @@ def report():
 @app.route("/hr_report")
 def hr_report():
     candidates = applicants.get_applicants_by_job_id(request.args.get("job_id"))
-    return render_template('hr_report.html', candidates=candidates)
+    return render_template('hr_report.html', candidates=candidates, job_name='Software Engineer')
 
 
 app.run(debug=True)

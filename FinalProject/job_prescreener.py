@@ -6,6 +6,7 @@ if we sent TEST as a parameter it runs the tests otherwise it runs the regular a
 Job Database for training: https://data.world/opensnippets/us-job-listings-from-careerbuilder
 """
 import sys
+import random
 
 import job_sentiment as sent
 import job_profiler as profiler
@@ -42,6 +43,7 @@ def candidate_evaluation(candidate):
     ################################################
     print("Run PRE_SCREENER_APPROVAL")
     # TODO: Come Up with pre-screener approval rules.
+    candidate['score'] = random.random()
     candidate['pre_screener_approval'] = 'APPROVED'
 
     return candidate

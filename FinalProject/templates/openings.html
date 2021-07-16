@@ -23,61 +23,25 @@
                      alt="Red dot"/>
             </div>
             <div class="mui--text-center mui--text-headline" style="text-align: center;">
-                Applying for {{job_name}}
+                Job Openings
             </div>
+            <table class="mui-table mui-table--bordered">
+                <tbody>
+                <tr onclick="window.location='user_form?job_id=1';" class="clickable-row {{'bg-darkgrey' if job_id == '1'}}"
+                    data-href='url://link-for-first-row/'>
+                    <td>Senior Software Engineer</td>
+                    <td>NLP, Python, SQL....</td>
+                    <td>£158,000</td>
+                </tr>
+                <tr onclick="window.location='user_form?job_id=2';" class="clickable-row {{'bg-darkgrey' if job_id == '2'}}"
+                    data-href='url://some-other-link/'>
+                    <td>More money</td>
+                    <td>Manager</td>
+                    <td>£800,000</td>
+                </tr>
+                </tbody>
+            </table>
             <br><br>
-            <form class="mui-form" name="submit-to-google-sheet" method="POST" action="profiler">
-                <legend class="mui--text-center">Job Application Screener</legend>
-                <div class="mui-textfield">
-                    <!-- Hidden input for job id on form -->
-                    <input name="job_application_id" id="job_application_id" type="hidden"
-                           placeholder="{{job_id}}"
-                           value="{{job_id}}"
-                           required readonly>
-                </div>
-                <div class="mui-textfield">
-                    <label for="first_name">First Name</label>
-                    <input name="first_name" id="first_name" type="text" placeholder="FirstName" required>
-                </div>
-                <div class="mui-textfield">
-                    <label for="last_name">Last Name</label>
-                    <input name="last_name" id="last_name" type="text" placeholder="LastName" required>
-                </div>
-                <div class="mui-textfield">
-                    <label for="email">Email</label>
-                    <input name="email" id="email" type="email" placeholder="Email" required>
-                </div>
-                <div class="mui-textfield">
-                    <label for="experience">Relevant Years of Experience</label>
-                    <input name="experience" id="experience" type="number" placeholder="Experience">
-                </div>
-                <div class="mui-textfield">
-                    <label for="location">Location</label>
-                    <input name="location" id="location" type="text" placeholder="Location">
-                </div>
-                <div class="mui-textfield">
-                    <label for="phone">Phone Number</label>
-                    <input name="phone" type="text" id="phone" placeholder="Phone">
-                </div>
-                <div class="mui-textfield">
-                    <label for="job_profile">Paste here your Job Profile</label>
-                    <textarea rows="6" name="job_profile" type="text" id="job_profile"
-                              placeholder="Type here your Job profile"
-                              required></textarea>
-                </div>
-                {% for question in behavioral_questions %}
-                <div class="mui-textfield">
-                    <label for="{{ question['id'] }}">{{question['question']}}}</label>
-                    <textarea rows="6" name="{{ question['id'] }}" type="text" id="{{ question['id'] }}"
-                              placeholder="Type here the resolution for your {{ question['id'] }}"
-                              required></textarea>
-                </div>
-                {% endfor %}
-
-                <div>
-                    <button type="submit" class="mui-btn mui-btn--raised">Send</button>
-                </div>
-            </form>
         </div>
     </div>
 </div>

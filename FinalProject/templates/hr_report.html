@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base target="_top">
+    <link href="https://cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+
+<body>
+<div class="mui-container-fluid">
+    <div class="mui-col-sm-10 mui-col-sm-offset-1">
+        <div class="mui-panel">
+            <div>
+                <hr>
+            </div>
+            <div class="mui--text-display1"> Screener Summary for </div>
+            <p style="color:forestgreen;" class="mui--text-title mui--text-left"><b>Good Fit!</b></p>
+            <p style="color:forestgreen;" class="mui--text-title mui--text-left"><b>Score: 80%</b></p>
+            <br><br>
+            <div class="mui--text-title"> Job Matches:</div>
+            <table class="mui-table">
+                <thead>
+                <tr>
+                    <th>Match Number</th>
+                    <th>Candidate Name</th>
+                    <th>Job Id</th>
+                    <th>Score</th>
+                <tr>
+                </thead>
+                <tbody>
+                {% for token in candidates %}
+                <tr>
+                    <td>{{loop.index0+1}}</td>
+                    <td>{{ candidates[token]['name'] }}</td>
+                    <td>{{ candidates[token]['job_application_id'] }}</td>
+                    <td>{{ candidates[token]['score'] }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

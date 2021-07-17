@@ -59,7 +59,7 @@
                 {% for question in candidate['behavioral_questions'] %}
                 <tr>
                     <td>{{loop.index0+1}}</td>
-                    <td>{{ question }}</td>
+                    <td>{{ question['question'] }}</td>
                     <td>{{ candidate['behavioral_answers'][loop.index0] }}</td>
                     <td>{{ candidate['behavioral_sentiments'][loop.index0] }}</td>
                 </tr>

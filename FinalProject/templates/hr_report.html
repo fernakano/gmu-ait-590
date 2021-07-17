@@ -15,28 +15,26 @@
                 <hr>
             </div>
             <div class="mui--text-display1"> Screener Summary for {{job_name}}</div>
-            <p style="color:forestgreen;" class="mui--text-title mui--text-left"><b>Found Some Great Fit Applicants!</b></p>
-<!--            <p style="color:forestgreen;" class="mui&#45;&#45;text-title mui&#45;&#45;text-left"><b>Score: 80%</b></p>-->
+            <p style="color:forestgreen;" class="mui--text-title mui--text-left"><b>Found Some Great Fit Applicants!</b>
+            </p>
             <br><br>
             <div class="mui--text-title"> Approved Candidates:</div>
             <table class="mui-table">
                 <thead>
                 <tr>
-                    <th>Match Number</th>
                     <th>Candidate Name</th>
-                    <th>Job Id</th>
+                    <th>Location</th>
                     <th>Score</th>
                 <tr>
                 </thead>
                 <tbody>
                 {% for token in candidates %}
                     {% if candidates[token]['score'] and candidates[token]['score'] >= 0.5 %}
-                        <tr>
-                            <td>{{loop.index0+1}}</td>
-                            <td>{{ candidates[token]['name'] }}</td>
-                            <td>{{ candidates[token]['job_application_id'] }}</td>
-                            <td>{{ candidates[token]['score'] }}</td>
-                        </tr>
+                    <tr>
+                        <td>{{ candidates[token]['name'] }}</td>
+                        <td>{{ candidates[token]['location'] }}</td>
+                        <td>{{ candidates[token]['score'] }}</td>
+                    </tr>
                     {% endif %}
                 {% endfor %}
                 </tbody>
@@ -53,14 +51,14 @@
                 </thead>
                 <tbody>
                 {% for token in candidates %}
-                    {% if candidates[token]['score'] < 0.5 %}
-                    <tr>
-                        <td>{{loop.index0+1}}</td>
-                        <td>{{ candidates[token]['name'] }}</td>
-                        <td>{{ candidates[token]['job_application_id'] }}</td>
-                        <td>{{ candidates[token]['score'] }}</td>
-                    </tr>
-                    {% endif %}
+                {% if candidates[token]['score'] < 0.5 %}
+                <tr>
+                    <td>{{loop.index0+1}}</td>
+                    <td>{{ candidates[token]['name'] }}</td>
+                    <td>{{ candidates[token]['job_application_id'] }}</td>
+                    <td>{{ candidates[token]['score'] }}</td>
+                </tr>
+                {% endif %}
                 {% endfor %}
                 </tbody>
             </table>

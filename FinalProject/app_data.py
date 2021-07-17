@@ -1,13 +1,39 @@
 import json
 import pickle
 
+
 ################
 #    Helper Database
 ################
 
 # IMPORT JOB DATA
-jobs_file = open('career_builder_jobs_10501.json')
-jobs = json.loads(jobs_file.read())
+class Jobs:
+    jobs = []
+
+    def __init__(self):
+        self.load_data()
+
+    def load_data(self):
+        # for reading also binary mode is important
+        try:
+            with open('career_builder_jobs_10501.json') as jobs_file:
+                # jobs_file = open('career_builder_jobs_10501.json')
+                print("Loading Job file List...")
+                self.jobs = json.loads(jobs_file.read())
+                print("Loading Job file List Complete...")
+        except (OSError, IOError) as e:
+            print("Job file does not exist, Can't upload job list...")
+
+    def get_jobs(self):
+        return self.jobs
+
+    def get_top_n_jobs(self, top_n=10):
+        return self.jobs[:10]
+
+    def get_job_by_id(self, _id):
+        for job in self.jobs:
+            if job['_id'] == _id:
+                return job
 
 
 # STORE HR DATA
@@ -48,9 +74,24 @@ class Applicants:
 
 
 # SET BEHAVIORAL QUESTIONS
-behavioral_questions = [
-    {
-        'id': 'job_conflict',
-        'question': 'Have you faced any conflict with a different teammate? how did you resolve that?'
-    },
-]
+class Questions:
+    behavioral_questions = []
+
+    def __init__(self):
+        self.load_data()
+
+    def load_data(self):
+        print("Loading Behavioral Questions")
+        self.behavioral_questions = [
+            {
+                'id': 'job_conflict',
+                'question': 'Have you faced any conflict with a different teammate? how did you resolve that?'
+            },
+        ]
+
+    def get_behavioral_questions(self):
+        return self.behavioral_questions
+
+    def get_behavioral_questions_by_id(self, _id):
+        filtered_dict = [question for question in self.behavioral_questions if _id in question['id']]
+        return filtered_dict

@@ -14,7 +14,14 @@
         background-color: darkgrey;
     }
 </style>
-<body>
+<body onload="onLoadConvertHTML()">
+<script>
+    function onLoadConvertHTML() {
+        [].map.call(document.getElementsByClassName("job_desc"), elem =>
+            elem.innerHTML = elem.textContent
+        );
+    }
+</script>
 <div class="mui-container-fluid">
     <div class="mui-col-sm-10 mui-col-sm-offset-1">
         <div class="mui-panel">
@@ -27,18 +34,22 @@
             </div>
             <table class="mui-table mui-table--bordered">
                 <tbody>
-                <tr onclick="window.location='user_form?job_id=1';" class="clickable-row {{'bg-darkgrey' if job_id == '1'}}"
-                    data-href='url://link-for-first-row/'>
-                    <td>Senior Software Engineer</td>
-                    <td>NLP, Python, SQL....</td>
-                    <td>£158,000</td>
+                {% for job in job_list %}
+                <tr onclick="window.location='user_form?job_id={{job["_id"]}}';"
+                class="clickable-row {{'bg-darkgrey' if job_id == job['_id']}}" data-href='url://link-for-first-row/'>
+                <td>
+                    <div class="mui--text-headline"> {{ job['title'] }}</div>
+                    <div class="mui--text-title"> {{ job['salary'] }}</div>
+                    <div class="mui--text-subhead"> {{ ", ".join([job['locality'],job['region'],job['country']]) }}
+                    </div>
+                    <br>
+                    <div class="mui--text-body1 job_desc" id="job_desc_{{job['_id']}}"> {{ job['raw_description'] }}
+                    </div>
+
+                </td>
                 </tr>
-                <tr onclick="window.location='user_form?job_id=2';" class="clickable-row {{'bg-darkgrey' if job_id == '2'}}"
-                    data-href='url://some-other-link/'>
-                    <td>More money</td>
-                    <td>Manager</td>
-                    <td>£800,000</td>
-                </tr>
+                {% endfor %}
+
                 </tbody>
             </table>
             <br><br>

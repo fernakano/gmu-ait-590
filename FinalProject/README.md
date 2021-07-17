@@ -41,7 +41,10 @@
 ### Main App:
     This will serve a Web app on http://localhost:5000
     This have a form to test the application
-    python3 app.py
+    On the file: http://127.0.0.1:5000/hr_openings
+    you can see all the HR Opening, and if you select them it will show the list of applicants
+    
+    To RUN execute: python3 app.py
 ### Job Pre Screener module tests:
     This will do most business logic and glue together executions of job profiler and sentiment analysis
     python3 job_prescreener.py TEST

@@ -28,7 +28,7 @@ class Jobs:
         return self.jobs
 
     def get_top_n_jobs(self, top_n=10):
-        return self.jobs[:10]
+        return self.jobs[:top_n]
 
     def get_job_by_id(self, _id):
         for job in self.jobs:
@@ -86,6 +86,14 @@ class Questions:
             {
                 'id': 'job_conflict',
                 'question': 'Have you faced any conflict with a different teammate? how did you resolve that?'
+            },
+            {
+                'id': 'job_experience',
+                'question': 'What are some of the projects you have worked? tell me a bit about your experience.'
+            },
+            {
+                'id': 'job_experience',
+                'question': 'What are you most proud about in your career so far?'
             },
         ]
 

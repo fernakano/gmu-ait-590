@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, Markup
+import json
 import uuid
 import job_prescreener as ps
 import app_data as data
@@ -30,7 +31,7 @@ def user():
 def application():
     behavioral_answers = []
     for question in questions.get_behavioral_questions():
-        behavioral_answers.append(request.form[question['id']])
+        behavioral_answers.append(request.form[question['id']] if request.form[question['id']] else 0)
 
     candidate = {
         # user profile data
@@ -57,11 +58,10 @@ def application():
     print("Applicant: ", str(candidate['name']))
     print("Job Profile: ", str(candidate['job_profile']))
 
+    # Here we will call the process for all the applicant data
     candidate = ps.candidate_evaluation(candidate)
 
-    # test sample
-    candidate['job_matches'] = ['sample job 1', 'sample job 2']
-
+    # Save Applicant to database after processing applicant data.
     applicants.add_applicant(candidate)
 
     return redirect('/report?' +
@@ -75,7 +75,8 @@ def application():
 def report():
     candidate = applicants.get_applicant_by_token(request.args.get("token"))
     return render_template('user_report.html',
-                           candidate=candidate)
+                           candidate=candidate,
+                           skills_in_demand=json.dumps(candidate['skills_in_demand']))
 
 
 @app.route("/hr_openings")

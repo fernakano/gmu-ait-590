@@ -24,32 +24,15 @@
                 <hr>
             </div>
             <div class="mui--text-display1"> Screener Summary</div>
-            <p style="color:forestgreen;" class="mui--text-title mui--text-left"> <b>Good Fit!</b></p>
-            <p style="color:forestgreen;" class="mui--text-title mui--text-left"> <b>Score: 80%</b></p>
-            <br><br>
-            <div class="mui--text-title"> Job Matches:</div>
+            <p style="color:forestgreen;" class="mui--text-title mui--text-left"><b>Good Fit!</b></p>
+            <p style="color:forestgreen;" class="mui--text-title mui--text-left"><b>Score: 80%</b></p>
+            <div id="skillRadar"></div>
+            <hr>
+            <div class="mui--text-title"> Behavioral Questions Feedback:</div>
             <table class="mui-table">
                 <thead>
                 <tr>
-                    <th>Match Number</th>
-                    <th>Job Description</th>
-                <tr>
-                </thead>
-                <tbody>
-                {% for job in candidate['job_matches'] %}
-                <tr>
-                    <td>{{loop.index0+1}}</td>
-                    <td>{{ job }}</td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-
-            <div class="mui--text-title"> Behavioral Questions:</div>
-            <table class="mui-table">
-                <thead>
-                <tr>
-                    <th>Question Number</th>
+                    <!--                    <th>Question Number</th>-->
                     <th>Behavioral Question</th>
                     <th>Behavioral Answer</th>
                     <th>sentiment</th>
@@ -58,7 +41,7 @@
                 <tbody>
                 {% for question in candidate['behavioral_questions'] %}
                 <tr>
-                    <td>{{loop.index0+1}}</td>
+                    <!--                    <td>{{loop.index0+1}}</td>-->
                     <td>{{ question['question'] }}</td>
                     <td>{{ candidate['behavioral_answers'][loop.index0] }}</td>
                     <td>{{ candidate['behavioral_sentiments'][loop.index0] }}</td>
@@ -67,56 +50,77 @@
                 </tbody>
             </table>
             <br><br>
-            <div class="mui--text-title"> Job Recommendation</div>
-            TODO Add Beautiful Job Recommendations
-            <br><br>
-            <div class="mui--text-title"> Visualizations</div>
-            TODO Add Beautiful visualizations
-            <br><br>
             <div id="skillMap"></div>
-            <div id="skillRadar"></div>
+            <input id="skillSeries" type="hidden" value="{{skills_in_demand}}" readonly>
+            <div class="mui--text-title"> Job Recommendation:</div>
+            <table class="mui-table">
+                <thead>
+                <tr>
+                    <!--                    <th>Match Number</th>-->
+                    <th>Job Title</th>
+                    <th>Relevance Score</th>
+                <tr>
+                </thead>
+                <tbody>
+                {% for job in candidate['job_matches'] %}
+                <tr>
+                    <!--                    <td>{{loop.index0+1}}</td>-->
+                    <td>{{ job['title'] }}</td>
+                    <td>{{loop.index0+1}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <br><br>
             <script>
+                data = JSON.parse(document.getElementById('skillSeries').value)
+                seriesData = []
+                for (let key in data) {
+                    seriesData.push({x: key, y: data[key]})
+                }
+
                 var options = {
                     series: [
                         {
-                            data: [
-                                {
-                                    x: 'Java',
-                                    y: 218
-                                },
-                                {
-                                    x: 'Python',
-                                    y: 149
-                                },
-                                {
-                                    x: 'NLP',
-                                    y: 184
-                                },
-                                {
-                                    x: 'Development',
-                                    y: 55
-                                },
-                                {
-                                    x: 'Management',
-                                    y: 84
-                                },
-                                {
-                                    x: 'SQL',
-                                    y: 31
-                                },
-                                {
-                                    x: 'Javascript',
-                                    y: 70
-                                },
-                                {
-                                    x: 'NodeJs',
-                                    y: 30
-                                },
-                                {
-                                    x: 'Big Data',
-                                    y: 44
-                                }
-                            ]
+                            data: seriesData,
+                            // data: [
+                            //     {
+                            //         x: 'Java',
+                            //         y: 218
+                            //     },
+                            //     {
+                            //         x: 'Python',
+                            //         y: 149
+                            //     },
+                            //     {
+                            //         x: 'NLP',
+                            //         y: 184
+                            //     },
+                            //     {
+                            //         x: 'Development',
+                            //         y: 55
+                            //     },
+                            //     {
+                            //         x: 'Management',
+                            //         y: 84
+                            //     },
+                            //     {
+                            //         x: 'SQL',
+                            //         y: 31
+                            //     },
+                            //     {
+                            //         x: 'Javascript',
+                            //         y: 70
+                            //     },
+                            //     {
+                            //         x: 'NodeJs',
+                            //         y: 30
+                            //     },
+                            //     {
+                            //         x: 'Big Data',
+                            //         y: 44
+                            //     }
+                            // ]
                         }
                     ],
                     legend: {
@@ -127,7 +131,7 @@
                         type: 'treemap'
                     },
                     title: {
-                        text: 'Skills Demand'
+                        text: 'Skills in demand'
                     }
                 };
                 console.log(options)
@@ -145,10 +149,11 @@
                     },
                     series: [{
                         name: 'Series 1',
-                        data: [60, 70, 100, 100, 100, 0],
+                        data: [60, 70, 100, 100, 0],
                     }],
                     xaxis: {
-                        categories: ['Technical', 'Behavior', 'Management', 'Location', 'Experience', 'SystemMatch']
+                        // categories: ['Technical', 'Behavior', 'Management', 'Location', 'Experience', 'SystemMatch']
+                        categories: ['Education', 'Region', 'Experience', 'Skills', 'Behavioral Score']
                     }
                 };
 

@@ -7,9 +7,15 @@ Job Database for training: https://data.world/opensnippets/us-job-listings-from-
 """
 import sys
 import random
+import re
+
+from nltk import FreqDist
 
 import job_sentiment as sent
 import job_profiler as profiler
+import app_data as data
+
+jobs = data.Jobs()
 
 
 def candidate_evaluation(candidate):
@@ -22,8 +28,20 @@ def candidate_evaluation(candidate):
     ################################################
     print("Run Job profiler")
     # TODO: Find Job Matches
+    # TODO: Update this to get the actual job matches from our matcher
+    candidate['job_matches'] = jobs.get_top_n_jobs(top_n=20)
 
-    candidate['job_matches'] = []
+    # Get List of Skills in demand from Job Matches
+    # First Collect Tokenized Job skills
+    tokenized_skills = []
+    for job in candidate['job_matches']:
+        tokenized_skills.extend(re.split(r'[.,]', job['skills']))
+
+    # Find Frequency distribution of top 15 skills
+    freq_dist = FreqDist(tokenized_skills).most_common(15)
+
+    # Convert to Dictionary for easy access on app
+    candidate['skills_in_demand'] = {k: v for (k, v) in freq_dist}
 
     ################################################
     #   SENTIMENT ANALYSIS ON BEHAVIORAL QUESTIONS
@@ -43,7 +61,9 @@ def candidate_evaluation(candidate):
     ################################################
     print("Run PRE_SCREENER_APPROVAL")
     # TODO: Come Up with pre-screener approval rules.
+    # Set here if applicant is good fit for current application.
     candidate['score'] = random.random()
+
     candidate['pre_screener_approval'] = 'APPROVED'
 
     return candidate

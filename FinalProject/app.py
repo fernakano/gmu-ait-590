@@ -13,7 +13,7 @@ questions = data.Questions()
 
 @app.route("/")
 def home():
-    return render_template('openings.html',
+    return render_template('user_openings.html',
                            job_id=request.args.get("job_id"),
                            job_list=jobs.get_top_n_jobs(10))
 

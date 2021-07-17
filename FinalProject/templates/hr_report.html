@@ -6,7 +6,15 @@
     <script src="https://cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
+<style>
+    tr:hover {
+        background: grey;
+    }
 
+    .bg-darkgrey {
+        background-color: darkgrey;
+    }
+</style>
 <body>
 <div class="mui-container-fluid">
     <div class="mui-col-sm-10 mui-col-sm-offset-1">
@@ -30,7 +38,7 @@
                 <tbody>
                 {% for token in candidates %}
                     {% if candidates[token]['score'] and candidates[token]['score'] >= 0.5 %}
-                    <tr>
+                    <tr onclick="window.location='report?token={{token}}';" class="clickable-row">
                         <td>{{ candidates[token]['name'] }}</td>
                         <td>{{ candidates[token]['location'] }}</td>
                         <td>{{ candidates[token]['score'] }}</td>
@@ -45,20 +53,18 @@
                 <tr>
                     <th>Match Number</th>
                     <th>Candidate Name</th>
-                    <th>Job Id</th>
                     <th>Score</th>
                 <tr>
                 </thead>
                 <tbody>
                 {% for token in candidates %}
-                {% if candidates[token]['score'] < 0.5 %}
-                <tr>
-                    <td>{{loop.index0+1}}</td>
-                    <td>{{ candidates[token]['name'] }}</td>
-                    <td>{{ candidates[token]['job_application_id'] }}</td>
-                    <td>{{ candidates[token]['score'] }}</td>
-                </tr>
-                {% endif %}
+                    {% if candidates[token]['score'] < 0.5 %}
+                        <tr onclick="window.location='report?token={{token}}';" class="clickable-row">
+                            <td>{{ candidates[token]['name'] }}</td>
+                            <td>{{ candidates[token]['location'] }}</td>
+                            <td>{{ candidates[token]['score'] }}</td>
+                        </tr>
+                    {% endif %}
                 {% endfor %}
                 </tbody>
             </table>

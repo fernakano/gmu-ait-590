@@ -35,6 +35,9 @@ class Jobs:
             if job['_id'] == _id:
                 return job
 
+    def get_education_list(self):
+        return list(set([job['education'] for job in self.jobs]))
+
 
 # STORE HR DATA
 class Applicants:

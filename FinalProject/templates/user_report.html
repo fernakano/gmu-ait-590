@@ -26,6 +26,7 @@
             <div class="mui--text-display1"> Screener Summary</div>
             <p style="color:forestgreen;" class="mui--text-title mui--text-left"><b>Good Fit!</b></p>
             <p style="color:forestgreen;" class="mui--text-title mui--text-left"><b>Score: 80%</b></p>
+            <input id="skillRadarData" type="hidden" value="{{candidate_fit}}" readonly>
             <div id="skillRadar"></div>
             <hr>
             <div class="mui--text-title"> Behavioral Questions Feedback:</div>
@@ -139,6 +140,7 @@
                 chart.render();
 
 
+                fit_data = JSON.parse(document.getElementById('skillRadarData').value)
                 var options = {
                     chart: {
                         height: 350,
@@ -149,11 +151,15 @@
                     },
                     series: [{
                         name: 'Series 1',
-                        data: [60, 70, 100, 100, 0],
+                        // data: [60, 70, 100, 100, 0],
+                        data: fit_data
                     }],
                     xaxis: {
                         // categories: ['Technical', 'Behavior', 'Management', 'Location', 'Experience', 'SystemMatch']
                         categories: ['Education', 'Region', 'Experience', 'Skills', 'Behavioral Score']
+                    },
+                    yaxis: {
+                        show: false,
                     }
                 };
 

@@ -2,8 +2,17 @@
 <html xmlns="http://www.w3.org/1999/html">
 <head>
     <base target="_top">
+    <!--    Adding Material UI-->
     <link href="https://cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css"/>
     <script src="https://cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+
+    <!--    Adding Semantic UI-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 </head>
 <style>
     tr:hover {
@@ -13,6 +22,28 @@
     .bg-darkgrey {
         background-color: darkgrey;
     }
+
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+        /*safari and chrome*/
+        select {
+            height: 100px !important;
+            width: 100%;
+            /*line-height: 20px;*/
+            /* background:#f4f4f4; */
+        }
+    }
+
+    select::-moz-focus-inner { /*Remove button padding in FF*/
+        border: 0;
+        padding: 0;
+    }
+
+    @-moz-document url-prefix() { /* targets Firefox only */
+        select {
+            padding: 15px 0 !important;
+        }
+    }
+
 </style>
 <body>
 <div class="mui-container-fluid">
@@ -47,6 +78,21 @@
                     <label for="email">Email</label>
                     <input name="email" id="email" type="email" placeholder="Email" required>
                 </div>
+                <div class="mui-select mui-select--use-default">
+                    <label>Education (You can select multiple using ctrl + click(Windows) or cmd+click(MacOS) </label>
+                    <select id="education" name="education" multiple >
+                        {% for education in education_options %}
+                        <option value="{{education}}">{{education}}</option>
+<!--                        <option value="2">Option 2</option>-->
+<!--                        <option value="3">Option 3</option>-->
+<!--                        <option value="4">Option 4</option>-->
+<!--                        <option value="4">Option 4</option>-->
+<!--                        <option value="4">Option 4</option>-->
+<!--                        <option value="4">Option 4</option>-->
+                        {% endfor %}
+                    </select>
+                </div>
+
                 <div class="mui-textfield">
                     <label for="experience">Relevant Years of Experience</label>
                     <input name="experience" id="experience" type="number" placeholder="Experience">

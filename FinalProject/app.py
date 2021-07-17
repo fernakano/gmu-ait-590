@@ -24,6 +24,7 @@ def user():
     return render_template('user_form.html',
                            job_id=request.args.get("job_id"),
                            job_name=jobs.get_job_by_id(request.args.get("job_id"))['title'],
+                           education_options=jobs.get_education_list(),
                            behavioral_questions=questions.get_behavioral_questions())
 
 
@@ -41,6 +42,7 @@ def application():
         'first_name': request.form['first_name'],
         'last_name': request.form['last_name'],
         'email': request.form['email'],
+        'education': request.form.getlist('education'),
         'phone': request.form['phone'],
         'years_of_experience': request.form['experience'],
         'location': request.form['location'],
@@ -76,7 +78,8 @@ def report():
     candidate = applicants.get_applicant_by_token(request.args.get("token"))
     return render_template('user_report.html',
                            candidate=candidate,
-                           skills_in_demand=json.dumps(candidate['skills_in_demand']))
+                           skills_in_demand=json.dumps(candidate['skills_in_demand']),
+                           candidate_fit=json.dumps(candidate['candidate_fit']))
 
 
 @app.route("/hr_openings")

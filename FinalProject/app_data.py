@@ -36,7 +36,12 @@ class Jobs:
                 return job
 
     def get_education_list(self):
-        return list(set([job['education'] for job in self.jobs]))
+        return sorted(list(set([job['education'] for job in self.jobs if job['education'] not in ""])))
+
+    def get_education_list_by_id(self, _id):
+        for job in self.jobs:
+            if job['_id'] == _id:
+                return job['education']
 
 
 # STORE HR DATA

@@ -31,13 +31,15 @@ def candidate_evaluation(candidate):
     # TODO: Update this to get the actual job matches from our matcher
     candidate['job_matches'] = jobs.get_top_n_jobs(top_n=20)
 
+    ################################################
     # Get List of Skills in demand from Job Matches
+    ################################################
     # First Collect Tokenized Job skills
     tokenized_skills = []
     for job in candidate['job_matches']:
         tokenized_skills.extend(re.split(r'[.,]', job['skills']))
 
-    # Find Frequency distribution of top 15 skills
+    # Find Frequency distribution of top 15 skills based on job matches
     freq_dist = FreqDist(tokenized_skills).most_common(15)
 
     # Convert to Dictionary for easy access on app
@@ -49,11 +51,45 @@ def candidate_evaluation(candidate):
     print("Run Sentiment analyzer")
     # sent.tests()
     sentiments = []
+    sentiment_scores = []
     for question in candidate['behavioral_answers']:
         ss = sent.get_sentiment_score(question)
+        sentiment_scores.append(1 if sent.is_sentiment_positive(ss) else 0)
         sentiments.append(sent.get_sentiment_as_string(ss))
 
     candidate['behavioral_sentiments'] = sentiments
+    avg_bsc = sum(sentiment_scores) / len(sentiment_scores)
+    candidate['behavioral_sentiments_score'] = avg_bsc if avg_bsc > 0 else 0
+
+    ################################################
+    # Find candidate region fit
+    ################################################
+    candidate['region_fit'] = 0
+    job = jobs.get_job_by_id(candidate['job_application_id'])
+    if candidate['location'] in [job['country'], job['locality'], job['region'], job['address'], job['postalCode']]:
+        candidate['region_fit'] = 1
+
+    ################################################
+    # Find candidate Education fit
+    ################################################
+    # Find Education Fit
+    candidate['education_fit'] = 0
+    if jobs.get_education_list_by_id(candidate['job_application_id']) in candidate['education']:
+        candidate['education_fit'] = 1
+
+    ################################################
+    # Find candidate Experience fit
+    ################################################
+    # Find Experience Fit
+    # TODO: add experience score
+    candidate['experience_fit'] = 0.5
+
+    ################################################
+    # Find candidate Skills fit
+    ################################################
+    # Find Skills Fit
+    # TODO: add skills score
+    candidate['skills_fit'] = 0.8
 
     ################################################
     #   CANDIDATE PRE_SCREENER APPROVAL
@@ -62,9 +98,19 @@ def candidate_evaluation(candidate):
     print("Run PRE_SCREENER_APPROVAL")
     # TODO: Come Up with pre-screener approval rules.
     # Set here if applicant is good fit for current application.
-    candidate['score'] = random.random()
 
+    candidate['score'] = random.random()
     candidate['pre_screener_approval'] = 'APPROVED'
+
+    ################################################
+    # Build candidate Fit info for Radar Chart
+    ################################################
+    # Following order: ['Education', 'Region', 'Experience', 'Skills', 'Behavioral Score']
+    candidate['candidate_fit'] = [candidate['education_fit'],
+                                  candidate['region_fit'],
+                                  candidate['experience_fit'],
+                                  candidate['skills_fit'],
+                                  candidate['behavioral_sentiments_score']]
 
     return candidate
 

@@ -78,6 +78,13 @@ def report():
                            candidate=candidate)
 
 
+@app.route("/hr_openings")
+def hr_openings():
+    return render_template('hr_openings.html',
+                           job_id=request.args.get("job_id"),
+                           job_list=jobs.get_top_n_jobs(10))
+
+
 @app.route("/hr_report")
 def hr_report():
     candidates = applicants.get_applicants_by_job_id(request.args.get("job_id"))

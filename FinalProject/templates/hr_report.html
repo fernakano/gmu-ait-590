@@ -11,8 +11,20 @@
         background: grey;
     }
 
-    .bg-darkgrey {
-        background-color: darkgrey;
+    .tx-darkgreen {
+        color: forestgreen;
+    }
+
+    .tx-darkred {
+        color: indianred;
+    }
+
+    .bg-lightgreen {
+        background: #4db6ac;
+    }
+
+    .bg-lightred {
+        background: #ef9a9a;
     }
 </style>
 <body>
@@ -33,42 +45,21 @@
                     <th>Candidate Name</th>
                     <th>Location</th>
                     <th>Score</th>
+                    <th>Application Date</th>
                 <tr>
                 </thead>
                 <tbody>
                 {% for token in candidates %}
-                    {% if candidates[token]['score'] and candidates[token]['score'] >= 0.5 %}
-                    <tr onclick="window.location='report?token={{token}}';" class="clickable-row">
-                        <td>{{ candidates[token]['name'] }}</td>
-                        <td>{{ candidates[token]['location'] }}</td>
-                        <td>{{ candidates[token]['score'] }}</td>
-                    </tr>
-                    {% endif %}
+                <tr onclick="window.location='report?token={{token}}';"
+                    class="clickable-row {{ 'bg-lightgreen' if candidates[token]['score'] > 0.5 else 'bg-lightred'}}">
+                    <td>{{ candidates[token]['name'] }}</td>
+                    <td>{{ candidates[token]['location'] }}</td>
+                    <td>{{ candidates[token]['score'] }}</td>
+                    <td>{{ candidates[token]['timestamp'] }}</td>
+                </tr>
                 {% endfor %}
                 </tbody>
             </table>
-            <div class="mui--text-title"> Not Approved Candidates:</div>
-            <table class="mui-table">
-                <thead>
-                <tr>
-                    <th>Match Number</th>
-                    <th>Candidate Name</th>
-                    <th>Score</th>
-                <tr>
-                </thead>
-                <tbody>
-                {% for token in candidates %}
-                    {% if candidates[token]['score'] < 0.5 %}
-                        <tr onclick="window.location='report?token={{token}}';" class="clickable-row">
-                            <td>{{ candidates[token]['name'] }}</td>
-                            <td>{{ candidates[token]['location'] }}</td>
-                            <td>{{ candidates[token]['score'] }}</td>
-                        </tr>
-                    {% endif %}
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
     </div>
 </div>
 </body>

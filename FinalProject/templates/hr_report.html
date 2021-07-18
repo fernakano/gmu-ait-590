@@ -57,7 +57,7 @@
                 </thead>
                 <tbody>
                 {% for token in candidates %}
-                <tr onclick="window.location='report?token={{token}}';"
+                <tr onclick="window.location='report?token={{token}}&hr=True';"
                     class="clickable-row {{ 'bg-lightgreen' if candidates[token]['score'] > 0.5 else 'bg-lightred'}}">
                     <td>{{ candidates[token]['name'] }}</td>
                     <td>{{ candidates[token]['location'] }}</td>

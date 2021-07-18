@@ -35,12 +35,15 @@
             <p class="mui--text-title mui--text-left {{'bg-darkgreen' if candidate['score'] > 0.5 else 'bg-darkred'}}">
                 <b>{{ 'Good Fit' if candidate['score'] > 0.5 else 'Not a Good Fit'}}!</b>
             </p>
+            {% if is_hr == True %}
             <p class="mui--text-title mui--text-left {{'bg-darkgreen' if candidate['score'] > 0.5 else 'bg-darkred'}} ">
-                <b>Score: {{ (candidate['score']*100) | round}}%</b>
+                <b>Score: {{ (candidate['score']*100) | round}}% </b>
             </p>
+
             <input id="skillRadarData" type="hidden" value="{{candidate_fit}}" readonly>
             <div id="skillRadar"></div>
             <hr>
+            {% endif %}
             <div class="mui--text-title"> Behavioral Questions Feedback:</div>
             <table class="mui-table">
                 <thead>

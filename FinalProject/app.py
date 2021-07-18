@@ -75,11 +75,14 @@ def application():
 
 @app.route("/report")
 def report():
+    is_hr = True if request.args.get("hr") else False
+    print(is_hr)
     candidate = applicants.get_applicant_by_token(request.args.get("token"))
     return render_template('user_report.html',
                            candidate=candidate,
                            skills_in_demand=json.dumps(candidate['skills_in_demand']),
-                           candidate_fit=json.dumps(candidate['candidate_fit']))
+                           candidate_fit=json.dumps(candidate['candidate_fit']),
+                           is_hr=is_hr)
 
 
 @app.route("/hr_openings")

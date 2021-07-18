@@ -9,12 +9,14 @@ import sys
 import random
 import re
 
+import nltk
 from nltk import FreqDist
 
 import job_sentiment as sent
 import job_profiler as profiler
 import app_data as data
 
+nltk.download('vader_lexicon')
 jobs = data.Jobs()
 
 

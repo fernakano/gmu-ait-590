@@ -48,7 +48,7 @@ with open(corpus_tfidf_mtx_file, 'rb') as f:
 #corpus_tfidf_mtx = corpus_tfidf.fit_transform(df['lemma_lower_text'])
 #corpus_vocab = corpus_tfidf.get_feature_names()
 corpus_vocab_file = 'nlp/corpus_vocab.pkl'
-with open(corpus_tfidf_mtx_file, 'rb') as f:
+with open(corpus_vocab_file, 'rb') as f:
     corpus_vocab = pickle.load(f)
 
 

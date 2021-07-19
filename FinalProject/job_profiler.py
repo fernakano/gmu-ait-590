@@ -35,6 +35,7 @@ nlp = en_core_web_sm.load()
 
 
 # TODO: read json as Data Frame.
+df = pd.read_csv('nlp/carry_on_df.csv')
 # df = pd.read_json('career_builder_jobs_10501.json')
 #lemmatized_csv = 'FinalProject/nlp/lemmatized_df_7.csv'
 #df = pd.read_csv(lemmatized_csv)
@@ -93,7 +94,8 @@ def find_job_matches(profile_description, top_n=5):
     best_job_match_indices = cosine_similarities.argsort()[:-(top_n+1):-1]
     
     # Example: df['title'].iloc[best_indices]
-    return best_job_match_indices
+    #return best_job_match_indices
+    return df['_id'].iloc[best_job_match_indices]
 
 
 def tests():

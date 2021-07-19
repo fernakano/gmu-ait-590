@@ -107,7 +107,7 @@ def candidate_evaluation(candidate):
         if groups:
             _min = int(groups.group(1))
             _max = int(groups.group(1)) + 1
-            exp_fit = (yoe - _min/2) / (_max+1 - _min)
+            exp_fit = (yoe - _min / 2) / (_max + 1 - _min)
         else:
             groups = re.match(r'Up.to.(\d+)', job['experience'])
             if groups:
@@ -128,7 +128,7 @@ def candidate_evaluation(candidate):
         candidate['job_application_id'],
         candidate['job_profile'])[0]
     # candidate['profile_fit'] = (log(candidate['profile_fit']) + 1)
-    candidate['profile_fit'] = candidate['profile_fit'] * 5
+    candidate['profile_fit'] = candidate['profile_fit'] * 2
     ################################################
     #   CANDIDATE PRE_SCREENER APPROVAL
     #   (APPROVED, NOT_APPROVED, NEUTRAL)

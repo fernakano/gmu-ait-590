@@ -27,31 +27,40 @@
     <div class="mui-col-sm-10 mui-col-sm-offset-1">
         <div class="mui-panel">
             <div>
+                <div class="mui--text-display2"> Screener Summary</div>
+                <div class="mui--text-display1"><b>Applying for {{job['title']}}</b></div>
+                <p class="mui--text-title mui--text-left {{'bg-darkgreen' if candidate['score'] > 0.5 else 'bg-darkred'}}">
+                    <b>{{ 'Good Fit' if candidate['pre_screener_approval'] else 'Not a Good Fit'}}!</b>
+                </p>
+                {% if is_hr == False %}
+                    {% if not candidate['pre_screener_approval'] %}
+                    <b> But don't worry, we found some good jobs that you may be interested, based on your profile!</b>
+                    {% endif %}
+                {% endif %}
+                {% if is_hr == True %}
+                <p class="mui--text-title mui--text-left {{'bg-darkgreen' if candidate['score'] > 0.5 else 'bg-darkred'}} ">
+                    <b>Score: {{ (candidate['score']*100) | round}}% </b>
+                </p>
+                {% endif %}
+                <hr>
                 <div class="mui--text-title"><b>User Name:</b> {{candidate['name']}}</div>
+
+
+                {% if is_hr == True %}
                 <div class="mui--text-title"><b>User Profile:</b> {{candidate['job_profile']}}</div>
                 <div class="mui--text-title"><b>User Experience:</b> {{candidate['years_of_experience']}} years</div>
                 <div class="mui--text-title"><b>User Location:</b> {{candidate['location']}}</div>
                 <div class="mui--text-title"><b>User Education:</b> {{candidate['education']}}</div>
                 <hr>
-                <div class="mui--text-title"><b>Applying for {{job['title']}}</b></div>
-                <div class="mui--text-title"><b>Salary:</b> {{job['salary']}}</div>
+                <div class="mui--text-title bold"><b>Job Requirements:</b></div>
                 <div class="mui--text-title bold"><b>Experience:</b> {{ job['experience'] }}</div>
                 <div class="mui--text-title"><b>Required Skills:</b> {{job['skills']}}</div>
-                <div class="mui--text-title"><b>Location:</b> {{",".join([job['country'], job['locality'],
-                    job['region'], job['address'], job['postalCode']])}}
-                </div>
-
+                <div class="mui--text-title"><b>Location:</b> {{",".join([job['country'], job['locality'], job['region'], job['address'], job['postalCode']])}}</div>
+                {% endif %}
                 <hr>
             </div>
-            <div class="mui--text-display1"> Screener Summary</div>
-            <p class="mui--text-title mui--text-left {{'bg-darkgreen' if candidate['score'] > 0.5 else 'bg-darkred'}}">
-                <b>{{ 'Good Fit' if candidate['pre_screener_approval'] else 'Not a Good Fit'}}!</b>
-            </p>
-            {% if is_hr == True %}
-            <p class="mui--text-title mui--text-left {{'bg-darkgreen' if candidate['score'] > 0.5 else 'bg-darkred'}} ">
-                <b>Score: {{ (candidate['score']*100) | round}}% </b>
-            </p>
 
+            {% if is_hr == True %}
             <input id="skillRadarData" type="hidden" value="{{candidate_fit}}" readonly>
             <div id="skillRadar"></div>
             <hr>
@@ -136,7 +145,7 @@
                         type: 'treemap'
                     },
                     title: {
-                        text: 'Skills in demand'
+                        text: 'Related Skills in demand'
                     }
                 };
                 console.log(options)

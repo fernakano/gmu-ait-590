@@ -13,21 +13,87 @@ Usage goals:
 - Compare Input Job Description vector to stored List of Vectorized job description from using cosine similarity
 - return top X simillar jobs.
 """
+
 import pandas as pd
+import numpy as np
+import nltk
+import json
+import re
+import pickle
+import os
+
+from sklearn.feature_extraction.text import TfidfVectorizer, ENGLISH_STOP_WORDS
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics.pairwise import linear_kernel
+
+import spacy
+import en_core_web_sm  # english model
+
+# load English tokenizer, tagger, parser, NER and word vectors
+nlp = en_core_web_sm.load()
 
 
 # TODO: read json as Data Frame.
 # df = pd.read_json('career_builder_jobs_10501.json')
-# print(df.to_string())
+#lemmatized_csv = 'FinalProject/nlp/lemmatized_df_7.csv'
+#df = pd.read_csv(lemmatized_csv)
+
+# make a new tfidf mtx - we could also import, if desired.
+corpus_tfidf_mtx_file = 'nlp/our_tfidf_mtx_8.pkl'
+with open(corpus_tfidf_mtx_file, 'rb') as f:
+    corpus_tfidf_mtx = pickle.load(f)
+#corpus_tfidf = TfidfVectorizer(min_df=1, stop_words="english")
+#corpus_tfidf_mtx = corpus_tfidf.fit_transform(df['lemma_lower_text'])
+#corpus_vocab = corpus_tfidf.get_feature_names()
+corpus_vocab_file = 'nlp/corpus_vocab.pkl'
+with open(corpus_tfidf_mtx_file, 'rb') as f:
+    corpus_vocab = pickle.load(f)
+
 
 def train_profiler(train_documents):
     # TODO: Train profiler using TF-IDF
     print("Training profiler...")
 
 
+def cleanup_text(text):
+    '''Given a string, return it cleaned, tokenized, and lemmatized. '''
+    # numbers, chars, etc.
+    text = text.replace('_', ' ')
+    text = text.replace('\r', ' ')
+    text = text.replace('\n', ' ')
+    text = text.replace('*', ' ')
+
+    # digits, punctuation
+    text = re.sub('\d+', ' ', text)
+
+    # reduce extra spaces
+    text = re.sub(' +', ' ', text)
+
+    # get tokens, pos, etc.
+    text = nlp(text)
+
+    #lemmatize and remove punctuation, stopwords, etc.
+    text = ' '.join([token.lemma_.lower() for token in text if not (token.is_stop) and not (token.is_punct)])
+    
+    return text
+
+
+
 def find_job_matches(profile_description, top_n=5):
-    # TODO: Lookup job matches using cosine similarity from our TF-IDF trained info
-    return []
+    # Lookup job matches using cosine similarity from our TF-IDF trained info
+    assert type(profile_description) == str
+    text = cleanup_text(profile_description)
+    # TODO: MEL HERE
+    applicant_tfidf = TfidfVectorizer().fit(corpus_vocab)
+
+    # fit to new profile description
+    applicant_tfidf_vector = applicant_tfidf.transform([text])
+    cosine_similarities = cosine_similarity(applicant_tfidf_vector, corpus_tfidf_mtx).flatten()
+    best_job_match_indices = cosine_similarities.argsort()[:-(top_n+1):-1]
+    
+    # Example: df['title'].iloc[best_indices]
+    return best_job_match_indices
 
 
 def tests():

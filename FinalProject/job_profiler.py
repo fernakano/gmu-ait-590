@@ -52,6 +52,17 @@ with open(corpus_tfidf_mtx_file, 'rb') as f:
     corpus_vocab = pickle.load(f)
 
 
+def candidate_job_score(job_id, user_profile_str):
+    '''given user text input and job ID to which they
+    applied, return cosine sim score for the pair'''
+    job_idx = df.loc[df['_id'] == '8dcd846b-db99-547f-836c-bcda497cff0d'].index
+    text = cleanup_text(user_profile_str)
+    applicant_tfidf = TfidfVectorizer().fit(corpus_vocab)
+    applicant_tfidf_vector = applicant_tfidf.transform([text])
+    score = cosine_similarity(applicant_tfidf_vector, corpus_tfidf_mtx[job_idx]).flatten()
+    return score
+
+
 def train_profiler(train_documents):
     # TODO: Train profiler using TF-IDF
     print("Training profiler...")

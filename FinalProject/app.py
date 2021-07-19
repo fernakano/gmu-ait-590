@@ -29,7 +29,7 @@ def home():
     """render template with job openings for the user"""
     return render_template('user_openings.html',
                            job_id=request.args.get("job_id"),
-                           job_list=jobs.get_top_n_jobs(10))
+                           job_list=jobs.get_top_n_jobs(20))
 
 
 @app.route("/user_form")
@@ -103,7 +103,8 @@ def report():
                            candidate=candidate,
                            skills_in_demand=json.dumps(candidate['skills_in_demand']),
                            candidate_fit=json.dumps(candidate['candidate_fit']),
-                           is_hr=is_hr)
+                           is_hr=is_hr,
+                           job=jobs.get_job_by_id(candidate['job_application_id']))
 
 
 @app.route("/hr_openings")
@@ -111,7 +112,7 @@ def hr_openings():
     """render template with job openings for the HR Representative"""
     return render_template('hr_openings.html',
                            job_id=request.args.get("job_id"),
-                           job_list=jobs.get_top_n_jobs(10))
+                           job_list=jobs.get_top_n_jobs(20))
 
 
 @app.route("/hr_report")

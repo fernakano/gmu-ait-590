@@ -6,7 +6,6 @@ if we sent TEST as a parameter it runs the tests otherwise it runs the regular a
 Job Database for training: https://data.world/opensnippets/us-job-listings-from-careerbuilder
 """
 import sys
-import random
 import re
 from math import log
 
@@ -108,7 +107,7 @@ def candidate_evaluation(candidate):
         if groups:
             _min = int(groups.group(1))
             _max = int(groups.group(1)) + 1
-            exp_fit = (yoe - _min) / (_max - _min)
+            exp_fit = (yoe - _min/2) / (_max+1 - _min)
         else:
             groups = re.match(r'Up.to.(\d+)', job['experience'])
             if groups:
@@ -129,7 +128,7 @@ def candidate_evaluation(candidate):
         candidate['job_application_id'],
         candidate['job_profile'])[0]
     # candidate['profile_fit'] = (log(candidate['profile_fit']) + 1)
-    candidate['profile_fit'] = candidate['profile_fit'] * 2
+    candidate['profile_fit'] = candidate['profile_fit'] * 5
     ################################################
     #   CANDIDATE PRE_SCREENER APPROVAL
     #   (APPROVED, NOT_APPROVED, NEUTRAL)
@@ -143,11 +142,11 @@ def candidate_evaluation(candidate):
     #     candidate['job_profile'])[0]
 
     candidate['score'] = \
-        min(min(candidate['profile_fit'], 0.5)
-            + min((candidate['behavioral_sentiments_score'] / 2), 0.2)
-            + min((candidate['experience_fit'] / 2) if exp_fit > 0 else -1, 0.2)
-            + min(candidate['education_fit'], 0.1)
-            + min(candidate['region_fit'], 0.1)
+        min(min(candidate['profile_fit'], 0.4)
+            + min((candidate['behavioral_sentiments_score'] / 2), 0.3)
+            + min((candidate['experience_fit'] / 2) if exp_fit > 0 else -0.2, 0.2)
+            + min(candidate['education_fit'], 0.05)
+            + min(candidate['region_fit'], 0.05)
             , 1)
 
     candidate['score'] = 0 if candidate['score'] < 0 else candidate['score']
@@ -195,7 +194,6 @@ def tests():
 def main():
     # TODO: Add question and answer form/bot here.
     print("Are you looking for a job? you came to the right place!")
-    candidate_evaluation()
 
 
 if __name__ == '__main__':

@@ -27,8 +27,20 @@
     <div class="mui-col-sm-10 mui-col-sm-offset-1">
         <div class="mui-panel">
             <div>
-                <div class="mui--text-title"> User Name: {{candidate['name']}}</div>
-                <div class="mui--text-title"> Job Profile: {{candidate['job_profile']}}</div>
+                <div class="mui--text-title"><b>User Name:</b> {{candidate['name']}}</div>
+                <div class="mui--text-title"><b>User Profile:</b> {{candidate['job_profile']}}</div>
+                <div class="mui--text-title"><b>User Experience:</b> {{candidate['years_of_experience']}} years</div>
+                <div class="mui--text-title"><b>User Location:</b> {{candidate['location']}}</div>
+                <div class="mui--text-title"><b>User Education:</b> {{candidate['education']}}</div>
+                <hr>
+                <div class="mui--text-title"><b>Applying for {{job['title']}}</b></div>
+                <div class="mui--text-title"><b>Salary:</b> {{job['salary']}}</div>
+                <div class="mui--text-title bold"><b>Experience:</b> {{ job['experience'] }}</div>
+                <div class="mui--text-title"><b>Required Skills:</b> {{job['skills']}}</div>
+                <div class="mui--text-title"><b>Location:</b> {{",".join([job['country'], job['locality'],
+                    job['region'], job['address'], job['postalCode']])}}
+                </div>
+
                 <hr>
             </div>
             <div class="mui--text-display1"> Screener Summary</div>
@@ -70,19 +82,34 @@
             <input id="skillSeries" type="hidden" value="{{skills_in_demand}}" readonly>
             <div class="mui--text-title"> Job Recommendation:</div>
             <table class="mui-table">
-                <thead>
-                <tr>
-                    <!--                    <th>Match Number</th>-->
-                    <th>Job Title</th>
-                    <th>Url</th>
-                <tr>
-                </thead>
+                <!--                <thead>-->
+                <!--                <tr>-->
+                <!--                    &lt;!&ndash;                    <th>Match Number</th>&ndash;&gt;-->
+                <!--                    <th>Job Title</th>-->
+                <!--                    <th>Skills</th>-->
+                <!--                    <th>Location</th>-->
+                <!--                    <th>Salary</th>-->
+                <!--                    <th>Experience</th>-->
+                <!--                <tr>-->
+                <!--                </thead>-->
                 <tbody>
                 {% for job in candidate['job_matches'] %}
                 <tr>
                     <!--                    <td>{{loop.index0+1}}</td>-->
-                    <td>{{ job['title'] }}</td>
-                    <td>{{ job['url'] }}</td>
+                    <!--                    <td>{{ job['title'] }}</td>-->
+                    <!--                    <td>{{ job['skills'] }}</td>-->
+                    <!--                    <td>{{ ",".join([job['country'], job['locality'], job['region'], job['address'], job['postalCode']])}}</td>-->
+                    <!--                    <td>{{ job['salary'] }}</td>-->
+                    <!--                    <td>{{ job['experience'] }}</td>-->
+                    <td>
+                        <div class="mui--text-title"><b>{{job['title']}}</b></div>
+                        <div class="mui--text-body1"><b>Salary:</b> {{job['salary']}}</div>
+                        <div class="mui--text-body1"><b>Experience:</b> {{ job['experience'] }}</div>
+                        <div class="mui--text-body1"><b>Required Skills:</b> {{job['skills']}}</div>
+                        <div class="mui--text-body1"><b>Location:</b> {{",".join([job['country'], job['locality'],
+                            job['region'], job['address'], job['postalCode']])}}
+                        </div>
+                    </td>
                 </tr>
                 {% endfor %}
                 </tbody>
@@ -133,10 +160,13 @@
                     }],
                     xaxis: {
                         // categories: ['Technical', 'Behavior', 'Management', 'Location', 'Experience', 'SystemMatch']
-                        categories: ['Education', 'Region', 'Experience', 'Profile Score', 'Behavioral Score']
+                        categories: ['Education', 'Location', 'Experience', 'Profile Score', 'Behavioral Score']
                     },
                     yaxis: {
                         show: false,
+                        max: 1,
+                        min: 0,
+                        tickAmount: 4
                     }
                 };
 

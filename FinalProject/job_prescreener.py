@@ -150,7 +150,9 @@ def candidate_evaluation(candidate):
             + min(candidate['region_fit'], 0.1)
             , 1)
 
-    candidate['pre_screener_approval'] = 'APPROVED'
+    candidate['score'] = 0 if candidate['score'] < 0 else candidate['score']
+
+    candidate['pre_screener_approval'] = True if candidate['score'] > 0.5 else False
 
     ################################################
     # Build candidate Fit info for Radar Chart

@@ -33,7 +33,7 @@
             </div>
             <div class="mui--text-display1"> Screener Summary</div>
             <p class="mui--text-title mui--text-left {{'bg-darkgreen' if candidate['score'] > 0.5 else 'bg-darkred'}}">
-                <b>{{ 'Good Fit' if candidate['score'] > 0.5 else 'Not a Good Fit'}}!</b>
+                <b>{{ 'Good Fit' if candidate['pre_screener_approval'] else 'Not a Good Fit'}}!</b>
             </p>
             {% if is_hr == True %}
             <p class="mui--text-title mui--text-left {{'bg-darkgreen' if candidate['score'] > 0.5 else 'bg-darkred'}} ">
@@ -99,44 +99,6 @@
                     series: [
                         {
                             data: seriesData,
-                            // data: [
-                            //     {
-                            //         x: 'Java',
-                            //         y: 218
-                            //     },
-                            //     {
-                            //         x: 'Python',
-                            //         y: 149
-                            //     },
-                            //     {
-                            //         x: 'NLP',
-                            //         y: 184
-                            //     },
-                            //     {
-                            //         x: 'Development',
-                            //         y: 55
-                            //     },
-                            //     {
-                            //         x: 'Management',
-                            //         y: 84
-                            //     },
-                            //     {
-                            //         x: 'SQL',
-                            //         y: 31
-                            //     },
-                            //     {
-                            //         x: 'Javascript',
-                            //         y: 70
-                            //     },
-                            //     {
-                            //         x: 'NodeJs',
-                            //         y: 30
-                            //     },
-                            //     {
-                            //         x: 'Big Data',
-                            //         y: 44
-                            //     }
-                            // ]
                         }
                     ],
                     legend: {

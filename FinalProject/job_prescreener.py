@@ -8,8 +8,10 @@ Job Database for training: https://data.world/opensnippets/us-job-listings-from-
 import sys
 import random
 import re
+from math import log
 
 import nltk
+import spacy
 from nltk import FreqDist
 
 import job_sentiment as sent
@@ -31,7 +33,13 @@ def candidate_evaluation(candidate):
     print("Run Job profiler")
     # TODO: Find Job Matches
     # TODO: Update this to get the actual job matches from our matcher
-    candidate['job_matches'] = jobs.get_top_n_jobs(top_n=20)
+
+    job_matches = profiler.find_job_matches(candidate['job_profile'])
+
+    # TODO: Get _id
+    candidate['job_matches'] = [jobs.get_job_by_id(_id) for _id in job_matches]
+
+    # candidate['job_matches'] = jobs.get_top_n_jobs(top_n=20)
 
     ################################################
     # Get List of Skills in demand from Job Matches
@@ -68,8 +76,13 @@ def candidate_evaluation(candidate):
     ################################################
     candidate['region_fit'] = 0
     job = jobs.get_job_by_id(candidate['job_application_id'])
-    if candidate['location'] in [job['country'], job['locality'], job['region'], job['address'], job['postalCode']]:
-        candidate['region_fit'] = 1
+    locations = candidate['location'].split(",")
+    for location in locations:
+        if location.strip() in [job['country'], job['locality'], job['region'], job['address'], job['postalCode']]:
+            candidate['region_fit'] = 1
+            break
+    # if candidate['location'] in [job['country'], job['locality'], job['region'], job['address'], job['postalCode']]:
+    #     candidate['region_fit'] = 1
 
     ################################################
     # Find candidate Education fit
@@ -84,15 +97,39 @@ def candidate_evaluation(candidate):
     ################################################
     # Find Experience Fit
     # TODO: add experience score
-    candidate['experience_fit'] = 0.5
+    yoe = int(candidate['years_of_experience'])
+    groups = re.match(r'(\d+).to.(\d+)', job['experience'])
+    if groups:
+        _min = int(groups.group(1))
+        _max = int(groups.group(2))
+        exp_fit = (yoe - _min) / (_max - _min)
+    else:
+        groups = re.match(r'At.least.(\d+)', job['experience'])
+        if groups:
+            _min = int(groups.group(1))
+            _max = int(groups.group(1)) + 1
+            exp_fit = (yoe - _min) / (_max - _min)
+        else:
+            groups = re.match(r'Up.to.(\d+)', job['experience'])
+            if groups:
+                _min = 0
+                _max = int(groups.group(1))
+                exp_fit = (yoe - _min) / (_max - job['experience'])
+            else:
+                exp_fit = 1
+
+    candidate['experience_fit'] = max(exp_fit, 0) if exp_fit < 0 else min(exp_fit, 1)
 
     ################################################
     # Find candidate Skills fit
     ################################################
     # Find Skills Fit
     # TODO: add skills score
-    candidate['skills_fit'] = 0.8
-
+    candidate['profile_fit'] = profiler.candidate_job_score(
+        candidate['job_application_id'],
+        candidate['job_profile'])[0]
+    # candidate['profile_fit'] = (log(candidate['profile_fit']) + 1)
+    candidate['profile_fit'] = candidate['profile_fit'] * 2
     ################################################
     #   CANDIDATE PRE_SCREENER APPROVAL
     #   (APPROVED, NOT_APPROVED, NEUTRAL)
@@ -101,7 +138,18 @@ def candidate_evaluation(candidate):
     # TODO: Come Up with pre-screener approval rules.
     # Set here if applicant is good fit for current application.
 
-    candidate['score'] = random.random()
+    # candidate['score'] = profiler.candidate_job_score(
+    #     candidate['job_application_id'],
+    #     candidate['job_profile'])[0]
+
+    candidate['score'] = \
+        min(min(candidate['profile_fit'], 0.5)
+            + min((candidate['behavioral_sentiments_score'] / 2), 0.2)
+            + min((candidate['experience_fit'] / 2) if exp_fit > 0 else -1, 0.2)
+            + min(candidate['education_fit'], 0.1)
+            + min(candidate['region_fit'], 0.1)
+            , 1)
+
     candidate['pre_screener_approval'] = 'APPROVED'
 
     ################################################
@@ -111,7 +159,7 @@ def candidate_evaluation(candidate):
     candidate['candidate_fit'] = [candidate['education_fit'],
                                   candidate['region_fit'],
                                   candidate['experience_fit'],
-                                  candidate['skills_fit'],
+                                  candidate['profile_fit'],
                                   candidate['behavioral_sentiments_score']]
 
     return candidate

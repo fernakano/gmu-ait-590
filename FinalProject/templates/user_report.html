@@ -74,7 +74,7 @@
                 <tr>
                     <!--                    <th>Match Number</th>-->
                     <th>Job Title</th>
-                    <th>Relevance Score</th>
+                    <th>Url</th>
                 <tr>
                 </thead>
                 <tbody>
@@ -82,7 +82,7 @@
                 <tr>
                     <!--                    <td>{{loop.index0+1}}</td>-->
                     <td>{{ job['title'] }}</td>
-                    <td>{{loop.index0+1}}</td>
+                    <td>{{ job['url'] }}</td>
                 </tr>
                 {% endfor %}
                 </tbody>
@@ -171,7 +171,7 @@
                     }],
                     xaxis: {
                         // categories: ['Technical', 'Behavior', 'Management', 'Location', 'Experience', 'SystemMatch']
-                        categories: ['Education', 'Region', 'Experience', 'Skills', 'Behavioral Score']
+                        categories: ['Education', 'Region', 'Experience', 'Profile Score', 'Behavioral Score']
                     },
                     yaxis: {
                         show: false,

@@ -1,3 +1,15 @@
+"""
+app.py
+Main application for Job Application Pre Screener
+
+This application is the Main Application to start the Web App.
+
+This Application:
+    - Run a WebApp built with Flask
+    - Import job_prescrener.py to manage doing all the Job Application Screening tasks
+    such as TF-IDF import and vectorization of the Job Application Documents, comparison between applicants Profile
+     Job recommendation and Sentiment Analysis.
+"""
 from flask import Flask, render_template, request, redirect, Markup
 import json
 import uuid
@@ -14,6 +26,7 @@ questions = data.Questions()
 
 @app.route("/")
 def home():
+    """render template with job openings for the user"""
     return render_template('user_openings.html',
                            job_id=request.args.get("job_id"),
                            job_list=jobs.get_top_n_jobs(10))
@@ -21,6 +34,10 @@ def home():
 
 @app.route("/user_form")
 def user():
+    """render template with job application form for the selected job id from openings
+        If it is a USER it loads feedback and job recommendations
+        If it is an HR Representative, it loads also candidate Fit information.
+    """
     return render_template('user_form.html',
                            job_id=request.args.get("job_id"),
                            job_name=jobs.get_job_by_id(request.args.get("job_id"))['title'],
@@ -30,6 +47,8 @@ def user():
 
 @app.route("/profiler", methods=["POST"])
 def application():
+    """Receives submited form from the user with job applications to perform the profiler
+    on user profile information and behavioral questions"""
     behavioral_answers = []
     for question in questions.get_behavioral_questions():
         behavioral_answers.append(request.form[question['id']] if request.form[question['id']] else 0)
@@ -43,9 +62,9 @@ def application():
         'last_name': request.form['last_name'],
         'email': request.form['email'],
         'education': request.form.getlist('education'),
-        'phone': request.form['phone'],
         'years_of_experience': request.form['experience'],
         'location': request.form['location'],
+        'phone': request.form['phone'],
 
         # Job related data
         'job_application_id': request.form['job_application_id'],
@@ -56,6 +75,7 @@ def application():
         'behavioral_sentiments': [],
         'score': 0
     }
+
 
     print("Applicant: ", str(candidate['name']))
     print("Job Profile: ", str(candidate['job_profile']))
@@ -75,6 +95,7 @@ def application():
 
 @app.route("/report")
 def report():
+    """render template user report for Feedback on the Job application"""
     is_hr = True if request.args.get("hr") else False
     print(is_hr)
     candidate = applicants.get_applicant_by_token(request.args.get("token"))
@@ -87,6 +108,7 @@ def report():
 
 @app.route("/hr_openings")
 def hr_openings():
+    """render template with job openings for the HR Representative"""
     return render_template('hr_openings.html',
                            job_id=request.args.get("job_id"),
                            job_list=jobs.get_top_n_jobs(10))
@@ -94,6 +116,7 @@ def hr_openings():
 
 @app.route("/hr_report")
 def hr_report():
+    """render template with applicants for an specific job for the HR Representative"""
     candidates = applicants.get_applicants_by_job_id(request.args.get("job_id"))
     return render_template('hr_report.html',
                            candidates=candidates,

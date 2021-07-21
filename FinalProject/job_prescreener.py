@@ -243,7 +243,4 @@ def tests():
 
 
 if __name__ == '__main__':
-    # if we sent TEST as a parameter it runs the tests
-    if len(sys.argv) > 1:
-        if sys.argv[1] == "TEST":
-            tests()
+    tests()

@@ -36,8 +36,13 @@ import app_data
 nlp = en_core_web_sm.load()
 data = app_data.ProfilerData()
 
+# We created this subset dataframe in a notebook and load it here for speed
 df = data.get_carry_of_df()
+
+# We created this matrix in a notebook and load it here for speed
 corpus_tfidf_mtx = data.get_corpus_tfidf_mtx()
+
+# We created the vocabulary list in a notebook and load it here for speed
 corpus_vocab = data.get_corpus_vocab()
 
 
@@ -53,7 +58,7 @@ def candidate_job_score(job_id, user_profile_str):
 
 
 def train_profiler(train_documents):
-    # TODO: Train profiler using TF-IDF
+    # we are loading a pretrained profiler at initialization
     print("Training profiler...")
 
 

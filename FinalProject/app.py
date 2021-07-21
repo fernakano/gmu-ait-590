@@ -1,3 +1,37 @@
+###############################################################################
+# Final Term Team 3 Project - Job Prescreener                                 #
+# AIT-590, Summer 2021                                                        #
+# Group 3: Fernando, Melissa, Archer                                          #
+# July 22, 2021                                                               #
+#                                                                             #
+# Assuming you have python 3                                                  #
+# TO EXECUTE RUN:                                                             #
+#  python app.py                                                              #
+###############################################################################
+#
+# This is an application that HR professionals can use to screen and evaluate job
+# candidates.  The tool is a flask-based application with a full web UI.  It accepts
+# candidate application data and uses it to qualify the candidate against the job
+# for which they applied.  The Job Prescreener evaluates the content of the user-
+# provided data to evaluate their fitness for a position using multiple metrics including
+# cosine similarity over entered text vs a pretrained TF-IDF model, geographical 
+# data, experience, skills, and behavior analysis using sentiment analysis.  
+# 
+# This tool also provides value to the candidate by giving immediate feedback on their
+# match to the job to which they apply, and also makes recommendations based on the
+# match scores for other open positions within the database.  A company could use this to
+# market optimal opportunities to interested or prospective new hires, even if they are
+# not a perfect fit for the initial position.  
+# 
+# We use flask to serve a web application that cleans and processes input from users, and
+# which stores the entries in a database for ongoing support to companies that use this system.
+# The application benefits from tokenization, POS tags, regular expressions, tf-idf, text 
+# edit distance metric calculation, and data transformation and manipulation.  
+# 
+# The interface is a RESTful web-based GUI.  We designed it this way so that it provides
+# a clean and intuitive way for users to interact with the system.  The metrics and
+# analysis can readily be customized to take into account whatever is important to the end
+# users.  
 """
 app.py
 Main application for Job Application Pre Screener

@@ -52,6 +52,8 @@ def user():
 def application():
     """Receives submited form from the user with job applications to perform the profiler
     on user profile information and behavioral questions"""
+
+    # Read Behavioral question from app_data helper for use in Flask Template.
     behavioral_answers = []
     for question in questions.get_behavioral_questions():
         behavioral_answers.append(request.form[question['id']] if request.form[question['id']] else 0)
@@ -79,11 +81,10 @@ def application():
         'score': 0
     }
 
-
     print("Applicant: ", str(candidate['name']))
     print("Job Profile: ", str(candidate['job_profile']))
 
-    # Here we will call the process for all the applicant data
+    # Here we will call the process for evaluating all the applicant data
     candidate = ps.candidate_evaluation(candidate)
 
     # Save Applicant to database after processing applicant data.

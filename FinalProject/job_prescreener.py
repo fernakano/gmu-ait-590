@@ -165,12 +165,10 @@ def candidate_evaluation(candidate):
 
 def tests():
     print("Testing Candidates")
-    import app_data as data
     from datetime import datetime
     import uuid
 
     questions = data.Questions()
-    jobs = data.Jobs()
 
     test_candidates = [{
         # user profile data

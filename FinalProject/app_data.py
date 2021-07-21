@@ -12,6 +12,7 @@ it has functions to retrieve data and perform data filters too.
 
 import json
 import pickle
+import pandas as pd
 
 
 ################
@@ -33,7 +34,6 @@ class Jobs:
                 # jobs_file = open('career_builder_jobs_10501.json')
                 print("Loading Job file List...")
                 self.jobs = json.loads(jobs_file.read())
-                print("Loading Job file List Complete...")
         except (OSError, IOError) as e:
             print("Job file does not exist, Can't upload job list...")
 
@@ -72,6 +72,7 @@ class Applicants:
 
     # Initialize the class loading the data if it exists.
     def __init__(self):
+        print("Loading Applicant Data")
         self.load_data()
 
     def load_data(self):
@@ -115,11 +116,11 @@ class Questions:
 
     # Initialize the class loading the data if it exists.
     def __init__(self):
+        print("Loading Behavioral Questions")
         self.load_data()
 
     def load_data(self):
         """Load the data as a list of behavioral questions"""
-        print("Loading Behavioral Questions")
         self.behavioral_questions = [
             {
                 'id': 'job_conflict',
@@ -147,3 +148,44 @@ class Questions:
     def get_behavioral_questions_by_id(self, _id):
         filtered_dict = [question for question in self.behavioral_questions if _id in question['id']]
         return filtered_dict
+
+
+class ProfilerData:
+    df = None
+    corpus_tfidf_mtx = {}
+    corpus_vocab = {}
+
+    # Initialize the class loading the data if it exists.
+    def __init__(self):
+        print("Loading Saved Profiler Data")
+        self.load_data()
+
+    def load_data(self):
+        """Load the stored profiler data for application startup performance"""
+        try:
+            self.df = pd.read_csv('nlp/carry_on_df.csv')
+        except (OSError, IOError) as e:
+            print("Carry Of DF file does not exist")
+
+        try:
+            corpus_tfidf_mtx_file = 'nlp/our_tfidf_mtx_8.pkl'
+            with open(corpus_tfidf_mtx_file, 'rb') as f:
+                self.corpus_tfidf_mtx = pickle.load(f)
+        except (OSError, IOError) as e:
+            print("Corpus TF-IDF Matrix file does not exist")
+
+        try:
+            corpus_vocab_file = 'nlp/corpus_vocab.pkl'
+            with open(corpus_vocab_file, 'rb') as f:
+                self.corpus_vocab = pickle.load(f)
+        except (OSError, IOError) as e:
+            print("Corpus Vocab file does not exist")
+
+    def get_carry_of_df(self):
+        return self.df
+
+    def get_corpus_tfidf_mtx(self):
+        return self.corpus_tfidf_mtx
+
+    def get_corpus_vocab(self):
+        return self.corpus_vocab

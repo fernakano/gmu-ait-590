@@ -30,31 +30,39 @@ from sklearn.metrics.pairwise import linear_kernel
 import spacy
 import en_core_web_sm  # english model
 
+import app_data
+
 # load English tokenizer, tagger, parser, NER and word vectors
 nlp = en_core_web_sm.load()
 
-# TODO: read json as Data Frame.
-df = pd.read_csv('nlp/carry_on_df.csv')
-# df = pd.read_json('career_builder_jobs_10501.json')
-# lemmatized_csv = 'FinalProject/nlp/lemmatized_df_7.csv'
-# df = pd.read_csv(lemmatized_csv)
+# # TODO: read json as Data Frame.
+# df = pd.read_csv('nlp/carry_on_df.csv')
+# # df = pd.read_json('career_builder_jobs_10501.json')
+# # lemmatized_csv = 'FinalProject/nlp/lemmatized_df_7.csv'
+# # df = pd.read_csv(lemmatized_csv)
+#
+# # make a new tfidf mtx - we could also import, if desired.
+# corpus_tfidf_mtx_file = 'nlp/our_tfidf_mtx_8.pkl'
+# with open(corpus_tfidf_mtx_file, 'rb') as f:
+#     corpus_tfidf_mtx = pickle.load(f)
+# # corpus_tfidf = TfidfVectorizer(min_df=1, stop_words="english")
+# # corpus_tfidf_mtx = corpus_tfidf.fit_transform(df['lemma_lower_text'])
+# # corpus_vocab = corpus_tfidf.get_feature_names()
+# corpus_vocab_file = 'nlp/corpus_vocab.pkl'
+# with open(corpus_vocab_file, 'rb') as f:
+#     corpus_vocab = pickle.load(f)
 
-# make a new tfidf mtx - we could also import, if desired.
-corpus_tfidf_mtx_file = 'nlp/our_tfidf_mtx_8.pkl'
-with open(corpus_tfidf_mtx_file, 'rb') as f:
-    corpus_tfidf_mtx = pickle.load(f)
-# corpus_tfidf = TfidfVectorizer(min_df=1, stop_words="english")
-# corpus_tfidf_mtx = corpus_tfidf.fit_transform(df['lemma_lower_text'])
-# corpus_vocab = corpus_tfidf.get_feature_names()
-corpus_vocab_file = 'nlp/corpus_vocab.pkl'
-with open(corpus_vocab_file, 'rb') as f:
-    corpus_vocab = pickle.load(f)
+data = app_data.ProfilerData()
+
+df = data.get_carry_of_df()
+corpus_tfidf_mtx = data.get_corpus_tfidf_mtx()
+corpus_vocab = data.get_corpus_vocab()
 
 
 def candidate_job_score(job_id, user_profile_str):
     '''given user text input and job ID to which they
     applied, return cosine sim score for the pair'''
-    job_idx = df.loc[df['_id'] == '8dcd846b-db99-547f-836c-bcda497cff0d'].index
+    job_idx = df.loc[df['_id'] == job_id].index
     text = cleanup_text(user_profile_str)
     applicant_tfidf = TfidfVectorizer().fit(corpus_vocab)
     applicant_tfidf_vector = applicant_tfidf.transform([text])

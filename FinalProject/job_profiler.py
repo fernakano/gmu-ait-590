@@ -87,7 +87,7 @@ def cleanup_text(text):
 
     #lemmatize and remove punctuation, stopwords, etc.
     text = ' '.join([token.lemma_.lower() for token in text if not (token.is_stop) and not (token.is_punct)])
-    
+
     return text
 
 
@@ -96,16 +96,13 @@ def find_job_matches(profile_description, top_n=5):
     # Lookup job matches using cosine similarity from our TF-IDF trained info
     assert type(profile_description) == str
     text = cleanup_text(profile_description)
-    # TODO: MEL HERE
     applicant_tfidf = TfidfVectorizer().fit(corpus_vocab)
 
     # fit to new profile description
     applicant_tfidf_vector = applicant_tfidf.transform([text])
     cosine_similarities = cosine_similarity(applicant_tfidf_vector, corpus_tfidf_mtx).flatten()
     best_job_match_indices = cosine_similarities.argsort()[:-(top_n+1):-1]
-    
-    # Example: df['title'].iloc[best_indices]
-    #return best_job_match_indices
+
     return df['_id'].iloc[best_job_match_indices]
 
 

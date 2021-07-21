@@ -30,15 +30,11 @@ def candidate_evaluation(candidate):
     #   RUN JOB PROFILER TO FIND JOB MATCHES
     ################################################
     print("Run Job profiler")
-    # TODO: Find Job Matches
-    # TODO: Update this to get the actual job matches from our matcher
 
+    # Find the Job Matches for recommendation
     job_matches = profiler.find_job_matches(candidate['job_profile'])
 
-    # TODO: Get _id
     candidate['job_matches'] = [jobs.get_job_by_id(_id) for _id in job_matches]
-
-    # candidate['job_matches'] = jobs.get_top_n_jobs(top_n=20)
 
     ################################################
     # Get List of Skills in demand from Job Matches
@@ -95,7 +91,6 @@ def candidate_evaluation(candidate):
     # Find candidate Experience fit
     ################################################
     # Find Experience Fit
-    # TODO: add experience score
     yoe = int(candidate['years_of_experience'])
     groups = re.match(r'(\d+).to.(\d+)', job['experience'])
     if groups:
@@ -123,7 +118,6 @@ def candidate_evaluation(candidate):
     # Find candidate Skills fit
     ################################################
     # Find Skills Fit
-    # TODO: add skills score
     candidate['profile_fit'] = profiler.candidate_job_score(
         candidate['job_application_id'],
         candidate['job_profile'])[0]
@@ -134,12 +128,7 @@ def candidate_evaluation(candidate):
     #   (APPROVED, NOT_APPROVED, NEUTRAL)
     ################################################
     print("Run PRE_SCREENER_APPROVAL")
-    # TODO: Come Up with pre-screener approval rules.
     # Set here if applicant is good fit for current application.
-
-    # candidate['score'] = profiler.candidate_job_score(
-    #     candidate['job_application_id'],
-    #     candidate['job_profile'])[0]
 
     candidate['score'] = \
         min(min(candidate['profile_fit'], 0.4)

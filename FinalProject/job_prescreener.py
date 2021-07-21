@@ -17,6 +17,13 @@ jobs = data.Jobs()
 
 
 def candidate_evaluation(candidate):
+    """
+    This function receives a candidate object and uses that to infer scores from attributes and
+    append information back with the scored candidate.
+
+    :param candidate:
+    :return: scored candidate
+    """
     print("Evaluating Candidate", candidate['name'])
 
     ################################################

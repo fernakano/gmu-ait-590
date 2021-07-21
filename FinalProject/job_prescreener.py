@@ -22,9 +22,7 @@ jobs = data.Jobs()
 
 
 def candidate_evaluation(candidate):
-    # TODO: use sentiment anlysis and job profiler output to decide if candidate is a good fit
-    #  or if there is a good position in the company for him.
-    print("Evaluate Candidate")
+    print("Evaluating Candidate", candidate['name'])
 
     ################################################
     #   RUN JOB PROFILER TO FIND JOB MATCHES
@@ -157,27 +155,94 @@ def candidate_evaluation(candidate):
 
 def tests():
     print("Testing Candidates")
-    test_candidates = [
-        {
-            'name': 'Jane Doe',
-            'profile': 'Software Engineer, Experience with Python, Java and Databases',
-            'behavioral_questions': [
-                "There was a teammate that never liked anyone's idea, so to deal with that, "
-                "i called HR to complain about his behaviour"]
-        },
-        {
-            'name': 'John Doe',
-            'profile': 'Accountant, CPA, Certified Management Accountant',
-            'behavioral_questions': [
-                "There was a teammate that never liked anyone's idea, "
-                "so i offered some tips to improve his relationship with other "
-                "teammates and he thanked me for helping him!"]
-        },
-    ]
+    import app_data as data
+    from datetime import datetime
+    import uuid
 
-    for candidate in test_candidates:
-        print(candidate['name'])
-        candidate_evaluation(candidate)
+    questions = data.Questions()
+    jobs = data.Jobs()
+
+    test_candidates = [{
+        # user profile data
+        'token': str(uuid.uuid4()),
+        'timestamp': datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
+        'name': 'Fernando Nakano',
+        'first_name': 'Fernando',
+        'last_name': 'Nakano',
+        'email': 'fernakano@email.com',
+        'education': 'Bachelor\'s Degree',
+        'years_of_experience': '15',
+        'location': 'Reston, VA, US',
+        'phone': '1234567890',
+
+        # Job related data
+        'job_application_id': '8dcd846b-db99-547f-836c-bcda497cff0d',
+        'job_profile': 'SQL, JSON, REST, XML, SOAP, NLP, Python, Java, Development, Software Architecture',
+        'job_matches': [],
+        'behavioral_questions': questions.get_behavioral_questions(),
+        'behavioral_answers': [
+            "There was a teammate that never liked anyone's idea, so to deal with that i talked to him to understand "
+            "what was the problem. It turns out he had a personal problem at home, so things were great after that "
+            "and he was glad that i reached out to him to help!",
+
+            "There was a teammate that never liked anyone's idea, so to deal with that, i called in for a meeting "
+            "and told him he was a really bad work team mate and i didn't want to work with him anymore.",
+
+            "There was a teammate that never liked anyone's idea, so to deal with that, i called HR to complain "
+            "about his behaviour"
+
+            "There was a teammate that never liked anyone's idea, so i offered some tips to improve his relationship "
+            "with other teammates and he thanked me for helping him!",
+        ],
+        'behavioral_sentiments': [],
+        'score': 0
+    }, {
+        # user profile data
+        'token': str(uuid.uuid4()),
+        'timestamp': datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
+        'name': 'Fernando Nakano',
+        'first_name': 'Fernando',
+        'last_name': 'Nakano',
+        'email': 'fernakano@email.com',
+        'education': 'Bachelor\'s Degree',
+        'years_of_experience': '2',
+        'location': 'Reston, VA, US',
+        'phone': '1234567890',
+
+        # Job related data
+        'job_application_id': '8dcd846b-db99-547f-836c-bcda497cff0d',
+        'job_profile': 'SQL, JSON, REST, XML, SOAP, NLP, Python, Java, Development, Software Architecture',
+        'job_matches': [],
+        'behavioral_questions': questions.get_behavioral_questions(),
+        'behavioral_answers': [
+            "i hate this",
+
+            "this is a negative sentiment",
+
+            "i have this"
+
+            "this is a very bad feeling",
+        ],
+        'behavioral_sentiments': [],
+        'score': 0
+    }]
+
+    test_results = [True, False]
+
+    print("Start Testing for Candidate evaluation...")
+    for i, candidate in enumerate(test_candidates):
+        print("Candidate:", i)
+        candidate = candidate_evaluation(candidate)
+        print("profile_fit:", candidate['profile_fit'])
+        print("behavioral_sentiments_score:", candidate['behavioral_sentiments_score'])
+        print("region_fit:", candidate['region_fit'])
+        print("education_fit:", candidate['education_fit'])
+        print("experience_fit:", candidate['experience_fit'])
+        print("score:", candidate['score'])
+        print("pre_screener_approval:", candidate['pre_screener_approval'])
+
+        if test_results[i] == candidate['pre_screener_approval']:
+            print("Test Passed")
 
 
 def main():

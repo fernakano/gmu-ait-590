@@ -6,6 +6,7 @@ This file contain Classes to help manage data for:
     - Jobs
     - Applicants
     - Behavioral Questions
+    - Profiler Preprocessed Data
 
 it has functions to retrieve data and perform data filters too.
 """

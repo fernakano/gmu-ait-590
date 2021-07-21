@@ -9,6 +9,7 @@ This Application:
     - Import job_prescrener.py to manage doing all the Job Application Screening tasks
     such as TF-IDF import and vectorization of the Job Application Documents, comparison between applicants Profile
      Job recommendation and Sentiment Analysis.
+    - Import app_data.py for all Support helper data, such as Applicants, jobs and behavioral questions.
 """
 from flask import Flask, render_template, request, redirect, Markup
 import json
@@ -17,8 +18,10 @@ import job_prescreener as ps
 import app_data as data
 from datetime import datetime
 
+# Setup Flask App
 app = Flask(__name__)
 
+# Load Helper into app.
 applicants = data.Applicants()
 jobs = data.Jobs()
 questions = data.Questions()
@@ -124,4 +127,5 @@ def hr_report():
                            job_name=jobs.get_job_by_id(request.args.get("job_id"))['title'])
 
 
+# Run Flask App
 app.run(debug=True)

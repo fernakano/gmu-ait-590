@@ -82,7 +82,7 @@ def tests():
          "with other teammates and he thanked me for helping him!", "Positive"]
     ]
 
-    print("Starting Tests:")
+    print("Starting Sentiment Tests:")
     for sentence in test_sentences:
         ss = get_sentiment_score(sentence[0])
         print("SENTENCE:", sentence[0])

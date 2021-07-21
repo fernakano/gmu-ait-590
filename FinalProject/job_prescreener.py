@@ -5,7 +5,6 @@ if we sent TEST as a parameter it runs the tests otherwise it runs the regular a
 
 Job Database for training: https://data.world/opensnippets/us-job-listings-from-careerbuilder
 """
-import sys
 import re
 
 from nltk import FreqDist
@@ -47,6 +46,7 @@ def candidate_evaluation(candidate):
     ################################################
     #   SENTIMENT ANALYSIS ON BEHAVIORAL QUESTIONS
     ################################################
+    # Find Sentiment Score from Behavioral ansers
     print("Run Sentiment analyzer")
     # sent.tests()
     sentiments = []
@@ -63,6 +63,8 @@ def candidate_evaluation(candidate):
     ################################################
     # Find candidate region fit
     ################################################
+    # Find if tokenized list of Location provided has any match to provided ones in job description
+    # TODO: use a geolocation library to improve score on distance.
     candidate['region_fit'] = 0
     job = jobs.get_job_by_id(candidate['job_application_id'])
     locations = candidate['location'].split(",")
@@ -76,7 +78,9 @@ def candidate_evaluation(candidate):
     ################################################
     # Find candidate Education fit
     ################################################
-    # Find Education Fit
+    # Find Education Fit to identify if selected Education matches the required by the job.
+    # TODO: create a hierarchical list to give more accurate score.. like HS < 2Yr. Degree < Bachelor < Master < PHD,
+    #  so having the highers on the hierarchy could possibly cover lower titles.
     candidate['education_fit'] = 0
     if jobs.get_education_list_by_id(candidate['job_application_id']) in candidate['education']:
         candidate['education_fit'] = 1
@@ -84,7 +88,8 @@ def candidate_evaluation(candidate):
     ################################################
     # Find candidate Experience fit
     ################################################
-    # Find Experience Fit
+    # Find Experience Fit comparing years of experience vs required for the job.
+    # Here we use Regex to identify experience requirement from Dataset.
     yoe = int(candidate['years_of_experience'])
     groups = re.match(r'(\d+).to.(\d+)', job['experience'])
     if groups:
@@ -109,21 +114,20 @@ def candidate_evaluation(candidate):
     candidate['experience_fit'] = max(exp_fit, 0) if exp_fit < 0 else min(exp_fit, 1)
 
     ################################################
-    # Find candidate Skills fit
+    # Find candidate Profile fit
     ################################################
-    # Find Skills Fit
+    # Find Profile Fit for the applicant versus the current job he is applying to.
     candidate['profile_fit'] = profiler.candidate_job_score(
         candidate['job_application_id'],
         candidate['job_profile'])[0]
     # candidate['profile_fit'] = (log(candidate['profile_fit']) + 1)
     candidate['profile_fit'] = candidate['profile_fit'] * 2
+
     ################################################
     #   CANDIDATE PRE_SCREENER APPROVAL
     #   (APPROVED, NOT_APPROVED, NEUTRAL)
     ################################################
-    print("Run PRE_SCREENER_APPROVAL")
-    # Set here if applicant is good fit for current application.
-
+    # Combine All scores here using weights to identify if applicant is good fit for current application.
     candidate['score'] = \
         min(min(candidate['profile_fit'], 0.4)
             + min((candidate['behavioral_sentiments_score'] / 2), 0.3)
@@ -132,8 +136,11 @@ def candidate_evaluation(candidate):
             + min(candidate['region_fit'], 0.05)
             , 1)
 
+    # if a score is negative, we set as zero as a lower bound.
     candidate['score'] = 0 if candidate['score'] < 0 else candidate['score']
 
+    # if candidate score is higher than 50% we consider a good fit on current setup
+    # so HR Representative can pursue and verify if user is fit for interview.
     candidate['pre_screener_approval'] = True if candidate['score'] > 0.5 else False
 
     ################################################

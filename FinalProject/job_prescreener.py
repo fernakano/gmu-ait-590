@@ -7,17 +7,13 @@ Job Database for training: https://data.world/opensnippets/us-job-listings-from-
 """
 import sys
 import re
-from math import log
 
-import nltk
-import spacy
 from nltk import FreqDist
 
 import job_sentiment as sent
 import job_profiler as profiler
 import app_data as data
 
-nltk.download('vader_lexicon')
 jobs = data.Jobs()
 
 

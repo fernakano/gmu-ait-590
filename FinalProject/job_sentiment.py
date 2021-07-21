@@ -5,6 +5,9 @@ Lib to get sentiment analysis for the project, this can be imported in main proj
 """
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+import nltk
+
+nltk.download('vader_lexicon')
 
 
 # TODO: For Future, update vader lexicon to taylor to this specific analysis case

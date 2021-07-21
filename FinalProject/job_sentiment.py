@@ -7,6 +7,9 @@ Lib to get sentiment analysis for the project, this can be imported in main proj
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 
+# TODO: For Future, update vader lexicon to taylor to this specific analysis case
+#  or try different sentiment analyzers using BERT derivatives... ROBERTA, DEBERTA...
+
 def get_sentiment_score(sentence):
     """
     Return a dictionary with the sentiment analysis of the input sentence.

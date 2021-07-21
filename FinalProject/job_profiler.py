@@ -33,20 +33,19 @@ import en_core_web_sm  # english model
 # load English tokenizer, tagger, parser, NER and word vectors
 nlp = en_core_web_sm.load()
 
-
 # TODO: read json as Data Frame.
 df = pd.read_csv('nlp/carry_on_df.csv')
 # df = pd.read_json('career_builder_jobs_10501.json')
-#lemmatized_csv = 'FinalProject/nlp/lemmatized_df_7.csv'
-#df = pd.read_csv(lemmatized_csv)
+# lemmatized_csv = 'FinalProject/nlp/lemmatized_df_7.csv'
+# df = pd.read_csv(lemmatized_csv)
 
 # make a new tfidf mtx - we could also import, if desired.
 corpus_tfidf_mtx_file = 'nlp/our_tfidf_mtx_8.pkl'
 with open(corpus_tfidf_mtx_file, 'rb') as f:
     corpus_tfidf_mtx = pickle.load(f)
-#corpus_tfidf = TfidfVectorizer(min_df=1, stop_words="english")
-#corpus_tfidf_mtx = corpus_tfidf.fit_transform(df['lemma_lower_text'])
-#corpus_vocab = corpus_tfidf.get_feature_names()
+# corpus_tfidf = TfidfVectorizer(min_df=1, stop_words="english")
+# corpus_tfidf_mtx = corpus_tfidf.fit_transform(df['lemma_lower_text'])
+# corpus_vocab = corpus_tfidf.get_feature_names()
 corpus_vocab_file = 'nlp/corpus_vocab.pkl'
 with open(corpus_vocab_file, 'rb') as f:
     corpus_vocab = pickle.load(f)
@@ -85,11 +84,10 @@ def cleanup_text(text):
     # get tokens, pos, etc.
     text = nlp(text)
 
-    #lemmatize and remove punctuation, stopwords, etc.
+    # lemmatize and remove punctuation, stopwords, etc.
     text = ' '.join([token.lemma_.lower() for token in text if not (token.is_stop) and not (token.is_punct)])
 
     return text
-
 
 
 def find_job_matches(profile_description, top_n=5):
@@ -101,7 +99,7 @@ def find_job_matches(profile_description, top_n=5):
     # fit to new profile description
     applicant_tfidf_vector = applicant_tfidf.transform([text])
     cosine_similarities = cosine_similarity(applicant_tfidf_vector, corpus_tfidf_mtx).flatten()
-    best_job_match_indices = cosine_similarities.argsort()[:-(top_n+1):-1]
+    best_job_match_indices = cosine_similarities.argsort()[:-(top_n + 1):-1]
 
     return df['_id'].iloc[best_job_match_indices]
 
@@ -111,36 +109,65 @@ def tests():
     Test function, the following should pass to consider the analyzer correct.
     :return:
     """
-    job_training = ['Software Engineer, Python, Java, Database, WebServer, API, json',
+    import app_data as data
+    from datetime import datetime
+    import uuid
 
-                    'Accountant, Experience with accounting software and data entry, '
-                    'Experience with accounting and financial software, '
-                    'Certified Public Accountant, CPA, '
+    questions = data.Questions()
+    jobs = data.Jobs()
 
-                    'Certified Management Accountant',
-                    ]
+    candidates = [{
+        # user profile data
+        'token': str(uuid.uuid4()),
+        'timestamp': datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
+        'name': 'Fernando Nakano',
+        'first_name': 'Fernando',
+        'last_name': 'Nakano',
+        'email': 'fernakano@email.com',
+        'education': 'Bachelor\'s Degree',
+        'years_of_experience': '15',
+        'location': 'Reston, VA, US',
+        'phone': '1234567890',
 
-    # This Test list holds a pair of:
-    # [<applicant profile>, <boolean>]
-    # <applicant profile>: should have applicant profile description as String text
-    # <boolean>: will indicate if the test should or should not have matches from the training dataset.
-    job_applicants_test = [
-        ['Python, NLP, data scientist, json', True],  # Should find matches
-        ['Python, json, Java, Database, API, WebServer', True],  # Should find matches
-        ['Manager, CPA, data Entry, programming, SQL', True],  # Should find matches
-        ['CPA, Certified Management Accountant, financial software, accounting software', True],  # Should find match
-        ['Experice creating tik tok, manage video team, video editing skills', False],  # Should NOT find match
-    ]
+        # Job related data
+        'job_application_id': '8dcd846b-db99-547f-836c-bcda497cff0d',
+        'job_profile': 'SQL, JSON, REST, XML, SOAP, NLP, Python, Java, Development, Software Architecture',
+        'job_matches': [],
+        'behavioral_questions': questions.get_behavioral_questions(),
+        'behavioral_answers': [
+            "There was a teammate that never liked anyone's idea, so to deal with that i talked to him to understand "
+            "what was the problem. It turns out he had a personal problem at home, so things were great after that "
+            "and he was glad that i reached out to him to help!",
 
-    # start tests
-    train_profiler(job_training)
+            "There was a teammate that never liked anyone's idea, so to deal with that, i called in for a meeting "
+            "and told him he was a really bad work team mate and i didn't want to work with him anymore.",
 
-    for applicant in job_applicants_test:
-        matches = find_job_matches(applicant[0], top_n=5)
+            "There was a teammate that never liked anyone's idea, so to deal with that, i called HR to complain "
+            "about his behaviour"
+
+            "There was a teammate that never liked anyone's idea, so i offered some tips to improve his relationship "
+            "with other teammates and he thanked me for helping him!",
+        ],
+        'behavioral_sentiments': [],
+        'score': 0
+    }]
+
+    print(".....Testing candidates Profiling start.....")
+    for candidate in candidates:
+        print("Finding score for: " + candidate['name'])
+        score = candidate_job_score('8dcd846b-db99-547f-836c-bcda497cff0d', candidate['job_profile'])
+        print('Score:', score[0])
+
+        print('Finding Job Recommendations')
+        matches = find_job_matches(candidate['job_profile'], top_n=5)
         if len(matches) > 0:
-            print(matches)
+            job_matches = [jobs.get_job_by_id(_id) for _id in matches]
+            for job in job_matches:
+                print(job['_id'], job['title'])
         else:
-            print('No Matches found!')
+            print('No Job Matches found!')
+
+    print(".....Testing candidates Profiling end.....")
 
 
 if __name__ == '__main__':

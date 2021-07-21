@@ -231,6 +231,7 @@ def tests():
 
     print("Start Testing for Candidate evaluation...")
     for i, candidate in enumerate(test_candidates):
+        print()
         print("Candidate:", i)
         candidate = candidate_evaluation(candidate)
         print("profile_fit:", candidate['profile_fit'])
@@ -245,15 +246,8 @@ def tests():
             print("Test Passed")
 
 
-def main():
-    # TODO: Add question and answer form/bot here.
-    print("Are you looking for a job? you came to the right place!")
-
-
 if __name__ == '__main__':
     # if we sent TEST as a parameter it runs the tests
     if len(sys.argv) > 1:
         if sys.argv[1] == "TEST":
             tests()
-    else:
-        main()

@@ -91,13 +91,15 @@ def cleanup_text(text):
 
 
 def find_job_matches(profile_description, top_n=5):
-    # Lookup job matches using cosine similarity from our TF-IDF trained info
+    """ Lookup job matches using cosine similarity from our TF-IDF trained matrix """
     assert type(profile_description) == str
     text = cleanup_text(profile_description)
     applicant_tfidf = TfidfVectorizer().fit(corpus_vocab)
 
-    # fit to new profile description
+    # Fit input profile to new profile description
     applicant_tfidf_vector = applicant_tfidf.transform([text])
+
+    # Find Cosine Similarity to profile
     cosine_similarities = cosine_similarity(applicant_tfidf_vector, corpus_tfidf_mtx).flatten()
     best_job_match_indices = cosine_similarities.argsort()[:-(top_n + 1):-1]
 
@@ -154,6 +156,7 @@ def tests():
 
     print(".....Testing candidates Profiling start.....")
     for candidate in candidates:
+        print()
         print("Finding score for: " + candidate['name'])
         score = candidate_job_score('8dcd846b-db99-547f-836c-bcda497cff0d', candidate['job_profile'])
         print('Score:', score[0])

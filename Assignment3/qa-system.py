@@ -236,9 +236,8 @@ def name_provided(text):
 
 
 def search_wikipedia(text, obj):
-    # Handle case when provided name is in answer chunk:
+    # TODO: handle case when provided name is in answer chunk:
     # Ex: Britney Spears is American singer Britney Spears
-    # TODO: features="lxml" in call to wikipedia?
 
     titles = wikipedia.search(text)
 
@@ -280,36 +279,26 @@ def search_wikipedia(text, obj):
     return None
 
 
-def answer_who(qstn, nes, long_answer):
+def answer_who(text):
     ''' handle questions beginning with "who" '''
 
-    # TODO: finish this function
-
-    #answer = long_answer[0]  # default
-
-    # TODO: formulate a number of "who" answers around the NE or Noun results for XYZ
-    # 1. who is XYZ: XYZ is|was ABC (first summary on XYZ?)
-    # 2. who <VERB> XYZ: ABC <VERBED> XYZ (lemmatize and form answer?)
-    # 3. who is the XYZ: ABC is the XYZ (substitute the name for "who")
-    # 4. else "I don't know"
-
-    subject, verb_phrase, obj = parse_sentence(qstn)
+    subject, verb_phrase, obj = parse_sentence(text)
     if verbose:
         print(f'subject: {subject}\nverb_phrase: {verb_phrase}\nobj: {obj}')
 
-    person_ents = get_person_ents(qstn)
+    person_ents = get_person_ents(text)
     if verbose:
         print(f'person_ents: {person_ents}')
 
-    ans_form = parse_qstn(qstn, person_ents, verb_phrase)
-    if len(ans_form) >= len(qstn):
+    ans_form = parse_qstn(text, person_ents, verb_phrase)
+    if len(ans_form) >= len(text):
         if verbose:
             print(f'ans_form is too long: {len(ans_form)}')
         sys.exit(1)
     if verbose:
         print(f'ans_form: {ans_form}')
 
-    w_ans = search_wikipedia(qstn, obj)
+    w_ans = search_wikipedia(text, obj)
     if w_ans is not None:
         w_ans = w_ans.strip().rstrip()
     else:
@@ -317,8 +306,8 @@ def answer_who(qstn, nes, long_answer):
     if verbose:
         print(f"who from wikipedia:  {w_ans}")
 
-    # Handle case when name is given (it's britney, b) 
-    if name_provided(qstn):
+    # Handle case when name is given (it's britney, b)
+    if name_provided(text):
         ans = ' '.join([ans_form, w_ans])
 
     else:
@@ -326,9 +315,8 @@ def answer_who(qstn, nes, long_answer):
         ans = ' '.join([w_ans, ans_form])
 
     if verbose:
-        print("My Ans: ", ans)    
-
-    return ans
+        print("My Ans: ", ans)
+    return (ans)
 
 
 def answer_what(qstn, nes, long_answer):
@@ -473,7 +461,7 @@ def send_qstn_to_switchboard(qstn):
     # answer depending on first word (who/what/where/when)
     if w_word.group().lower() == 'who':
         # handle 'who' type questions
-        ans = answer_who(qstn, nes, long_answer)
+        ans = answer_who(qstn)
 
     elif w_word.group().lower() == 'what':
         # handle 'what' type questions

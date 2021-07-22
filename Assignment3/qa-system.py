@@ -61,6 +61,10 @@ import en_core_web_sm
 nlp = en_core_web_sm.load()  # load here, takes a sec
 verbose = False
 
+if len(sys.argv) != 2:
+    outfile = 'mylogfile.txt'
+else:
+    outfile = sys.argv[1]
 
 def make_introduction():
     '''start the conversation with instructions, get initial question'''
@@ -480,7 +484,13 @@ def send_qstn_to_switchboard(qstn):
         print('ERROR--should not get here...')
         assert False
 
-    return str(ans) if str(ans) != "" else default_ans
+    final_ans = str(ans) if str(ans) != "" else default_ans
+
+    with open(outfile, 'a') as f:
+        f.write(f'=?> {qstn}\n')
+        f.write(f'=>  {final_ans}\n\n')
+    #return str(ans) if str(ans) != "" else default_ans
+    return final_ans
 
 
 def process_questions(qstn):

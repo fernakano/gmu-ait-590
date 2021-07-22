@@ -58,6 +58,12 @@
 
 ## To Execute
 
+### To generate our TF-IDF Matrix
+    We need to execute the complete Notebook AIT590-Project-Job-Data-Final-Summary-Notebook.ipynb
+    
+    Note: The Notebook is already executed and we saved outputs on the nlp folder to save time
+    since the execution time can take 20+ minutes for this dataset depending on the computer.
+
 ### Main App:
 
     RUN execute: python3 app.py

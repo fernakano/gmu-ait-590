@@ -200,3 +200,7 @@
                 "with other teammates and he thanked me for helping him!",
             ]
     }
+
+### SAmple Output
+    HR Representative Side Program Output sample can be found (as a PDF file)
+    in the same folder of app.py, named: "Program Output Example.pdf"

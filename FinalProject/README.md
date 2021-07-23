@@ -55,6 +55,7 @@
     - pip install nltk
     - pip install scikit-learn
     - pip install flask
+    ~ pip install spacy
 
 ## To Execute
 

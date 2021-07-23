@@ -2,25 +2,21 @@
 
 ## Documentation
 
+    Here we will document the features required for the Job Pre Screener.
+
 ### Features
 
-    - Sentiment Analysis
-    - Visualizations of the job screener
+    - Behavioral Score (Sentiment Analysis)
+    - Years of experience score (Regex Match)
+    - Location Score (String Match)
+    - Education Score (String Match)
+    - Profile Score (TF-IDF + Cosine Similarity)
     - Summary report of deficit skills
+    - Chart Visualizations of the job screener
     - Recommend Jobs that are better fit for the candidate.
-
-#### Stretch goals
-
-    - Skills matching
-    - Years of experience
-    - Ability to work with teams
-    - Location
-
-#### completed
-
-    - Sentiment Analysis function.
     - HTML form.
-    - Pretty UI 
+    - Usable decent visualt for the alpha version of the UI
+
 
 ### Workflow
 
@@ -49,6 +45,7 @@
     9. Display visualizations of analisys on user data.
 
 ## Dependencies
+    - We developed this application using Python3.
 
     - pip install numpy
     - pip install pandas
@@ -59,6 +56,7 @@
     - python -m spacy download en_core_web_sm
 
 ## To Execute
+    - Go to the FinalProject/ folder to start running the scripts. 
 
 ### To generate our TF-IDF Matrix
     We need to execute the complete Notebook AIT590-Project-Job-Data-Final-Summary-Notebook.ipynb
@@ -68,12 +66,15 @@
 
 ### Main App:
 
-    RUN execute: python3 app.py
-    
-    This will serve a Web app on http://localhost:5000 or http://127.0.0.1:5000
+    RUN our application, please execute: python app.py
+    (make sure it is using python3 and all the other dependencies are installed)
+
+    This will serve a Web app on http://localhost:5000 or http://127.0.0.1:5000 
+    that can be accessed through your browser.
+
     (localhost or 127.0.0.1 can vary from computer to compueter depending on local configurations)
     
-    This Webserver will have some pages to test the application
+    This Webserver will have some pages to test the application as shown bellow:
 
 #### On the Applicant side
 
@@ -82,25 +83,27 @@
         then once you select a job listingit should send you to the following page:
     
     - http://127.0.0.1:5000/user_form
-        On the User form Applicant fill the form with their information as well as their job profile
-        once they click submit the form passes through the /profiler endpoint and then land on
+        On the User form, The applicant will fill the form with their information as well as their job profile,
+        once they click submit, the form passes through the /profiler endpoint 
+        and then land on the following reprt page:
     
     - http://127.0.0.1:5000/report
-        On this page the user can see their instant feedback and job recommendations
-        related to their profile
+        On this page the user can see their instant feedback about the application and job recommendations
+        related to their profile.
 
 #### On the HR Representative Side
 
     - http://127.0.0.1:5000/hr_openings
         You can see all the Job lists as an HR Representative,
-    and if you select a job opening, you get sent to:
+    and if you select a job opening, you get sent to the HR report page:
     
     -http://127.0.0.1:5000//hr_report 
         Here it will will show the list of applicants for that specific opening with their respective score
-    to make it easier to identify the applicants that have a good score 
+    to make it easier to identify the applicants that have a good score or bad scores we will color code as follows: 
         . >0.5 will color coded as Green
         . <0.5 will color coded as Red
-    If the HR Representative selects one of the Applicants they will be redirected to
+    If the HR Representative selects one of the Applicants they will be redirected to the user report page
+    with extra details about why the user may or may not be a good fit.
     
     - http://127.0.0.1:5000/report?hr=True
         This will show more detailed analisys on the user and describe why the user Fit received the respective score, 
@@ -108,7 +111,9 @@
 
 
 ### Test Helpers
-    It is possible to test files independently as well with test functions that were created to support development.
+    It is not required but also possible to test most files independently as well with test functions 
+    that were created to support development.
+    
     You just need to run Files independently directly.
 
     -   Job Pre Screener module tests:

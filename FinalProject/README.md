@@ -3,6 +3,51 @@
 ## Documentation
 
     Here we will document the features required for the Job Pre Screener.
+    
+    This is an application that HR professionals can use to screen and evaluate job
+    candidates.  The tool is a flask-based application with a full web UI.  It accepts
+    candidate application data and uses it to qualify the candidate against the job
+    for which they applied.  The Job Prescreener evaluates the content of the user-
+    provided data to evaluate their fitness for a position using multiple metrics including
+    cosine similarity over entered text vs a pretrained TF-IDF model, geographical 
+    data, experience, skills, and behavior analysis using sentiment analysis.  
+    
+    This tool also provides value to the candidate by giving immediate feedback on their
+    match to the job to which they apply, and also makes recommendations based on the
+    match scores for other open positions within the database.  A company could use this to
+    market optimal opportunities to interested or prospective new hires, even if they are
+    not a perfect fit for the initial position.  
+    
+    We use flask to serve a web application that cleans and processes input from users, and
+    which stores the entries in a database for ongoing support to companies that use this system.
+    The application benefits from tokenization, POS tags, regular expressions, tf-idf, text 
+    edit distance metric calculation, and data transformation and manipulation.  
+    
+    The interface is a RESTful web-based GUI.  We designed it this way so that it provides
+    a clean and intuitive way for users to interact with the system.  The metrics and
+    analysis can readily be customized to take into account whatever is important to the end
+    users.  
+
+
+### References
+    
+    - Dataset: - https://data.world/opensnippets/us-job-listings-from-careerbuilder
+
+    - Crawl Feeds (2021) - US job listings from CareerBuilder 2021 
+         https://data.world/opensnippets/us-job-listings-from-careerbuilder
+    - Cabrera-Diego, Luis Adrián & Durette, Barthélémy & Torres-Moreno, Juan-Manuel & El-Bèze, Marc. (2015). 
+        How can we measure the similarity between résumés of selected candidates for a job?  
+        From: http://worldcomp-proceedings.com/proc/p2015/DMI8006.pdf
+    - Vishwanath Beena (Jul 27, 2020), Ranking resumes for a given job description using Natural Language Processing 
+        From: https://chatbotslife.com/ranking-resumes-for-a-given-job-description-using-natural-language-processing-a-toy-project-1f49d3156b44
+    - Sujit Amin, Nikita Jayakar, M. Kiruthika, Ambarish Gurjar (Aug 2019), 
+        From: https://www.irjet.net/archives/V6/i8/IRJET-V6I8159.pdf
+    - https://medium.com/@adriensieg/text-similarities-da019229c894
+    - https://www.datacamp.com/community/tutorials/recommender-systems-python
+    - https://stackoverflow.com/questions/26826002/adding-words-to-stop-words-list-in-tfidfvectorizer-in-sklearn
+    - https://medium.com/@adriensieg/text-similarities-da019229c894
+    - https://stackoverflow.com/questions/47557563/lemmatization-of-all-pandas-cells
+    - https://www.geeksforgeeks.org/python-measure-similarity-between-two-sentences-using-cosine-similarity
 
 ### Features
 
@@ -127,3 +172,31 @@
     -   Sentiment Analysis module tests:
             This will run sentiment anlisys on phrases and return Positive or Negative.
         python3 job_sentiment.py
+
+### SAmple Input
+    Sample User Profile Input for the Form:
+    Attached a PDF with sample screenshots for the application.
+    {
+            'first_name': 'Fernando',
+            'last_name': 'Nakano',
+            'email': 'fernakano@email.com',
+            'education': 'Bachelor\'s Degree',
+            'years_of_experience': '15',
+            'location': 'Reston, VA, US',
+            'phone': '1234567890',
+            'job_profile': 'SQL, JSON, REST, XML, SOAP, NLP, Python, Java, Development, Software Architecture',
+            'behavioral_answers': [
+                "There was a teammate that never liked anyone's idea, so to deal with that i talked to him to understand "
+                "what was the problem. It turns out he had a personal problem at home, so things were great after that "
+                "and he was glad that i reached out to him to help!",
+    
+                "There was a teammate that never liked anyone's idea, so to deal with that, i called in for a meeting "
+                "and told him he was a really bad work team mate and i didn't want to work with him anymore.",
+    
+                "There was a teammate that never liked anyone's idea, so to deal with that, i called HR to complain "
+                "about his behaviour"
+    
+                "There was a teammate that never liked anyone's idea, so i offered some tips to improve his relationship "
+                "with other teammates and he thanked me for helping him!",
+            ]
+    }

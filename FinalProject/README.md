@@ -56,6 +56,7 @@
     - pip install scikit-learn
     - pip install flask
     - pip install spacy
+    - python -m spacy download en_core_web_sm
 
 ## To Execute
 
